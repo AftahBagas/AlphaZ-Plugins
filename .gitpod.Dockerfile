@@ -1,19 +1,5 @@
-FROM gitpod/workspace-full-vnc
+FROM gitpod/workspace-full
 
-RUN sudo apt-get update
-RUN sudo apt-get install -y \
-    libasound2-dev \
-    libgtk-3-dev \
-    libnss3-dev \
-    curl \
-    git \
-    gnupg2 \
-    unzip \
-    wget \
-    neofetch \
-    ffmpeg \
-    jq
-
-RUN curl -sO https://cli-assets.heroku.com/install.sh && bash install.sh && rm install.sh
-
-RUN sudo rm -rf /var/lib/apt/lists/*
+# Simply install Heroku CLI
+# Just in case we use Gitpod for deployment.
+RUN curl https://cli-assets.heroku.com/install.sh | -
