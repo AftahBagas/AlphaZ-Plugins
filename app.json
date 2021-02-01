@@ -1,16 +1,16 @@
 {
-    "name": "Userge",
+    "name": "KampangUsergay",
     "description": "telegram pluggable userbot",
-    "logo": "https://imgur.com/download/Inyeb1S",
+    "logo": "https://telegra.ph/file/a5f7caf7a0ab68bb6aaa8.jpg",
     "keywords": [
         "userge",
         "telegram",
         "pluggable",
         "userbot"
     ],
-    "repository": "https://github.com/UsergeTeam/Userge",
-    "website": "https://github.com/Userge",
-    "success_url": "https://t.me/theUserge",
+    "repository": "https://github.com/Camel07KampangUsergay",
+    "website": "https://github.com/Camel07",
+    "success_url": "https://t.me/mixiologist",
     "env": {
         "API_ID": {"description": "Get this value from https://my.telegram.org"},
         "API_HASH": {"description": "Get this value from https://my.telegram.org"},
