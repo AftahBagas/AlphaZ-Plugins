@@ -31,4 +31,4 @@ async def pingme(message: Message):
         await message.edit('`KAMPANG 🐨!`')
         end = datetime.now()
         m_s = (end - start).microseconds / 1000
-        await message.edit(f"**Pong!**\n`{m_s} ms`")
+        await message.edit(f"**KAMPANG 🐨 PING!**\n`{m_s} ms`")
