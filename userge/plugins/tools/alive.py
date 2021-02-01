@@ -64,7 +64,7 @@ def _get_mode() -> str:
 
 def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKeyboardMarkup]]:
     markup = None
-    output = f"""KampangUsergay 🐨 siap menumbuk asu..\n
+    output = f"""🐨 KampangUsergay 🐨 SIAP MENUMBUK ASU 🔥!..\n
 ▰▱▰▱▰▱▰▱▰▱▰▱▰▱▰▱\n
 **⌚ uptime** : `{userge.uptime}`
 **💻 version** : `{get_version()}`
