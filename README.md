@@ -10,19 +10,6 @@
 <br>
 <br>
 
-[![Open Source Love svg1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/Camel07/KampangUsergay)
-[![GPLv3 license](https://img.shields.io/badge/License-GPLv3-blue.svg?&style=flat-square)](https://github.com/Camel07/KampangUsergay-X#copyright--license)
-[![Stars](https://img.shields.io/github/stars/Camel07/KampangUsergay?&style=flat-square)](https://github.com/Camel07/KampangUsergay/stargazers)
-[![Forks](https://img.shields.io/github/forks/Camel07/KampangUsergay?&style=flat-square)](https://github.com/Camel07/KampangUsergay/network/members)
-[![Issues Open](https://img.shields.io/github/issues/Camel07/KampangUsergay?&style=flat-square)](https://github.com/Camel07/KampangUsergay/issues)
-[![Issues Closed](https://img.shields.io/github/issues-closed/Camel07/KampangUsergay?&style=flat-square)](https://github.com/Camel07/KampangUsergay/issues?q=is:closed)
-[![PR Open](https://img.shields.io/github/issues-pr/Camel07/KampangUsergay?&style=flat-square)](https://github.com/Camel07/KampangUsergay/pulls)
-[![PR Closed](https://img.shields.io/github/issues-pr-closed/Camel07/KampangUsergay&style=flat-square)](https://github.com/Camel07/KampangUsergay/pulls?q=is:closed)
-![Repo Size](https://img.shields.io/github/repo-size/Camel07/KampangUsergay?style=flat-square)
-[![CodeFactor](https://www.codefactor.io/repository/github/Camel07/KampangUsergay/badge?&style=flat-square)](https://www.codefactor.io/repository/github/Camel07/KampangUsergay)
-[![DeepSource](https://deepsource.io/gh/code-rgb/userge-x.svg/?label=active+issues&show_trend=true)](https://deepsource.io/gh/Camel07/KampangUsergay/?ref=repository-badge)
-[![Gitpod ready-to-code](https://img.shields.io/badge/Gitpod-ready--to--code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/Camel07/KampangUsergay)
-<br>
 
 **KampangUsergay** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
 <br>
