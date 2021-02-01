@@ -65,7 +65,7 @@ def _get_mode() -> str:
 def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKeyboardMarkup]]:
     markup = None
     output = f"""KampangUsergay siap betumbuk..\n
-=•=•=•=•=•=•=•=•=•=•=•=•=•=•\n
+╭▻►▻►▻►▻►▻►◄◅◄◅◄◅◄◅╮\n
 • **⏱ Uptime** : `{userge.uptime}`⚡
 • **🌐 Version** : `{get_version()}`⚡
 • **🐨 Mode** : `{_get_mode().upper()}`⚡
@@ -81,7 +81,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
     🐍**__Python__**: `{versions.__python_version__}`
     💻**__Pyrogram__**: `{versions.__pyro_version__}`"""
     \n
-=•=•=•=•=•=•=•=•=•=•=•=•=•=•"""
+╰▻►▻►▻►▻►▻►◄◅◄◅◄◅◄◅╯"""
 if not message.client.is_bot:
         output += f"""\n
 🎖 **{versions.__license__}** | 👥 **{versions.__copyright__}** | 🧪 **[Repo]({Config.UPSTREAM_REPO})** 
