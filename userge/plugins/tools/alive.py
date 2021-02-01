@@ -98,7 +98,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 
 
 def _parse_arg(arg: bool) -> str:
-    return "enabled" if arg else "disabled"
+    return "on" if arg else "off"
 
 
 async def _send_alive(message: Message,
