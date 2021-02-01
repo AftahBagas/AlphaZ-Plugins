@@ -92,8 +92,7 @@ if not message.client.is_bot:
                 InlineKeyboardButton(text="🧪 Repo", url=Config.UPSTREAM_REPO)
             ],
             [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
-        ],
-            [InlineKeyboardButton(text="🐨 SUPPORT", url="https://t.me/mixiologist)]
+        
         ])
     return (output, markup)
 
