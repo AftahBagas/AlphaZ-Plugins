@@ -80,7 +80,8 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 ╰━━━━━━━━━━━━━━━━╯\n
     🐍**__Python__**: `{versions.__python_version__}`
     💻**__Pyrogram__**: `{versions.__pyro_version__}`"""
-    \n=•=•=•=•=•=•=•=•=•=•=•=•=•=•\n
+    \n
+=•=•=•=•=•=•=•=•=•=•=•=•=•=•"""
 if not message.client.is_bot:
         output += f"""\n
 🎖 **{versions.__license__}** | 👥 **{versions.__copyright__}** | 🧪 **[Repo]({Config.UPSTREAM_REPO})** 
