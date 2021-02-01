@@ -79,7 +79,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 • **🚀 Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`⚡
 ╰━━━━━━━━━━━━━━━━╯\n
     🐍**__Python__**: `{versions.__python_version__}`
-    💻**__Pyrogram__**: `{versions.__pyro_version__}`"""
+    💻**__Pyrogram__**: `{versions.__pyro_version__}`
     \n╰▻►▻►▻►▻►▻►◄◅◄◅◄◅◄◅╯"""
 if not message.client.is_bot:
         output += f"""\n
