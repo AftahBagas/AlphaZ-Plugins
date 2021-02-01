@@ -81,7 +81,7 @@ async def handle_afk_incomming(message: Message) -> None:
             USERS[user_id][1] += 1
     else:
         if REASON:
-            out_str = (f"AING **SIBUK NGENTOT 😡** right now.\nAlasan: <code>{REASON}</code>\n"
+            out_str = (f"AING **SIBUK NGENTOT 😡** SABAR YA ASU.\nAlasan: <code>{REASON}</code>\n"
                        f"Terakhir Dilihat: `{afk_time} ago`")
         else:
             out_str = choice(AFK_REASONS)
@@ -115,7 +115,7 @@ async def handle_afk_outgoing(message: Message) -> None:
     global IS_AFK  # pylint: disable=global-statement
     IS_AFK = False
     afk_time = time_formatter(round(time.time() - TIME))
-    replied: Message = await message.reply("`I'm no longer AFK!`", log=__name__)
+    replied: Message = await message.reply("`AING BALIK ANJEEENG 💩`", log=__name__)
     coro_list = []
     if USERS:
         p_msg = ''
