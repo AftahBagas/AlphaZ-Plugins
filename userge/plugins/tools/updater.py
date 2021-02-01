@@ -32,7 +32,7 @@ CHANNEL = userge.getCLogger(__name__)
     'examples': "{tr}update -beta -pull -push"}, del_pre=True, allow_channels=False)
 async def check_update(message: Message):
     """ check or do updates """
-    await message.edit("`Checking for updates, please wait....`")
+    await message.edit("`ada updatean ga yaaach 🐨`")
     flags = list(message.flags)
     pull_from_repo = False
     push_to_heroku = False
@@ -64,7 +64,7 @@ async def check_update(message: Message):
         return
     if not (pull_from_repo or push_to_heroku):
         if out:
-            change_log = f'**New UPDATE available for [{branch}]:\n\n📄 CHANGELOG 📄**\n\n'
+            change_log = f'**UPDATE BARU NIH ASU for [{branch}]:\n\n📄 CHANGELOG 📄**\n\n'
             await message.edit_or_send_as_file(change_log + out, disable_web_page_preview=True)
         else:
             await message.edit(f'**Userge is up-to-date with [{branch}]**', del_in=5)
@@ -100,7 +100,7 @@ def _get_updates(repo: Repo, branch: str) -> str:
     out = ''
     upst = Config.UPSTREAM_REPO.rstrip('/')
     for i in repo.iter_commits(f'HEAD..{Config.UPSTREAM_REMOTE}/{branch}'):
-        out += f"🔨 **#{i.count()}** : [{i.summary}]({upst}/commit/{i}) 👷 __{i.author}__\n\n"
+        out += f"🔨 **#{i.count()}** : [{i.summary}]({upst}/commit/{i}) 🐨 __{i.author}__\n\n"
     return out
 
 
@@ -113,10 +113,10 @@ async def _pull_from_repo(repo: Repo, branch: str) -> None:
 
 async def _push_to_heroku(msg: Message, repo: Repo, branch: str) -> None:
     sent = await msg.edit(
-        f'`Now pushing updates from [{branch}] to heroku...\n'
-        'this will take upto 5 min`\n\n'
-        f'* **Restart** after 5 min using `{Config.CMD_TRIGGER}restart -h`\n\n'
-        '* After restarted successfully, check updates again :)')
+        f'`Sedang mengupdate sekarang [{branch}] ke heroku...\n'
+        'tunggu 5 min dumu yaa asuu`\n\n'
+        f'* **Restart** sabar kontolllll `{Config.CMD_TRIGGER}restart -h`\n\n'
+        '* tunggu setelah KampangUsergay Sukses ter update, lalu cek update kembali :)')
     try:
         await _heroku_helper(sent, repo, branch)
     except GitCommandError as g_e:
