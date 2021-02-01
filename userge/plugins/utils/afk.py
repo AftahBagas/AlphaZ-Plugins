@@ -70,8 +70,8 @@ async def handle_afk_incomming(message: Message) -> None:
     if user_id in USERS:
         if not (USERS[user_id][0] + USERS[user_id][1]) % randint(2, 4):
             if REASON:
-                out_str = (f"I'm still **SIBUK NGENTOT 😡**.\nAlasan: <code>{REASON}</code>\n"
-                           f"Last Seen: `{afk_time} ago`")
+                out_str = (f"AING **SIBUK NGENTOT 😡**.\nAlasan: <code>{REASON}</code>\n"
+                           f"Terakhir Dilihat: `{afk_time} ago`")
             else:
                 out_str = choice(AFK_REASONS)
             coro_list.append(message.reply(out_str))
@@ -81,8 +81,8 @@ async def handle_afk_incomming(message: Message) -> None:
             USERS[user_id][1] += 1
     else:
         if REASON:
-            out_str = (f"I'm **SIBUK NGENTOT 😡** right now.\nAlasan: <code>{REASON}</code>\n"
-                       f"Last Seen: `{afk_time} ago`")
+            out_str = (f"AING **SIBUK NGENTOT 😡** right now.\nAlasan: <code>{REASON}</code>\n"
+                       f"Terakhir Dilihat: `{afk_time} ago`")
         else:
             out_str = choice(AFK_REASONS)
         coro_list.append(message.reply(out_str))
@@ -124,10 +124,10 @@ async def handle_afk_outgoing(message: Message) -> None:
         g_count = 0
         for pcount, gcount, men in USERS.values():
             if pcount:
-                p_msg += f"👤 {men} ✉️ **{pcount}**\n"
+                p_msg += f"🐨 {men} 💌 **{pcount}**\n"
                 p_count += pcount
             if gcount:
-                g_msg += f"👥 {men} ✉️ **{gcount}**\n"
+                g_msg += f"🐨 {men} 💌 **{gcount}**\n"
                 g_count += gcount
         coro_list.append(replied.edit(
             f"`You recieved {p_count + g_count} messages while you were away. "
@@ -151,9 +151,9 @@ async def handle_afk_outgoing(message: Message) -> None:
 
 
 AFK_REASONS = (
-    "I'm busy right now. Please talk in a bag and when I come back you can just give me the bag!",
-    "I'm away right now. If you need anything, leave a message after the beep: \
-`beeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeep!`",
+    "Lagi Ngentot ASU!",
+    "BACOT BENER ASU DEH GATAU ORANG SIBUK,.: \
+`NYARI JANDAAA ASU`",
     "You missed me, next time aim better.",
     "I'll be back in a few minutes and if I'm not...,\nwait longer.",
     "I'm not here right now, so I'm probably somewhere else.",
