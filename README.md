@@ -58,7 +58,7 @@
 #### By HEROKU
 - [open your app](https://dashboard.heroku.com/apps/) then go to **more** -> **run console** and type `bash genStr` and click **run**.
 #### On REPL
-- [Generate on REPL](https://repl.it/@Leorio/stringsessiongen#main.py)
+- [Generate on REPL Click](https://repl.it/@ManusiaRakitan/stringsession#README.md)
 ### Read more
 <details>
   <summary><b>Details and Guides</b></summary>
@@ -155,5 +155,6 @@ async def test_filter(message: Message):
 * [PyroGramBot](https://github.com/SpEcHiDe/PyroGramBot)
 * [PaperPlane](https://github.com/RaphielGang/Telegram-Paperplane)
 * [Uniborg](https://github.com/SpEcHiDe/UniBorg)
+* [UsergeTeam](https://github.com/UsergeTeam/Userge)
 ### Copyright & License 
 [**GNU General Public License v3.0**](https://github.com/code-rgb/USERGE-X/blob/alpha/LICENSE)
