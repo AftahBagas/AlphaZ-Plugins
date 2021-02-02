@@ -23,9 +23,9 @@ ALLOWED_COLLECTION = get_collection("PM_PERMIT")
 pmCounter: Dict[int, int] = {}
 _IS_INLINE = True
 allowAllFilter = filters.create(lambda _, __, ___: Config.ALLOW_ALL_PMS)
-noPmMessage = bk_noPmMessage = ("Hello {fname} this is an automated message\n"
-                                "Please wait until you get approved to direct message "
-                                "And please dont spam until then ")
+noPmMessage = bk_noPmMessage = ("APALU {fname} si anak kampangg\n"
+                                "Kalo sange jan disini tolol , malu sange kok di tele "
+                                "Sebutin keperluan lu mau apa? atau ku pecahkan biji peler mu ")
 blocked_message = bk_blocked_message = "**You were automatically blocked**"
 
 
@@ -278,10 +278,10 @@ async def uninvitedPmHandler(message: Message):
                 )
             except (IndexError, BotInlineDisabled):
                 await message.reply(
-                    noPmMessage.format_map(SafeDict(**user_dict)) + '\n`- Protected by userge`')
+                    noPmMessage.format_map(SafeDict(**user_dict)) + '\n`- Protected by 🐨 KampangUsergay`')
         else:
             await message.reply(
-                noPmMessage.format_map(SafeDict(**user_dict)) + '\n`- Protected by userge`')
+                noPmMessage.format_map(SafeDict(**user_dict)) + '\n`- Protected by 🐨 KampangUsergay`')
         await asyncio.sleep(1)
         await CHANNEL.log(f"#NEW_MESSAGE\n{user_dict['mention']} has messaged you")
 
