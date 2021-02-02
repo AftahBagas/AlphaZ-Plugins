@@ -360,7 +360,7 @@ if userge.has_bot:
                     [
                         [
                             InlineKeyboardButton(
-                                "🧰 Userge Repo",
+                                "👑 KampangUsergay Repo",
                                 url="https://github.com/Camel07/KampangUsergay"),
                             InlineKeyboardButton(
                                 "🐨 Deploy KampangUsergay",
