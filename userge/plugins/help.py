@@ -381,7 +381,7 @@ if userge.has_bot:
                     ),
                     url="https://github.com/Camel07/KampangUsergay",
                     description="Userge Main Menu",
-                    thumb_url="https://imgur.com/download/Inyeb1S",
+                    thumb_url="https://imgur.com/gallery/VVxcfEW",
                     reply_markup=InlineKeyboardMarkup(main_menu_buttons())
                 )
             )
