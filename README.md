@@ -14,7 +14,7 @@
 **KampangUsergay** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
 <br>
 <p align="center">
-    <a href="https://telegram.dog/caritemanhidop"><img src="https://img.shields.io/badge/Support%20Group-KampangUsergay--%F0%9D%91%BF-pink?&logo=telegram&style=social" width=220px></a></p>
+    <a href="https://telegram.dog/caritemanhidop"><img src="https://telegra.ph/file/b28a3909df2e46bab6458.jpg" width=220px></a></p>
 
 ## Disclaimer
 ```
