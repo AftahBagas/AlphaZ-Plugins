@@ -43,7 +43,7 @@
 ## How To Deploy 
 * With Heroku:
 <p align="center">
-   <a href = "https://heroku.com/deploy?template=https://github.com/code-rgb/USERGE-X/tree/alpha"><img src="https://telegra.ph/file/57c4edb389224c9cf9996.png" alt="Press to Takeoff" width="490px"></a>
+   <a href = "https://heroku.com/deploy?template=https://github.com/Camel07/UsergayKampang/tree/alpha"><img src="https://telegra.ph/file/57c4edb389224c9cf9996.png" alt="Press to Takeoff" width="490px"></a>
 </p>
 <br>
 
@@ -66,12 +66,12 @@
 ## Other Ways
 
 * With Docker 🐳 
-    <a href="https://github.com/code-rgb/USERGE-X/blob/alpha/resources/readmeDocker.md"><b>See Detailed Guide</b></a>
+    <a href="https://github.com/Camel07/UsergayKampang/blob/alpha/resources/readmeDocker.md"><b>See Detailed Guide</b></a>
 
 * With Git, Python and pip 🔧
   ```bash
   # clone the repo
-  git clone https://github.com/code-rgb/userge-x.git
+  git clone https://github.com/camel07/usergaykampang.git
   cd userge-x
 
   # create virtualenv
@@ -87,7 +87,7 @@
   # get string session and add it to config.env
   bash genStr
 
-  # finally run the USERGE-X ;)
+  # finally run the UsergayKampang ;)
   bash run
   ```
 
