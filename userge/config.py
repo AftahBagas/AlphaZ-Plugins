@@ -89,15 +89,15 @@ class Config:
 
 
 def get_version() -> str:
-    """ get userge version """
+    """ get KampangUsergay version """
     ver = f"{versions.__major__}.{versions.__minor__}.{versions.__micro__}"
-    if "/usergeteam/userge" in Config.UPSTREAM_REPO.lower():
+    if "/camel07/kampangusergay" in Config.UPSTREAM_REPO.lower():
         diff = list(_REPO.iter_commits(f'v{ver}..HEAD'))
         if diff:
-            return f"{ver}-patch.{len(diff)}"
+            return f"{ver}-Grade.{len(diff)}"
     else:
         diff = list(_REPO.iter_commits(
             f'{Config.UPSTREAM_REMOTE}/master..HEAD'))
         if diff:
-            return f"{ver}-custom.{len(diff)}"
+            return f"{ver}-GAY.{len(diff)}"
     return ver
