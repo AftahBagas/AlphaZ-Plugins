@@ -31,7 +31,7 @@ async def quotecmd(message: Message):
                     return
                 await conv.send_message(args)
         except YouBlockedUser:
-            await message.edit('first **unblock** @QuotLyBot')
+            await message.edit('first **unblock dulu bot** @QuotLyBot')
             return
         quote = await conv.get_response(mark_read=True)
         if not quote.sticker:
