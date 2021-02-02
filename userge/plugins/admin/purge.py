@@ -21,7 +21,7 @@ from userge import userge, Message
     'examples': ['{tr}purge', '{tr}purge -u', '{tr}purge [user_id | user_name]']},
     allow_bots=False, del_pre=True)
 async def purge_(message: Message):
-    await message.edit("`purging ...`")
+    await message.edit("`menghapus pesan ...`")
     from_user_id = None
     if message.filtered_input_str:
         from_user_id = (await message.client.get_users(message.filtered_input_str)).id
