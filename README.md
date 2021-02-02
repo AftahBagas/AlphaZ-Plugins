@@ -19,8 +19,20 @@
 ## Disclaimer
 ```
 /**
-   /** ⚠️Kang at your own risk⚠️
-Akun Telegram Anda mungkin diblokir. Saya tidak bertanggung jawab atas penggunaan yang tidak benar dari bot ini Bot ini dimaksudkan untuk tujuan bersenang-senang dengan meme, serta mengelola grup secara efisien. Ini dapat membantu Anda mengelola diri sendiri juga. Anda akhirnya melakukan spamming grup, dilaporkan kiri dan kanan, dan kemudian Anda berakhir di Pertempuran Terakhir dengan Telegram dan pada akhirnya Tim Telegram menghapus akun Anda? Dan setelah itu, Anda mengarahkan jari Anda kepada kami karena akun Anda dihapus? Kami akan berguling-guling di lantai sambil menertawakan Anda. Iya! Anda tidak salah dengar. / **
+   ⚠️Kang at your own risk⚠️          
+   Your Telegram account may get banned.
+   I am not responsible for any improper use of this bot
+   This bot is intended for the purpose of having fun with memes,
+   as well as efficiently managing groups.
+   It can help you with managing yourself as well.
+   You ended up spamming groups, getting reported left and right,
+   and then you ended up in a Final Battle with Telegram
+   and at the end the Telegram Team
+   deleted your account?
+   And after that, you pointed your fingers at us
+   for getting your account deleted?
+   We will be rolling on the floor laughing at you.
+   Yes! you heard it right.
 /**
 ```
 ## Requirements 
