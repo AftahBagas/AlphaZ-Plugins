@@ -22,12 +22,12 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified, Messa
 from userge import userge, Message, Config, get_collection
 
 _CATEGORY = {
-    'admin': '👨‍✈️',
-    'fun': '🎨',
+    'admin': '👑',
+    'fun': '🚀',
     'misc': '⚙️',
     'tools': '🧰',
     'utils': '🗂',
-    'unofficial': '🃏',
+    'unofficial': '🎉',
     'temp': '♻️',
     'plugins': '💎'
 }
@@ -129,7 +129,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = "🖥 **Userge Main Menu** 🖥"
+            text = "🐨 **KampangUsergay Main Menu** 🐨"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -177,7 +177,7 @@ if userge.has_bot:
     @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
-            "🖥 **Userge Main Menu** 🖥", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
+            "🐨 **KampangUsergay Main Menu** 🐨", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
 
     @userge.bot.on_callback_query(filters=filters.regex(pattern=r"^chgclnt$"))
     @check_owner
@@ -256,7 +256,7 @@ if userge.has_bot:
                 "⬅ Back", callback_data=f"back({cur_pos})".encode()))
             if len(cur_pos.split('|')) > 2:
                 tmp_btns.append(InlineKeyboardButton(
-                    "🖥 Main Menu", callback_data="mm".encode()))
+                    "🐨 Main Menu", callback_data="mm".encode()))
                 tmp_btns.append(InlineKeyboardButton(
                     "🔄 Refresh", callback_data=f"refresh({cur_pos})".encode()))
         else:
@@ -353,7 +353,7 @@ if userge.has_bot:
                 input_message_content=InputTextMessageContent(
                     "**Here's how to setup Userge** 😎"
                 ),
-                url="https://github.com/UsergeTeam/Userge",
+                url="https://github.com/Camel07/KampangUsergay",
                 description="Setup Your Own",
                 thumb_url="https://imgur.com/download/Inyeb1S",
                 reply_markup=InlineKeyboardMarkup(
@@ -361,11 +361,11 @@ if userge.has_bot:
                         [
                             InlineKeyboardButton(
                                 "🧰 Userge Repo",
-                                url="https://github.com/UsergeTeam/Userge"),
+                                url="https://github.com/Camel07/KampangUsergay"),
                             InlineKeyboardButton(
-                                "🖥 Deploy Userge",
+                                "🐨 Deploy KampangUsergay",
                                 url=("https://heroku.com/deploy?template="
-                                     "https://github.com/UsergeTeam/Userge/tree/master"))
+                                     "https://github.com/Camel07/KampangUsergay/tree/master"))
                         ]
                     ]
                 )
@@ -377,9 +377,9 @@ if userge.has_bot:
                     id=uuid4(),
                     title="Main Menu",
                     input_message_content=InputTextMessageContent(
-                        "🖥 **Userge Main Menu** 🖥"
+                        "🐨 **KampangUsergay Main Menu** 🐨"
                     ),
-                    url="https://github.com/UsergeTeam/Userge",
+                    url="https://github.com/Camel07/KampangUsergay",
                     description="Userge Main Menu",
                     thumb_url="https://imgur.com/download/Inyeb1S",
                     reply_markup=InlineKeyboardMarkup(main_menu_buttons())
