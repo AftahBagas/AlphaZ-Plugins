@@ -1,7 +1,7 @@
 <h2 align="center"><b>MENAGE: <a href="https://telegram.dog/mixiologist">KOALA ░ 🐨</a></b></h2>
 <br>
 <p align="center">
-   <a href="https://github.com/Camel07/KampangUsergay"><img src="https://telegra.ph/file/a5f7caf7a0ab68bb6aaa8.jpg" alt="KampangUsergay" width=400px></a>
+   <a href="https://github.com/Camel07/KampangUsergay"><img src="https://telegra.ph/file/1d4ed3e20f0144fe429c0.mp4" alt="KampangUsergay" width=400px></a>
    <br>
    <br>
 </p>
