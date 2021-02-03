@@ -23,7 +23,7 @@ from userge import userge, Message, Config, get_collection
 
 _CATEGORY = {
     'admin': '👑',
-    'fun': '🚀',
+    'fun': '🎨',
     'misc': '⚙️',
     'tools': '🧰',
     'utils': '🗂',
@@ -351,9 +351,9 @@ if userge.has_bot:
                 id=uuid4(),
                 title="Repo",
                 input_message_content=InputTextMessageContent(
-                    "**Here's how to setup Userge** 😎"
+                    "**Deploy UsergeKampang Asu** 🐨"
                 ),
-                url="https://github.com/Camel07/KampangUsergay",
+                url="https://github.com/Camel07/UsergayKampang",
                 description="Setup Your Own",
                 thumb_url="https://imgur.com/download/Inyeb1S",
                 reply_markup=InlineKeyboardMarkup(
@@ -361,11 +361,11 @@ if userge.has_bot:
                         [
                             InlineKeyboardButton(
                                 "👑 KampangUsergay Repo",
-                                url="https://github.com/Camel07/KampangUsergay"),
+                                url="https://github.com/Camel07/UsergayKampang"),
                             InlineKeyboardButton(
                                 "🐨 Deploy KampangUsergay",
                                 url=("https://heroku.com/deploy?template="
-                                     "https://github.com/Camel07/KampangUsergay/tree/master"))
+                                     "https://github.com/Camel07/UsergayKampang/tree/alpha"))
                         ]
                     ]
                 )
@@ -379,9 +379,9 @@ if userge.has_bot:
                     input_message_content=InputTextMessageContent(
                         "🐨 **KampangUsergay Main Menu** 🐨"
                     ),
-                    url="https://github.com/Camel07/KampangUsergay",
+                    url="https://github.com/Camel07/UsergayKampang",
                     description="Userge Main Menu",
-                    thumb_url="https://imgur.com/gallery/VVxcfEW",
+                    thumb_url="https://imgur.com/download/Inyeb1S",
                     reply_markup=InlineKeyboardMarkup(main_menu_buttons())
                 )
             )
