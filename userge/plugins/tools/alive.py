@@ -64,7 +64,7 @@ def _get_mode() -> str:
 
 def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKeyboardMarkup]]:
     markup = None
-    output = f"""Alpha Z Plugins Is Running 🔥!..\n
+    output = f"""**Alpha Z Plugins Is Running 🔥!..**\n
 ╭━─━─━─━─≪✠≫─━─━─━─━╮\n
 **❍ ⏱️ uptime** : `{userge.uptime}`
 **❍ 🧪 version** : `{get_version()}`
@@ -81,13 +81,13 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 \n╰━─━─━─━─━─━─━─━─━─━╯"""
     if not message.client.is_bot:
         output += f"""\n
-🎖 **{versions.__license__}** | 👥 **{versions.__copyright__}** | 🧪 **[Repo]({Config.UPSTREAM_REPO})**
+🎖 **{versions.__license__}** | 😈 **{versions.__copyright__}** | ⚙️ **[Repo]({Config.UPSTREAM_REPO})**
 """
     else:
         copy_ = "https://github.com/AftahBagas/AlphaZ-Plugins/blob/alpha/LICENSE"
         markup = InlineKeyboardMarkup([
             [
-                InlineKeyboardButton(text="👥 AlphaZ Plugins", url="https://github.com/AftahBagas"),
+                InlineKeyboardButton(text="😈 AlphaZ Plugins", url="https://github.com/AftahBagas"),
                 InlineKeyboardButton(text="🧪 Repo", url=Config.UPSTREAM_REPO)
             ],
             [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
