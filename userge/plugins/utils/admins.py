@@ -10,14 +10,14 @@ from userge import userge, Message
 
 
 @userge.on_cmd("admins", about={
-    'header': "View or mention admins in chat",
+    'header': "Lihat atau sebutkan admin dalam obrolan",
     'flags': {
-        '-m': "mention all admins",
-        '-mc': "only mention creator",
-        '-id': "show ids"},
+        '-m': "sebutkan semua admin",
+        '-mc': "hanya menyebut pencipta",
+        '-id': "tampilkan id"},
     'usage': "{tr}admins [any flag] [chatid]"}, allow_channels=False)
 async def mentionadmins(message: Message):
-    mentions = "🛡 **Admin List** 🛡\n"
+    mentions = "⚡ **Admin List** ⚡\n"
     chat_id = message.filtered_input_str
     flags = message.flags
     men_admins = '-m' in flags
@@ -33,11 +33,11 @@ async def mentionadmins(message: Message):
             full_name = (await message.client.get_user_dict(u_id))['flname']
             if status == "creator":
                 if men_admins or men_creator:
-                    mentions += f"\n 👑 [{full_name}](tg://user?id={u_id})"
+                    mentions += f"\n 👮 [{full_name}](tg://user?id={u_id})"
                 elif username:
-                    mentions += f"\n 👑 [{full_name}](https://t.me/{username})"
+                    mentions += f"\n 👮 [{full_name}](https://t.me/{username})"
                 else:
-                    mentions += f"\n 👑 {full_name}"
+                    mentions += f"\n 👮 {full_name}"
                 if show_id:
                     mentions += f" `{u_id}`"
             elif status == "administrator":
