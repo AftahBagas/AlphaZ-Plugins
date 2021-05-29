@@ -21,41 +21,41 @@ LOG = userge.getLogger(__name__)
 
 
 @userge.on_cmd("gmute", about={
-    'header': "Globally Mute A User",
-    'description': "Adds User to your GMute List",
+    'header': "Mute Pengguna Secara Global",
+    'description': "Menambahkan Pengguna ke Daftar GMute Anda",
     'examples': "{tr}gmute [userid | reply] [reason for gmute] (mandatory)"},
     allow_channels=False, allow_bots=False)
 async def gmute_user(msg: Message):
     """ Mute a user globally """
-    await msg.edit("`Globally Muting this User...`")
+    await msg.edit("`Secara Global mute orang meresahkan ini...`")
     user_id, reason = msg.extract_user_and_text
     if not user_id:
         await msg.edit(
-            "`no valid user_id or message specified,`"
-            "`don't do .help gmute for more info. "
-            "Coz no one's gonna help ya`(｡ŏ_ŏ) ⚠")
+            "`tidak sah user_id or pesan ditentukan,`"
+            "`jangan lakukan .help gmute untuk info lebih lanjut. "
+            "Karena tidak ada yang akan membantu ya`(｡ŏ_ŏ) ⚠")
         return
     get_mem = await msg.client.get_user_dict(user_id)
     firstname = get_mem['fname']
     if not reason:
         await msg.edit(
             f"**#Aborted**\n\n**GMuting** of [{firstname}](tg://user?id={user_id}) "
-            "`Aborted coz No reason of GMute provided by User`", del_in=5)
+            "`Dibatalkan karena Tidak ada alasan GMute oleh Pengguna`", del_in=5)
         return
     user_id = get_mem['id']
     if user_id == msg.from_user.id:
-        await msg.err(r"LoL. Why would I GMuting myself ¯\(°_o)/¯")
+        await msg.err(r"LoL. Why Akankah aku GMuting diri ¯\(°_o)/¯")
         return
     if user_id in Config.SUDO_USERS:
         await msg.edit(
-            "`That user is in my Sudo List, Hence I can't GMute him.`\n\n"
-            "**Tip:** `Remove them from Sudo List and try again. (¬_¬)`", del_in=5)
+            "`Pengguna itu ada di Daftar Sudo saya, jadi saya tidak bisa GMute dia.`\n\n"
+            "**Tip:** `Hapus mereka dari Sudo Daftar dan coba lagi. (¬_¬)`", del_in=5)
         return
     found = await GMUTE_USER_BASE.find_one({'user_id': user_id})
     if found:
         await msg.edit(
-            "**#Already_GMuted**\n\n`This User Already Exists in My GMute List.`\n"
-            f"**Reason For GMute:** `{found['reason']}`")
+            "**#Already_GMuted**\n\n`Pengguna Ini Sudah terdaftar di list Gmute saya.`\n"
+            f"**Alasan untuk GMute:** `{found['reason']}`")
         return
     await asyncio.gather(
         GMUTE_USER_BASE.insert_one(
@@ -84,13 +84,13 @@ async def gmute_user(msg: Message):
 
 
 @userge.on_cmd("ungmute", about={
-    'header': "Globally Unmute an User",
-    'description': "Removes an user from your GMute List",
+    'header': "Ungmute Pengguna Secara Global",
+    'description': "Hapus pengguna dari Daftar Gmute",
     'examples': "{tr}ungmute [userid | reply]"},
     allow_channels=False, allow_bots=False)
 async def ungmute_user(msg: Message):
     """ unmute a user globally """
-    await msg.edit("`UnGMuting this User...`")
+    await msg.edit("`UnGMuting Pengguna ini...`")
     user_id, _ = msg.extract_user_and_text
     if not user_id:
         await msg.err("user-id not found")
@@ -100,7 +100,7 @@ async def ungmute_user(msg: Message):
     user_id = get_mem['id']
     found = await GMUTE_USER_BASE.find_one({'user_id': user_id})
     if not found:
-        await msg.err("User Not Found in My GMute List")
+        await msg.err("Pengguna Tidak Ditemukan di Daftar GMute Saya")
         return
     await asyncio.gather(
         GMUTE_USER_BASE.delete_one({'firstname': firstname, 'user_id': user_id}),
@@ -124,8 +124,8 @@ async def ungmute_user(msg: Message):
 
 
 @userge.on_cmd("gmlist", about={
-    'header': "Get a List of GMuted Users",
-    'description': "Get Up-to-date list of users GMuted by you.",
+    'header': "Dapatkan Daftar Pengguna GMuted",
+    'description': "Dapatkan daftar pengguna terbaru yang Anda Gmute.",
     'examples': "{tr}gmlist"},
     allow_channels=False)
 async def list_gmuted(msg: Message):
@@ -152,7 +152,7 @@ async def gmute_at_entry(msg: Message):
                 msg.client.restrict_chat_member(chat_id, user_id, ChatPermissions()),
                 msg.reply(
                     r"\\**#Userge_Antispam**//"
-                    "\n\nGlobally Muted User Detected in this Chat.\n\n"
+                    "\n\nGlobally Muted Pengguna Terdeteksi di Obrolan ini.\n\n"
                     f"**User:** [{first_name}](tg://user?id={user_id})\n"
                     f"**ID:** `{user_id}`\n**Reason:** `{gmuted['reason']}`\n\n"
                     "**Quick Action:** Muted", del_in=10),
