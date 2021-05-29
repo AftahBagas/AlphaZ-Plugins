@@ -467,10 +467,6 @@ if userge.has_bot:
                                 url="https://github.com/AftahBagas/AlphaZ-Plugins",
                             ),
                             InlineKeyboardButton(
-                                "🤵 Owner",
-                                url="https://t.me/kanjengingsun",
-                            ),
-                            InlineKeyboardButton(
                                 "😈 Deploy",
                                 url="https://github.com/AftahBagas/Zpack/tree/deploy",
                             ),
