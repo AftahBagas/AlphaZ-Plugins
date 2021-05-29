@@ -13,13 +13,13 @@ from userge import userge, Message, Config, versions, get_version
 async def see_repo(message: Message):
     """see repo"""
     output = f"""
-**HAY KAMPANG**, __Gua make__ 🐨 **KampangUsergay** 🐨
+**Userbot**, __AlphaZ Plugins__ 😈 **The Userbot Plugins** 😈
 
     __Durable as a Serge__
 
-• **userge version** : `{get_version()}`
-• **license** : {versions.__license__}
-• **copyright** : {versions.__copyright__}
-• **repo** : [KampangUsergay]({Config.UPSTREAM_REPO})
+• **AlphaZ Plugins Version** : `{get_version()}`
+• **Licence** : {versions.__license__}
+• **Copyright** : {versions.__copyright__}
+• **Repo** : [AlphaZ Plugins]({Config.UPSTREAM_REPO})
 """
     await message.edit(output)
