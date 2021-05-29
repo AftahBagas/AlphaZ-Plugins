@@ -17,13 +17,13 @@ _T_LIMIT = 5242880
 
 
 @userge.on_cmd("telegraph", about={
-    'header': "Upload file to Telegra.ph's servers",
+    'header': "Unggah file ke server Telegraph",
     'types': ['.jpg', '.jpeg', '.png', '.gif', '.mp4'],
     'usage': "reply {tr}telegraph to supported media : limit 5MB"})
 async def telegraph_(message: Message):
     replied = message.reply_to_message
     if not replied:
-        await message.err("reply to supported media")
+        await message.err("reply untuk didukung media")
         return
     if not ((replied.photo and replied.photo.file_size <= _T_LIMIT)
             or (replied.animation and replied.animation.file_size <= _T_LIMIT)
@@ -40,9 +40,9 @@ async def telegraph_(message: Message):
         message=message.reply_to_message,
         file_name=Config.DOWN_PATH,
         progress=progress,
-        progress_args=(message, "trying to download")
+        progress_args=(message, "mencoba mengunduh")
     )
-    await message.edit("`uploading to telegraph...`")
+    await message.edit("`mengunggah ke telegraph...`")
     try:
         response = upload_file(dl_loc)
     except Exception as t_e:
