@@ -238,8 +238,6 @@ if userge.has_bot:
                     InlineKeyboardButton(
                         "<- Previous", callback_data=f"({cur_pos})prev({current_page})".encode()),
                     InlineKeyboardButton(
-                        "Close", data="close")
-                    InlineKeyboardButton(
                         "Next ->", callback_data=f"({cur_pos})next({current_page})".encode())],
             ]
         pairs += default_buttons(cur_pos)
