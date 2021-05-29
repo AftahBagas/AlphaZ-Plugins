@@ -170,12 +170,12 @@ _checkUnoffPlugins() {
         editLastMessage "\t\tUpgrading PIP ..."
         upgradePip
         editLastMessage "\t\tInstalling Requirements ..."
-        installReq Userge-Plugins
+        installReq Alpha-Plugins
         editLastMessage "\t\tCleaning ..."
         rm -rf userge/plugins/unofficial/
-        mv Userge-Plugins/plugins/ userge/plugins/unofficial/
-        cp -r Userge-Plugins/resources/* resources/
-        rm -rf Userge-Plugins/
+        mv Alpha-Plugins/plugins/ userge/plugins/unofficial/
+        cp -r Alpha-Plugins/resources/* resources/
+        rm -rf Alpha-Plugins/
         deleteLastMessage
         editLastMessage "\tUnOfficial Plugins Loaded Successfully !"
     else
