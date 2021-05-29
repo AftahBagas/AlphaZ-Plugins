@@ -30,7 +30,7 @@ from userge import userge, Message, Config
         'usage': "Reply {tr}kang [emoji('s)] [pack number] to a sticker or "
                  "an image to kang it to your userbot pack.",
         'examples': ["{tr}kang", "{tr}kang -s", "{tr}kang -d",
-                     "{tr}kang 🐨", "{tr}kang 2", "{tr}kang 🐨 2"]},
+                     "{tr}kang 😈", "{tr}kang 2", "{tr}kang 😈 2"]},
     allow_channels=False, allow_via_bot=False)
 async def kang_(message: Message):
     """ kang a sticker """
@@ -78,7 +78,7 @@ async def kang_(message: Message):
         if emoji_ and emoji_ not in emoji.UNICODE_EMOJI:
             emoji_ = None
         if not emoji_:
-            emoji_ = "🐨"
+            emoji_ = "😈"
 
         u_name = user.username
         if u_name:
