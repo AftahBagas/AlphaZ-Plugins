@@ -1,12 +1,12 @@
 version: "1"
 rules:
   - base: alpha
-    upstream: UsergeTeam:alpha
+    upstream: AftahBagas:alpha
     mergeMethod: rebase
     mergeUnstable: false
   - base: beta
-    upstream: UsergeTeam:beta
+    upstream: AftahBagas:beta
     mergeMethod: rebase
   - base: master
-    upstream: UsergeTeam:master
+    upstream: AftahBagas:master
     mergeMethod: rebase
