@@ -1,20 +1,20 @@
-<h2 align="center"><b>MENAGE: <a href="https://telegram.dog/mixiologist">KOALA ░ 🐨</a></b></h2>
+<h2 align="center"><b>MENAGE: <a href="https://telegram.dog/kanjengingsun">Alfareza</a></b></h2>
 <br>
 <p align="center">
-   <a href="https://github.com/Camel07/KampangUsergay"><img src="https://media0.giphy.com/media/Hs0cX9Z3RR77c0MMA7/giphy.gif" alt="KampangUsergay" width=400px></a>
+   <a href="https://github.com/AftahBagas/Alpha-Z"><img src="https://telegra.ph/file/b8c4935a277592df59ac9.jpg" alt="Alpha-z" width=400px></a>
    <br>
    <br>
 </p>
-<h1>KampangUsergay</h1>
-<b>BOT TERKAMPANG ASUU!</b>
+<h1>Alpha-Z</h1>
+<b>Userbot Plugins!</b>
 <br>
 <br>
 
 
-**KampangUsergay** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
+**Alpha-Z Plugins** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
 <br>
 <p align="center">
-    <a href="https://telegram.dog/caritemanhidop"><img src="https://telegra.ph/file/b28a3909df2e46bab6458.jpg" width=220px></a></p>
+    <a href="https://telegram.dog/teamsquaduserbotsupport"><Support
 
 ## Disclaimer
 ```
@@ -40,10 +40,11 @@
 * Telegram [API Keys](https://my.telegram.org/apps)
 * Google Drive [API Keys](https://console.developers.google.com/)
 * MongoDB [Database URL](https://cloud.mongodb.com/)
+
 ## How To Deploy 
 * With Heroku:
 <p align="center">
-   <a href = "https://heroku.com/deploy?template=https://github.com/Camel07/UsergayKampang/tree/alpha"><img src="https://telegra.ph/file/34fa325c222a70badb02f.jpg" alt="Press to Takeoff" width="490px"></a>
+   <a href = "https://heroku.com/deploy?template=https://github.com/aftahbagas/Zpack/tree/deploy"><img src="https://telegra.ph/file/57c4edb389224c9cf9996.png" alt="Press to Takeoff" width="490px"></a>
 </p>
 <br>
 
@@ -58,20 +59,20 @@
 #### By HEROKU
 - [open your app](https://dashboard.heroku.com/apps/) then go to **more** -> **run console** and type `bash genStr` and click **run**.
 #### On REPL
-- [Generate on REPL Click](https://repl.it/@ManusiaRakitan/stringsession#README.md)
+- [Generate on REPL](https://repl.it/@ilhammansiez12/petrcord-1#README.md)
 ### Read more
 <details>
   <summary><b>Details and Guides</b></summary>
 
 ## Other Ways
 
-* With Docker 🐳 
-    <a href="https://github.com/Camel07/UsergayKampang/blob/alpha/resources/readmeDocker.md"><b>See Detailed Guide</b></a>
+* With Docker 😈
+    <a href="https://github.com/AftahBagas/alphaZ-Plugins/blob/alpha/resources/readmeDocker.md"><b>See Detailed Guide</b></a>
 
 * With Git, Python and pip 🔧
   ```bash
   # clone the repo
-  git clone https://github.com/camel07/usergaykampang.git
+  git clone https://github.com/AftahBagas/alphaZ-Plugins.git
   cd userge-x
 
   # create virtualenv
@@ -87,7 +88,7 @@
   # get string session and add it to config.env
   bash genStr
 
-  # finally run the UsergayKampang ;)
+  # finally run the alpha-z ;)
   bash run
   ```
 
@@ -157,4 +158,4 @@ async def test_filter(message: Message):
 * [Uniborg](https://github.com/SpEcHiDe/UniBorg)
 * [UsergeTeam](https://github.com/UsergeTeam/Userge)
 ### Copyright & License 
-[**GNU General Public License v3.0**](https://github.com/code-rgb/USERGE-X/blob/alpha/LICENSE)
+[**GNU General Public License v3.0**](https://github.com/ManusiaRakitan/KampangUsergay/blob/alpha/LICENSE)
