@@ -27,7 +27,7 @@ _LOG = logging.getLogger(__name__)
 _IS_TELEGRAPH = False
 _IS_STICKER = False
 
-_DEFAULT = "https://t.me/theUserge/31"
+_DEFAULT = "https://t.me/AlphaZPlugins/2"
 _CHAT, _MSG_ID = None, None
 _LOGO_ID = None
 
@@ -81,7 +81,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 \n╰━─━─━─━─━─━─━─━─━─━╯"""
     if not message.client.is_bot:
         output += f"""\n
-🎖 **[🎖 GNU GPL v3.0]({versions.__license__})** | 👥 **[AlphaZ Plugins]({versions.__copyright__})** | 🧪 **[Repo]({Config.UPSTREAM_REPO})**
+🎖 **[🎖 GNU GPL v3.0]{versions.__license__}** | 👥 **[AlphaZ Plugins]{versions.__copyright__}** | 🧪 **[Repo]({Config.UPSTREAM_REPO})**
 """
     else:
         copy_ = "https://github.com/AftahBagas/AlphaZ-Plugins/blob/alpha/LICENSE"
