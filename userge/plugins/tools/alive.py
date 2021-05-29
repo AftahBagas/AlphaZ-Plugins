@@ -27,7 +27,7 @@ _LOG = logging.getLogger(__name__)
 _IS_TELEGRAPH = False
 _IS_STICKER = False
 
-_DEFAULT = "https://t.me/theUserge/31"
+_DEFAULT = "https://telegra.ph/file/839cf136567cbc1f372b5.jpg"
 _CHAT, _MSG_ID = None, None
 _LOGO_ID = None
 
@@ -73,7 +73,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 **❍ ⚙️ Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
 **❍ 🖐️ Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
     if Config.HEROKU_APP:
-        output += f"\n[• **🌐 Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
+        output += f"\n❍ **🌐 Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
     output += f"""
 **❍ 🚀 Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
   🐍**__Python__**: `{versions.__python_version__}`
@@ -92,7 +92,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
             ],
             [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
         ])
-    return (output, markup)
+    return output, markup
 
 
 def _parse_arg(arg: bool) -> str:
