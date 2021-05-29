@@ -57,7 +57,7 @@ async def antispam_(message: Message):
     allow_channels=False, allow_bots=False)
 async def gban_user(message: Message):
     """ ban a user globally """
-    await message.edit("`GBanning Jamet Kampang...`")
+    await message.edit("`GBanning Manusia Meresahkan...`")
     user_id, reason = message.extract_user_and_text
     if not user_id:
         await message.edit(
@@ -69,7 +69,7 @@ async def gban_user(message: Message):
     firstname = get_mem['fname']
     if not reason:
         await message.edit(
-            f"**#Syntax Ellol**\n\n**Gbanning Jamet Kampang!** of [{firstname}](tg://user?id={user_id}) "
+            f"**#Syntax Ellol**\n\n**Gbanning manusia meresahkan!** of [{firstname}](tg://user?id={user_id}) "
             "Syntax Ellol kasih alasan nya tolol!", del_in=5)
         return
     user_id = get_mem['id']
@@ -78,7 +78,7 @@ async def gban_user(message: Message):
         return
     if user_id in Config.SUDO_USERS:
         await message.edit(
-            "Dia adalah sudo users kampang, Tidak bisa banned dia.\n\n"
+            "Dia adalah sudo users AlphaZ Plugins, Tidak bisa banned dia.\n\n"
             "**Tip:** Kutuk dia jadi jamet dulu baru gban ulang. (¬_¬)", del_in=5)
         return
     found = await GBAN_USER_BASE.find_one({'user_id': user_id})
@@ -87,8 +87,8 @@ async def gban_user(message: Message):
             "**#Already_GBanned**\n\nUser Already Exists in My Gban List.\n"
             f"**Reason For GBan:** `{found['reason']}`", del_in=5)
         return
-    await message.edit(r"👑**GBanned By: KOALA 🐨**👑"
-                       f"\n\n**Nama Jamet:** [{firstname}](tg://user?id={user_id})\n"
+    await message.edit(r"😈**GBanned**😈"
+                       f"\n\n**Nama manusia meresahkan:** [{firstname}](tg://user?id={user_id})\n"
                        f"**User ID:** `{user_id}`\n**Alasan:** `{reason}`")
     # TODO: can we add something like "GBanned by {any_sudo_user_fname}"
     if message.client.is_bot:
@@ -101,8 +101,8 @@ async def gban_user(message: Message):
             await chat.kick_member(user_id)
             gbanned_chats.append(chat.id)
             await CHANNEL.log(
-                r"🐨**#Awas ada JAMET!**🐨"
-                f"\n**Nama Jamet:** [{firstname}](tg://user?id={user_id})\n"
+                r"😁**#Si Manusia Meresahkan!**😁"
+                f"\n**Nama:** [{firstname}](tg://user?id={user_id})\n"
                 f"**User ID:** `{user_id}`\n"
                 f"**Group:** {chat.title}\n"
                 f"**Group ID:** `{chat.id}`\n"
@@ -126,7 +126,7 @@ async def gban_user(message: Message):
     allow_channels=False, allow_bots=False)
 async def ungban_user(message: Message):
     """ unban a user globally """
-    await message.edit("`Koala🐨 Mengampunimu!...`")
+    await message.edit("`Saya Mengampunimu!...`")
     user_id, _ = message.extract_user_and_text
     if not user_id:
         await message.err("user-id not found")
@@ -143,14 +143,14 @@ async def ungban_user(message: Message):
             try:
                 await userge.unban_chat_member(chat_id, user_id)
                 await CHANNEL.log(
-                    r"👑**UnGbanned By: KOALA🐨**👑"
+                    r"😁**UnGbanned**😁"
                     f"\n**Nama Jamet:** [{firstname}](tg://user?id={user_id})\n"
                     f"**User ID:** `{user_id}`\n\n"
                     f"$UNGBAN #id{user_id}")
             except (ChatAdminRequired, UserAdminInvalid, ChannelInvalid):
                 pass
-    await message.edit(r"🐨**Mengampuni Jamet!**🐨"
-                       f"\n\n**Nama Jamet:** [{firstname}](tg://user?id={user_id})\n"
+    await message.edit(r"😁**Mengampuni manusia meresahkan!**😁"
+                       f"\n\n**Nama:** [{firstname}](tg://user?id={user_id})\n"
                        f"**User ID:** `{user_id}`")
     await GBAN_USER_BASE.delete_one({'firstname': firstname, 'user_id': user_id})
     LOG.info("UnGbanned %s", str(user_id))
