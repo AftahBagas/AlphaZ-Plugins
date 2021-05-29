@@ -22,14 +22,14 @@ from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified, Messa
 from userge import userge, Message, Config, get_collection
 
 _CATEGORY = {
-    'admin': '👑',
+    'admin': '👮',
     'fun': '🎨',
     'misc': '⚙️',
     'tools': '🧰',
     'utils': '🗂',
-    'unofficial': '🐨',
+    'unofficial': '😈',
     'temp': '♻️',
-    'plugins': '💎'
+    'plugins': '📂'
 }
 SAVED_SETTINGS = get_collection("CONFIGS")
 PRVT_MSGS = {}
@@ -129,7 +129,7 @@ if userge.has_bot:
             await callback_query.answer("you are in main menu", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = "🐨 **KampangUsergay Main Menu** 🐨"
+            text = "😈 **AlphaZ Plugins Main Menu** 😈"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -177,7 +177,7 @@ if userge.has_bot:
     @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
-            "🐨 **KampangUsergay Main Menu** 🐨", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
+            "😈 **AlphaZ Plugins Main Menu** 😈", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
 
     @userge.bot.on_callback_query(filters=filters.regex(pattern=r"^chgclnt$"))
     @check_owner
@@ -256,7 +256,7 @@ if userge.has_bot:
                 "⬅ Back", callback_data=f"back({cur_pos})".encode()))
             if len(cur_pos.split('|')) > 2:
                 tmp_btns.append(InlineKeyboardButton(
-                    "🐨 Main Menu", callback_data="mm".encode()))
+                    "😈 Main Menu", callback_data="mm".encode()))
                 tmp_btns.append(InlineKeyboardButton(
                     "🔄 Refresh", callback_data=f"refresh({cur_pos})".encode()))
         else:
@@ -351,21 +351,21 @@ if userge.has_bot:
                 id=uuid4(),
                 title="Repo",
                 input_message_content=InputTextMessageContent(
-                    "**Deploy UsergeKampang Asu** 🐨"
+                    "**Deploy AlphaZ Plugins** 😈"
                 ),
-                url="https://github.com/Camel07/UsergayKampang",
+                url="https://github.com/AftahBagas/AlphaZ-Plugins",
                 description="Setup Your Own",
                 thumb_url="https://imgur.com/download/Inyeb1S",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                "👑 KampangUsergay Repo",
-                                url="https://github.com/Camel07/UsergayKampang"),
+                                "👑 AlphaZ Plugins Repo",
+                                url="https://github.com/AftahBagas/AlphaZ-Plugins"),
                             InlineKeyboardButton(
-                                "🐨 Deploy KampangUsergay",
+                                "😈 Deploy AlphaZ Plugins",
                                 url=("https://heroku.com/deploy?template="
-                                     "https://github.com/Camel07/UsergayKampang/tree/alpha"))
+                                     "https://github.com/AftahBagas/AlphaZ-Plugins/tree/alpha"))
                         ]
                     ]
                 )
@@ -377,10 +377,10 @@ if userge.has_bot:
                     id=uuid4(),
                     title="Main Menu",
                     input_message_content=InputTextMessageContent(
-                        "🐨 **KampangUsergay Main Menu** 🐨"
+                        "😈 **AlphaZ Plugins Main Menu** 😈"
                     ),
-                    url="https://github.com/Camel07/UsergayKampang",
-                    description="Userge Main Menu",
+                    url="https://github.com/AftahBagas/AlphaZ-Plugins",
+                    description="AlphaZ Plugins Main Menu",
                     thumb_url="https://imgur.com/download/Inyeb1S",
                     reply_markup=InlineKeyboardMarkup(main_menu_buttons())
                 )
