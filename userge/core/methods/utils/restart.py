@@ -24,8 +24,8 @@ _LOG_STR = "<<<!  #####  %s  #####  !>>>"
 
 class Restart(RawClient):  # pylint: disable=missing-class-docstring
     async def restart(self, update_req: bool = False) -> None:  # pylint: disable=arguments-differ
-        """ Restart the AbstractUserge """
-        _LOG.info(_LOG_STR, "Restarting Userge")
+        """ Restart the Abstract AlphaZ Plugins """
+        _LOG.info(_LOG_STR, "Restarting AlphaZ Plugins")
         await self.stop()
         try:
             c_p = psutil.Process(os.getpid())
