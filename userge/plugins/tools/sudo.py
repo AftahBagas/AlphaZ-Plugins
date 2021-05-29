@@ -43,10 +43,10 @@ async def sudo_(message: Message):
 
 
 @userge.on_cmd("addsudo", about={
-    'header': "add sudo user",
+    'header': "tambahkan pengguna sudo",
     'usage': "{tr}addsudo [username | reply to msg]"}, allow_channels=False)
 async def add_sudo(message: Message):
-    """ add sudo user """
+    """ tambahkan pengguna sudo """
     user_id = message.input_str
     if message.reply_to_message:
         user_id = message.reply_to_message.from_user.id
@@ -61,7 +61,7 @@ async def add_sudo(message: Message):
         await message.err(p_e)
         return
     if user['id'] in Config.SUDO_USERS:
-        await message.edit(f"user : `{user['id']}` already in **SUDO**!", del_in=5)
+        await message.edit(f"user : `{user['id']}` sudah di **SUDO**!", del_in=5)
     else:
         Config.SUDO_USERS.add(user['id'])
         await asyncio.gather(
@@ -70,16 +70,16 @@ async def add_sudo(message: Message):
 
 
 @userge.on_cmd("delsudo", about={
-    'header': "delete sudo user",
+    'header': "hapus pengguna sudo",
     'flags': {'-all': "remove all sudo users"},
     'usage': "{tr}delsudo [user_id | reply to msg]\n{tr}delsudo -all"}, allow_channels=False)
 async def del_sudo(message: Message):
-    """ delete sudo user """
+    """ hapus pengguna sudo """
     if '-all' in message.flags:
         Config.SUDO_USERS.clear()
         await asyncio.gather(
             SUDO_USERS_COLLECTION.drop(),
-            message.edit("**SUDO** users cleared!", del_in=5))
+            message.edit("**SUDO** pengguna dihapus!", del_in=5))
         return
     user_id = message.filtered_input_str
     if message.reply_to_message:
@@ -101,21 +101,21 @@ async def del_sudo(message: Message):
             message.edit(f"user : `{user_id}` removed from **SUDO**!", del_in=5, log=__name__))
 
 
-@userge.on_cmd("vsudo", about={'header': "view sudo users"}, allow_channels=False)
+@userge.on_cmd("vsudo", about={'header': "lihat pengguna sudo"}, allow_channels=False)
 async def view_sudo(message: Message):
-    """ view sudo users """
+    """ lihat pengguna sudo """
     if not Config.SUDO_USERS:
-        await message.edit("**SUDO** users not found!", del_in=5)
+        await message.edit("**SUDO** pengguna tidak ditemukan!", del_in=5)
         return
     out_str = '🚷 **SUDO USERS Alpha-Z Plugins** 🚷\n\n'
     async for user in SUDO_USERS_COLLECTION.find():
-        out_str += f" 🙋‍♂️ {user['men']} 𝗜𝗗 `{user['_id']}`\n"
+        out_str += f" 🤵 {user['men']} 𝗜𝗗 `{user['_id']}`\n"
     await message.edit(out_str, del_in=0)
 
 
 @userge.on_cmd("addscmd", about={
-    'header': "add sudo command",
-    'flags': {'-all': "add all commands to sudo"},
+    'header': "tambahkan perintah sudo",
+    'flags': {'-all': "tambahkan semua perintah ke sudo"},
     'usage': "{tr}addscmd [command name]\n{tr}addscmd -all"}, allow_channels=False)
 async def add_sudo_cmd(message: Message):
     """ add sudo cmd """
@@ -150,8 +150,8 @@ async def add_sudo_cmd(message: Message):
 
 
 @userge.on_cmd("delscmd", about={
-    'header': "delete sudo commands",
-    'flags': {'-all': "remove all sudo commands"},
+    'header': "hapus perintah sudo",
+    'flags': {'-all': "hapus semua perintah sudo"},
     'usage': "{tr}delscmd [command name]\n{tr}delscmd -all"}, allow_channels=False)
 async def del_sudo_cmd(message: Message):
     """ delete sudo cmd """
@@ -174,13 +174,13 @@ async def del_sudo_cmd(message: Message):
             message.edit(f"cmd : `{cmd}` removed from **SUDO**!", del_in=5, log=__name__))
 
 
-@userge.on_cmd("vscmd", about={'header': "view sudo cmds"}, allow_channels=False)
+@userge.on_cmd("vscmd", about={'header': "lihat sudo cmds"}, allow_channels=False)
 async def view_sudo_cmd(message: Message):
-    """ view sudo cmds """
+    """ lihat sudo cmds """
     if not Config.ALLOWED_COMMANDS:
-        await message.edit("**SUDO** cmds not found!", del_in=5)
+        await message.edit("**SUDO** cmds tidak ditemukan!", del_in=5)
         return
-    out_str = f"⛔ **SUDO CMDS** ⛔\n\n**trigger** : `{Config.SUDO_TRIGGER}`\n\n"
+    out_str = f"⛔ **SUDO CMDS AlphaZ Plugins** ⛔\n\n**trigger** : `{Config.SUDO_TRIGGER}`\n\n"
     async for cmd in SUDO_CMDS_COLLECTION.find().sort('_id'):
         out_str += f"`{cmd['_id']}`  "
     await message.edit_or_send_as_file(out_str, del_in=0)
