@@ -20,12 +20,12 @@ NEKOBIN_URL = "https://nekobin.com/"
 
 
 @userge.on_cmd("paste", about={
-    'header': "Pastes text or text_file to dogbin",
-    'flags': {'-n': "use nekobin"},
+    'header': "Menempelkan teks atau file teks ke dogbin",
+    'flags': {'-n': "gunakan nekobin"},
     'usage': "{tr}paste [flags] [file_type] [text | reply to msg]",
     'examples': "{tr}paste -py import os"}, del_pre=True)
 async def paste_(message: Message) -> None:
-    """ pastes the text directly to dogbin or nekobin """
+    """ menempelkan teks langsung ke dogbin atau nekobin """
     await message.edit("`Processing...`")
     text = message.filtered_input_str
     replied = message.reply_to_message
@@ -40,7 +40,7 @@ async def paste_(message: Message) -> None:
     elif not text and replied and replied.text:
         text = replied.text
     if not text:
-        await message.err("input not found!")
+        await message.err("masukan tidak ditemukan!")
         return
     flags = list(message.flags)
     if 'n' in flags:
@@ -77,15 +77,15 @@ async def paste_(message: Message) -> None:
 
 
 @userge.on_cmd("getpaste", about={
-    'header': "Gets the content of a del.dog paste",
+    'header': "Mendapat konten pasta del.dog",
     'usage': "{tr}getpaste [del.dog or nekobin link]"})
 async def get_paste_(message: Message):
-    """ fetches the content of a dogbin or nekobin URL """
+    """ mengambil konten URL dogbin atau nekobin """
     link = message.input_str
     if not link:
-        await message.err("input not found!")
+        await message.err("masukan tidak ditemukan!")
         return
-    await message.edit("`Getting paste content...`")
+    await message.edit("`Mendapatkan konten tempel...`")
     format_view = f'{DOGBIN_URL}v/'
     if link.startswith(format_view):
         link = link[len(format_view):]
