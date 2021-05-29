@@ -81,7 +81,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 \n╰━─━─━─━─━─━─━─━─━─━╯"""
     if not message.client.is_bot:
         output += f"""\n
-🎖 **AlphaZ Plugins Userbot | 🧪 **[Repo AlphaZ Plugins]({Config.UPSTREAM_REPO})**
+🎖 **{versions.__license__}** | 👥 **{versions.__copyright__}** | 🧪 **[Repo]({Config.UPSTREAM_REPO})**
 """
     else:
         copy_ = "https://github.com/AftahBagas/AlphaZ-Plugins/blob/alpha/LICENSE"
