@@ -38,9 +38,9 @@ async def _init() -> None:
 
 
 @userge.on_cmd("afk", about={
-    'header': "Set to AFK mode",
-    'description': "Sets your status as AFK. Responds to anyone who tags/PM's.\n"
-                   "you telling you are AFK. Switches off AFK when you type back anything.",
+    'header': "Setel ke mode AFK",
+    'description': "Menyetel status Anda sebagai AFK. Merespon siapa saja yang menandai /PM.\n"
+                   "Anda mengatakan bahwa Anda AFK. Mematikan AFK saat Anda mengetik kembali apa pun.",
     'usage': "{tr}afk or {tr}afk [reason]"}, allow_channels=False)
 async def active_afk(message: Message) -> None:
     """ turn on or off afk mode """
@@ -151,9 +151,9 @@ async def handle_afk_outgoing(message: Message) -> None:
 
 
 AFK_REASONS = (
-    "Lagi Ngentot ASU!",
-    "BACOT BENER ASU DEH GATAU ORANG SIBUK,.: \
-`NYARI JANDAAA ASU`",
+    "Lagi Sibuk Gua!",
+    "Gua Lagi Afk Karen Sibuk,.: \
+`Tunggu Sampai Kembali Online`",
     "You missed me, next time aim better.",
     "I'll be back in a few minutes and if I'm not...,\nwait longer.",
     "I'm not here right now, so I'm probably somewhere else.",
