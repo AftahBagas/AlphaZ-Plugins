@@ -236,9 +236,11 @@ if userge.has_bot:
             pairs = pairs[current_page*rows:(current_page + 1)*rows] + [
                 [
                     InlineKeyboardButton(
-                        "⏪ Previous", callback_data=f"({cur_pos})prev({current_page})".encode()),
+                        "<- Previous", callback_data=f"({cur_pos})prev({current_page})".encode()),
                     InlineKeyboardButton(
-                        "⏩ Next", callback_data=f"({cur_pos})next({current_page})".encode())],
+                        "Close", b'close"
+                    InlineKeyboardButton(
+                        "Next ->", callback_data=f"({cur_pos})next({current_page})".encode())],
             ]
         pairs += default_buttons(cur_pos)
         return pairs
