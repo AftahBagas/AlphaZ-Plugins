@@ -17,9 +17,10 @@ async def see_repo(message: Message):
 
     __Durable as a Serge__
 
+    __The Userbot Plugins__
 • **AlphaZ Plugins Version** : `{get_version()}`
-• **Licence** : {versions.__license__}
+• **License** : {versions.__license__}
 • **Copyright** : {versions.__copyright__}
-• **Repo** : [AlphaZ Plugins]({Config.UPSTREAM_REPO})
+• **Repo Userbot** : [AlphaZ Plugins]({Config.UPSTREAM_REPO})
 """
     await message.edit(output)
