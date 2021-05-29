@@ -19,7 +19,7 @@ CHANNEL = userge.getCLogger(__name__)
 
 
 @userge.on_cmd("update", about={
-    'header': "Check Updates or Update KampangUsergay",
+    'header': "Check Updates or Update AlphaZ Plugins",
     'flags': {
         '-pull': "pull updates",
         '-push': "push updates to heroku",
