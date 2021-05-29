@@ -27,7 +27,7 @@ _LOG = logging.getLogger(__name__)
 _IS_TELEGRAPH = False
 _IS_STICKER = False
 
-_DEFAULT = "https://telegra.ph/file/839cf136567cbc1f372b5.jpg"
+_DEFAULT = "https://t.me/theUserge/31"
 _CHAT, _MSG_ID = None, None
 _LOGO_ID = None
 
