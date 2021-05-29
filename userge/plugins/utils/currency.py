@@ -18,16 +18,16 @@ LOG = userge.getLogger(__name__)
 
 
 @userge.on_cmd("cr", about={
-    'header': "use this to convert currency & get exchange rate",
-    'description': "Convert currency & get exchange rates.",
+    'header': "gunakan ini untuk mengonversi mata uang & mendapatkan nilai tukar",
+    'description': "Ubah mata uang & dapatkan nilai tukar.",
     'examples': "{tr}cr 1 BTC USD"})
 async def cur_conv(message: Message):
     """
-    this function can get exchange rate results
+    fungsi ini bisa mendapatkan hasil nilai tukar
     """
     if Config.CURRENCY_API is None:
         await message.edit(
-            "<code>Oops!!get the API from</code> "
+            "<code>Oops!!dapatkan API dari</code> "
             "<a href='https://free.currencyconverterapi.com'>HERE</a> "
             "<code>& add it to Heroku config vars</code> (<code>CURRENCY_API</code>)",
             disable_web_page_preview=True,
@@ -40,7 +40,7 @@ async def cur_conv(message: Message):
     if len(curcon) == 3:
         amount, currency_to, currency_from = curcon
     else:
-        await message.edit("`something went wrong!! do .help cr`")
+        await message.edit("`ada yang salah!! lakukan .help cr`")
         return
 
     if amount.isdigit():
@@ -53,16 +53,16 @@ async def cur_conv(message: Message):
             result = data[f'{currency_from}_{currency_to}']
         except KeyError:
             LOG.info(data)
-            await message.err("invalid response from api !")
+            await message.err("respon tidak valid dari api !")
             return
         result = float(amount) / float(result)
         result = round(result, 5)
         await message.edit(
-            "**CURRENCY EXCHANGE RATE RESULT:**\n\n"
+            "**HASIL NILAI TUKAR MATA UANG:**\n\n"
             f"`{amount}` **{currency_to}** = `{result}` **{currency_from}**")
-        await CHANNEL.log("`cr` command executed sucessfully")
+        await CHANNEL.log("`cr` perintah berhasil dijalankan")
 
     else:
         await message.edit(
-            r"`This seems to be some alien currency, which I can't convert right now.. (⊙_⊙;)`",
+            r"`Ini sepertinya mata uang asing, yang tidak dapat saya konversi sekarang.. (⊙_⊙;)`",
             del_in=0)
