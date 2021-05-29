@@ -32,7 +32,7 @@ CHANNEL = userge.getCLogger(__name__)
     'examples': "{tr}update -beta -pull -push"}, del_pre=True, allow_channels=False)
 async def check_update(message: Message):
     """ check or do updates """
-    await message.edit("`ada updatean ga yaaach 🐨`")
+    await message.edit("`ngecek updatan alphaz plugins`")
     flags = list(message.flags)
     pull_from_repo = False
     push_to_heroku = False
@@ -67,7 +67,7 @@ async def check_update(message: Message):
             change_log = f'**UPDATE BARU NIH ASU for [{branch}]:\n\n📄 CHANGELOG 📄**\n\n'
             await message.edit_or_send_as_file(change_log + out, disable_web_page_preview=True)
         else:
-            await message.edit(f'**KampangUsergay is up-to-date with [{branch}]**', del_in=5)
+            await message.edit(f'**AlphaZ-Plugins is up-to-date with [{branch}]**', del_in=5)
         return
     if pull_from_repo:
         if out:
@@ -75,7 +75,7 @@ async def check_update(message: Message):
             await _pull_from_repo(repo, branch)
             await CHANNEL.log(f"**PULLED update from [{branch}]:\n\n📄 CHANGELOG 📄**\n\n{out}")
             if not push_to_heroku:
-                await message.edit('**Userge Successfully Updated!**\n'
+                await message.edit('**AlphaZ Plugins Successfully Updated!**\n'
                                    '`Now restarting... Wait for a while!`', del_in=3)
                 asyncio.get_event_loop().create_task(userge.restart(True))
         elif push_to_heroku:
