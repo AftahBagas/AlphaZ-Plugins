@@ -40,7 +40,7 @@ async def _init() -> None:
 
 
 @userge.on_cmd(
-    "help", about={"header": "Guide to use AlphaZ-Plugins commands"}, allow_channels=False
+    "helpme", about={"header": "Guide to use AlphaZ-Plugins commands"}, allow_channels=False
 )
 async def helpme(
     message: Message,
