@@ -463,11 +463,15 @@ if userge.has_bot:
                     [
                         [
                             InlineKeyboardButton(
-                                "🧪 AlphaZ Plugins Repo",
+                                "🧪 Repo",
                                 url="https://github.com/AftahBagas/AlphaZ-Plugins",
                             ),
                             InlineKeyboardButton(
-                                "😈 Deploy AlphaZ Plugins",
+                                "🤵 Owner",
+                                url="https://t.me/kanjengingsun",
+                            ),
+                            InlineKeyboardButton(
+                                "😈 Deploy",
                                 url="https://github.com/AftahBagas/Zpack/tree/deploy",
                             ),
                         ]
