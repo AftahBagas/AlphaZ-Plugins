@@ -12,11 +12,11 @@ from userge import userge, Message
 
 
 @userge.on_cmd("head", about={
-    'header': "View headers in URL",
+    'header': "Lihat header di URL",
     'flags': {
-        '-r': "allow redirects",
-        '-s': "allow streams",
-        '-t': "request timeout"},
+        '-r': "izinkan pengalihan",
+        '-s': "izinkan aliran",
+        '-t': "meminta waktu tunggu"},
     'usage': "{tr}head [flags] [url]",
     'examples': "{tr}head -r -s -t5 https://www.google.com"})
 async def req_head(message: Message):
@@ -27,7 +27,7 @@ async def req_head(message: Message):
     stm = '-s' in flags
     tout = int(flags.get('-t', 3))
     if not link:
-        await message.err(text="Please give me a link link!")
+        await message.err(text="Tolong beri saya tautan tautan!")
         return
     try:
         cd = requests.head(url=link,
