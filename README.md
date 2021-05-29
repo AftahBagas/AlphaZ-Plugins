@@ -1,17 +1,17 @@
 <h2 align="center"><b>MENAGE: <a href="https://telegram.dog/kanjengingsun">Alfareza</a></b></h2>
 <br>
 <p align="center">
-   <a href="https://github.com/AftahBagas/Alpha-Z"><img src="https://telegra.ph/file/b8c4935a277592df59ac9.jpg" alt="Alpha-z" width=400px></a>
+   <a href="https://github.com/AftahBagas/AlphaZ-Plugins"><img src="https://telegra.ph/file/c20bceefd914d28c32625.jpg" alt="AlphaZ-Plugins" width=400px></a>
    <br>
    <br>
 </p>
-<h1>Alpha-Z</h1>
+<h1>AlphaZ-Plugins</h1>
 <b>Userbot Plugins!</b>
 <br>
 <br>
 
 
-**Alpha-Z Plugins** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
+**AlphaZ Plugins** is a Powerful , _Pluggable_ Telegram UserBot written in _Python_ using [Pyrogram](https://github.com/pyrogram/pyrogram).
 <br>
 <p align="center">
     <a href="https://telegram.dog/teamsquaduserbotsupport"><Support
