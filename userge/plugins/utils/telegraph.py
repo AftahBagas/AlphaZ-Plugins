@@ -48,6 +48,6 @@ async def telegraph_(message: Message):
     except Exception as t_e:
         await message.err(t_e)
     else:
-        await message.edit(f"**[Here Your Telegra.ph Link!](https://telegra.ph{response[0]})**")
+        await message.edit(f"**[Telegraph Link By AlphaZ Plugins](https://telegra.ph{response[0]})**")
     finally:
         os.remove(dl_loc)
