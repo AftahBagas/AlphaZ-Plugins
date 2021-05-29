@@ -87,14 +87,14 @@ if userge.has_bot:
                 try:
                     await func(c_q)
                 except MessageNotModified:
-                    await c_q.answer("Nothing Found to Refresh 🤷‍♂️", show_alert=True)
+                    await c_q.answer("Tidak Ada yang Dapat Disegarkan 🤷‍♂️", show_alert=True)
                 except MessageIdInvalid:
                     await c_q.answer("Sorry, I Don't Have Permissions to edit this 😔",
                                      show_alert=True)
             else:
                 user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"Only {user_dict['flname']} Can Access this...! Build Your Own @TheUserge 🤘",
+                    f"Hanya {user_dict['flname']} Dapat mengakses ini...! Bangun Sendiri @TeamSquadUserbotSupport 🤘",
                     show_alert=True)
         return wrapper
 
@@ -125,7 +125,7 @@ if userge.has_bot:
         cur_pos = str(callback_query.matches[0].group(1))
         pos_list = cur_pos.split('|')
         if len(pos_list) == 1:
-            await callback_query.answer("you are in main menu", show_alert=True)
+            await callback_query.answer("Anda berada di menu utama", show_alert=True)
             return
         if len(pos_list) == 2:
             text = "😈 **AlphaZ Plugins Main Menu** 😈"
@@ -214,7 +214,7 @@ if userge.has_bot:
             await c_q.answer(msg, show_alert=True)
         else:
             await c_q.answer(
-                f"Only {flname} can see this Private Msg... 😔", show_alert=True)
+                f"Hanya {flname} dapat melihat Pesan Pribadi ini... 😔", show_alert=True)
 
     def is_filter(name: str) -> bool:
         split_ = name.split('.')
@@ -352,16 +352,19 @@ if userge.has_bot:
                     "**Deploy AlphaZ Plugins** 😈"
                 ),
                 url="https://github.com/AftahBagas/AlphaZ-Plugins",
-                description="Setup Your Own",
-                thumb_url="https://imgur.com/download/Inyeb1S",
+                description="Siapkan Milik Anda",
+                thumb_url="https://t.me/AlphaZPlugins/2",
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
                             InlineKeyboardButton(
-                                "👑 AlphaZ Plugins Repo",
+                                "👑 Repo",
                                 url="https://github.com/AftahBagas/AlphaZ-Plugins"),
                             InlineKeyboardButton(
-                                "😈 Deploy AlphaZ Plugins",
+                                "🤵 Owner",
+                                url="https://t.me/kanjengingsun"),
+                            InlineKeyboardButton(
+                                "😈 Deploy",
                                 url=("https://heroku.com/deploy?template="
                                      "https://github.com/AftahBagas/AlphaZ-Plugins/tree/alpha"))
                         ]
@@ -379,7 +382,7 @@ if userge.has_bot:
                     ),
                     url="https://github.com/AftahBagas/AlphaZ-Plugins",
                     description="AlphaZ Plugins Main Menu",
-                    thumb_url="https://imgur.com/download/Inyeb1S",
+                    thumb_url="https://t.me/AlphaZPlugins/2",
                     reply_markup=InlineKeyboardMarkup(main_menu_buttons())
                 )
             )
@@ -426,7 +429,7 @@ if userge.has_bot:
                         title="Pm Permit",
                         input_message_content=InputTextMessageContent(text),
                         description="Inline Pm Permit Handler",
-                        thumb_url="https://imgur.com/download/Inyeb1S",
+                        thumb_url="https://t.me/AlphaZPlugins/2",
                         reply_markup=InlineKeyboardMarkup(buttons)
                     )
                 )
