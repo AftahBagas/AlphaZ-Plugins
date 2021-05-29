@@ -18,9 +18,9 @@ trap handleSigInt INT
 initUserge() {
     printLogo
     assertPrerequisites
-    sendMessage "Initializing Userge ..."
+    sendMessage "Initializing AlphaZ Plugins ..."
     assertEnvironment
-    editLastMessage "Starting Userge ..."
+    editLastMessage "Starting AlphaZ Plugins ..."
     printLine
 }
 
@@ -30,7 +30,7 @@ startUserge() {
 }
 
 stopUserge() {
-    sendMessage "Exiting Userge ..."
+    sendMessage "Exiting AlphaZ Plugins ..."
     endLogBotPolling
     exit 0
 }
