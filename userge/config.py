@@ -26,7 +26,7 @@ logbot.reply_last_msg("Setting Configs ...")
 
 
 class Config:
-    """ Configs to setup Userge """
+    """ Configs to setup AlphaZ-Plugins """
     API_ID = int(os.environ.get("API_ID"))
     API_HASH = os.environ.get("API_HASH")
     WORKERS = int(os.environ.get("WORKERS")) or os.cpu_count() + 4
