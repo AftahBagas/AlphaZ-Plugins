@@ -51,7 +51,7 @@ _checkDefaultVars() {
         [PREFERRED_LANGUAGE]="en"
         [DOWN_PATH]="downloads"
         [UPSTREAM_REMOTE]="upstream"
-        [UPSTREAM_REPO]="https://github.com/UsergeTeam/Userge"
+        [UPSTREAM_REPO]="https://github.com/AftahBagas/AlphaZ-Plugins"
         [LOAD_UNOFFICIAL_PLUGINS]=false
         [G_DRIVE_IS_TD]=true
         [CMD_TRIGGER]="."
@@ -166,7 +166,7 @@ _checkUnoffPlugins() {
     if test $LOAD_UNOFFICIAL_PLUGINS = true; then
         editLastMessage "\tLoading UnOfficial Plugins ..."
         replyLastMessage "\t\tClonning ..."
-        gitClone --depth=1 https://github.com/UsergeTeam/Userge-Plugins.git
+        gitClone --depth=1 https://github.com/AftahBagas/Alpha-Plugins.git
         editLastMessage "\t\tUpgrading PIP ..."
         upgradePip
         editLastMessage "\t\tInstalling Requirements ..."
