@@ -128,7 +128,7 @@ if userge.has_bot:
             await callback_query.answer("Anda berada di menu utama", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = "😈 **┃MENU HELP AlphaZ Plugins┃** 😈"
+            text = "⚡ **《MENU HELP AlphaZ Plugins》** ⚡"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -176,7 +176,7 @@ if userge.has_bot:
     @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
-            "😈 **┃MENU HELP AlphaZ Plugins┃** 😈", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
+            "⚡ **《MENU HELP AlphaZ Plugins》** ⚡", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
 
     @userge.bot.on_callback_query(filters=filters.regex(pattern=r"^chgclnt$"))
     @check_owner
@@ -378,7 +378,7 @@ if userge.has_bot:
                     id=uuid4(),
                     title="Main Menu",
                     input_message_content=InputTextMessageContent(
-                        "😈 **┃MENU HELP AlphaZ Plugins┃** 😈"
+                        "⚡ **《MENU HELP AlphaZ Plugins》** ⚡"
                     ),
                     url="https://github.com/AftahBagas/AlphaZ-Plugins",
                     description="AlphaZ Plugins Main Menu",
