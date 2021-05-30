@@ -60,7 +60,6 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 ╭━─━─━─━─≪✠≫─━─━─━─━╮\n
 **❍ ⏱️ uptime** : `{userge.uptime}`
 **❍ 🧪 version** : `{get_version()}`
-**❍ 😈 Mode** : `{_get_mode().upper()}`
 **❍ 👥 Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
 **❍ ⚙️ Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
 **❍ 🖐️ Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
