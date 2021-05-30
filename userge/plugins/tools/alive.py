@@ -18,7 +18,7 @@ from pyrogram.errors import (
     FileIdInvalid, FileReferenceEmpty, BadRequest, ChannelInvalid, MediaEmpty
 )
 
-from userge.core.ext import RawClient
+from userge.core.ext import pool
 from userge.utils import get_file_id_of_media
 from userge import userge, Message, Config, versions, get_version, logging
 
@@ -55,7 +55,7 @@ async def alive(message: Message):
 
 
 def _get_mode() -> str:
-    if RawClient.DUAL_MODE:
+    if userge.dual_mode:
         return "Dual"
     if Config.BOT_TOKEN:
         return "Bot"
@@ -95,7 +95,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 
 
 def _parse_arg(arg: bool) -> str:
-    return "ON✅" if arg else "OFF❌"
+    return "enabled" if arg else "disabled"
 
 
 async def _send_alive(message: Message,
@@ -178,7 +178,7 @@ def _set_data(errored: bool = False) -> None:
 async def _send_telegraph(msg: Message, text: str, reply_markup: Optional[InlineKeyboardMarkup]):
     path = os.path.join(Config.DOWN_PATH, os.path.split(Config.ALIVE_MEDIA)[1])
     if not os.path.exists(path):
-        wget.download(Config.ALIVE_MEDIA, path)
+        await pool.run_in_thread(wget.download)(Config.ALIVE_MEDIA, path)
     if path.lower().endswith((".jpg", ".jpeg", ".png", ".bmp")):
         await msg.client.send_photo(
             chat_id=msg.chat.id,
