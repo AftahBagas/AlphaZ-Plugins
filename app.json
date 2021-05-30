@@ -1,16 +1,16 @@
 {
-    "name": "KampangUsergay",
-    "description": "telegram pluggable userbot",
-    "logo": "https://telegra.ph/file/a5f7caf7a0ab68bb6aaa8.jpg",
+    "name": "AlphaZ Plugins",
+    "description": "telegram userbot plugins",
+    "logo": "https://telegra.ph/file/839cf136567cbc1f372b5.jpg",
     "keywords": [
         "userge",
         "telegram",
         "pluggable",
         "userbot"
     ],
-    "repository": "https://github.com/Camel07/UsergayKampang",
-    "website": "https://github.com/Camel07",
-    "success_url": "https://t.me/mixiologist",
+    "repository": "https://github.com/AftahBagas/AlphaZ-Plugins",
+    "website": "https://github.com/AftahBagas",
+    "success_url": "https://t.me/kanjengingsun",
     "env": {
         "API_ID": {"description": "Get this value from https://my.telegram.org"},
         "API_HASH": {"description": "Get this value from https://my.telegram.org"},
@@ -37,8 +37,8 @@
         {"url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"},
         {"url": "https://github.com/HasibulKabir/heroku-buildpack-rarlab.git"},
         {"url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"},
-        {"url": "https://github.com/rking32/heroku-buildpack-google-chrome"},
-        {"url": "https://github.com/rking32/heroku-buildpack-chromedriver"},
+        {"url": "https://github.com/AftahBagas/heroku-buildpack-google-chrome"},
+        {"url": "https://github.com/AftahBagas/heroku-buildpack-chromedriver"},
         {"url": "https://github.com/chrismytton/heroku-buildpack-jq.git"},
         {"url": "https://github.com/heroku/heroku-buildpack-apt.git"},
         {"url": "heroku/python"}
