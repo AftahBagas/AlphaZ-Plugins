@@ -48,7 +48,7 @@ async def check_update(message: Message):
         flags.remove("push")
     if len(flags) == 1:
         branch = flags[0]
-        dev_branch = "alpha"
+        dev_branch = "beta"
         if branch == dev_branch:
             await message.err('Can\'t update to unstable [alpha] branch. '
                               'Please use other branches instead !')
