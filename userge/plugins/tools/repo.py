@@ -13,7 +13,7 @@ from userge import userge, Message, Config, versions, get_version
 async def see_repo(message: Message):
     """see repo"""
     output = f"""
-__Repu Userbot__ 😈 **Alpha Z Plugins** 😈
+__Repo Userbot__ 😈 **Alpha Z Plugins** 😈
 
     __Tahan lama sebagai seorang Serge__
 
