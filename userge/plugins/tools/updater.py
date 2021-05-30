@@ -64,7 +64,7 @@ async def check_update(message: Message):
         return
     if not (pull_from_repo or push_to_heroku):
         if out:
-            change_log = f'**UPDATE BARU NIH ASU for [{branch}]:\n\n📄 CHANGELOG 📄**\n\n'
+            change_log = f'**UPDATE BARU Ni YA TOLOL for [{branch}]:\n\n📄 CHANGELOG 📄**\n\n'
             await message.edit_or_send_as_file(change_log + out, disable_web_page_preview=True)
         else:
             await message.edit(f'__AlphaZ-Plugins is up-to-date with [{branch}]__', del_in=5)
