@@ -31,4 +31,4 @@ async def pingme(message: Message):
         await message.edit('`Alpha😈!`')
         end = datetime.now()
         m_s = (end - start).microseconds / 1000
-        await message.edit(f"**Alpha 😈!**\n**Pong!!** `{m_s} ms`\n**Uptime** `{uptime}`")
+        await message.edit(f"**Alpha 😈!**\n**Pong!!** `{m_s} ms`\n**Uptime** : {uptime}" % (duration)`")
