@@ -32,7 +32,7 @@ CHANNEL = userge.getCLogger(__name__)
     'examples': "{tr}update -beta -pull -push"}, del_pre=True, allow_channels=False)
 async def check_update(message: Message):
     """ check or do updates """
-    await message.edit("`ngecek updatan AlphaZ Plugins 😈`")
+    await message.edit("`update AlphaZ Plugins 😈`")
     flags = list(message.flags)
     pull_from_repo = False
     push_to_heroku = False
@@ -67,7 +67,7 @@ async def check_update(message: Message):
             change_log = f'**UPDATE BARU NIH ASU for [{branch}]:\n\n📄 CHANGELOG 📄**\n\n'
             await message.edit_or_send_as_file(change_log + out, disable_web_page_preview=True)
         else:
-            await message.edit(f'**AlphaZ-Plugins is up-to-date with [{branch}]**', del_in=5)
+            await message.edit(f'__AlphaZ-Plugins is up-to-date with [{branch}]__', del_in=5)
         return
     if pull_from_repo:
         if out:
@@ -75,7 +75,7 @@ async def check_update(message: Message):
             await _pull_from_repo(repo, branch)
             await CHANNEL.log(f"**PULLED update from [{branch}]:\n\n📄 CHANGELOG 📄**\n\n{out}")
             if not push_to_heroku:
-                await message.edit('**AlphaZ Plugins Successfully Updated!**\n'
+                await message.edit('__AlphaZ Plugins Successfully Updated!__\n'
                                    '`Now restarting... Wait for a while!`', del_in=3)
                 asyncio.get_event_loop().create_task(userge.restart(True))
         elif push_to_heroku:
@@ -100,7 +100,7 @@ def _get_updates(repo: Repo, branch: str) -> str:
     out = ''
     upst = Config.UPSTREAM_REPO.rstrip('/')
     for i in repo.iter_commits(f'HEAD..{Config.UPSTREAM_REMOTE}/{branch}'):
-        out += f"🔨 **#{i.count()}** : [{i.summary}]({upst}/commit/{i}) 🐨 __{i.author}__\n\n"
+        out += f"🔨 **#{i.count()}** : [{i.summary}]({upst}/commit/{i}) 😈 __{i.author}__\n\n"
     return out
 
 
@@ -115,7 +115,7 @@ async def _push_to_heroku(msg: Message, repo: Repo, branch: str) -> None:
     sent = await msg.edit(
         f'`Sedang mengupdate sekarang [{branch}] ke heroku...\n'
         'tunggu 5 min dulu ya`\n\n'
-        f'* **Restart** sabar kontolllll `{Config.CMD_TRIGGER}restart -h`\n\n'
+        f'* **Restart** sabar ya tolol 😈 `{Config.CMD_TRIGGER}restart -h`\n\n'
         '* tunggu setelah AlphaZ Plugins Sukses ter update, lalu cek update kembali :)')
     try:
         await _heroku_helper(sent, repo, branch)
