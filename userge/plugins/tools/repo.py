@@ -13,9 +13,9 @@ from userge import userge, Message, Config, versions, get_version
 async def see_repo(message: Message):
     """see repo"""
     output = f"""
-__AlphaZ Plugins__ 😈 **The Userbot Plugins** 😈
+__Repu Userbot__ 😈 **Alpha Z Plugins** 😈
 
-    __Durable as a Serge__
+    __Tahan lama sebagai seorang Serge__
 
     __The Userbot Plugins__
 • **Version** : `{get_version()}`
