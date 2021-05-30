@@ -61,7 +61,7 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
                 and (len(plugins[key].enabled_commands) > 1
                      or plugins[key].enabled_commands[0].name.lstrip(Config.CMD_TRIGGER) != key)):
             commands = plugins[key].enabled_commands
-            out_str = f"""⚔ <b><u>(<code>{len(commands)}</code>) Command(s) Available</u></b>
+            out_str = f"""CMD <b><u>(<code>{len(commands)}</code>) Command(s) Available</u></b>
 🔧 <b>Plugin:</b>  <code>{key}</code>
 📘 <b>Doc:</b>  <code>{plugins[key].doc}</code>\n\n"""
             for i, cmd in enumerate(commands, start=1):
@@ -94,7 +94,7 @@ if userge.has_bot:
             else:
                 user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"Hanya {user_dict['flname']} Dapat mengakses ini...! Bangun Sendiri @TeamSquadUserbotSupport 🤘",
+                    f"Hanya {user_dict['flname']} Dapat mengakses ini...! Buat Sendiri @TeamSquadUserbotSupport 🤘",
                     show_alert=True)
         return wrapper
 
@@ -108,11 +108,11 @@ if userge.has_bot:
         pos_list = cur_pos.split('|')
         if len(pos_list) == 1:
             buttons = parse_buttons(p_num, cur_pos,
-                                    lambda x: f"{_CATEGORY.get(x, '📁')} {x}",
+                                    lambda x: f"{_CATEGORY.get(x, '📂')} {x}",
                                     userge.manager.get_all_plugins())
         elif len(pos_list) == 2:
             buttons = parse_buttons(p_num, cur_pos,
-                                    lambda x: f"🗃 {x}",
+                                    lambda x: f"🗂️ {x}",
                                     userge.manager.get_all_plugins()[pos_list[-1]])
         elif len(pos_list) == 3:
             _, buttons = plugin_data(cur_pos, p_num)
