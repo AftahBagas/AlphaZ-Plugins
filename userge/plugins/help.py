@@ -94,7 +94,7 @@ if userge.has_bot:
             else:
                 user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
-                    f"Hanya {user_dict['flname']} Dapat mengakses ini...! Buat Sendiri @TeamSquadUserbotSupport 🤘",
+                    f"Hanya {user_dict['flname']} Dapat mengakses ini...! Buat Sendiri Di @TeamSquadUserbotSupport 🤘",
                     show_alert=True)
         return wrapper
 
@@ -128,7 +128,7 @@ if userge.has_bot:
             await callback_query.answer("Anda berada di menu utama", show_alert=True)
             return
         if len(pos_list) == 2:
-            text = "⚡ **《MENU HELP AlphaZ Plugins》** ⚡"
+            text = "**《MENU HELP》\n➥ AlphaZ Plugins**"
             buttons = main_menu_buttons()
         elif len(pos_list) == 3:
             text, buttons = category_data(cur_pos)
@@ -176,7 +176,7 @@ if userge.has_bot:
     @check_owner
     async def callback_mm(callback_query: CallbackQuery):
         await callback_query.edit_message_text(
-            "⚡ **《MENU HELP AlphaZ Plugins》** ⚡", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
+            "**《MENU HELP》\n➥ AlphaZ Plugins**", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
 
     @userge.bot.on_callback_query(filters=filters.regex(pattern=r"^chgclnt$"))
     @check_owner
@@ -236,9 +236,9 @@ if userge.has_bot:
             pairs = pairs[current_page*rows:(current_page + 1)*rows] + [
                 [
                     InlineKeyboardButton(
-                        "◀ Previous", callback_data=f"({cur_pos})prev({current_page})".encode()),
+                        "< Previous", callback_data=f"({cur_pos})prev({current_page})".encode()),
                     InlineKeyboardButton(
-                        "Next ▶", callback_data=f"({cur_pos})next({current_page})".encode())],
+                        "Next >", callback_data=f"({cur_pos})next({current_page})".encode())],
             ]
         pairs += default_buttons(cur_pos)
         return pairs
@@ -378,7 +378,7 @@ if userge.has_bot:
                     id=uuid4(),
                     title="Main Menu",
                     input_message_content=InputTextMessageContent(
-                        "⚡ **《MENU HELP AlphaZ Plugins》** ⚡"
+                        "**《MENU HELP》\n➥ AlphaZ Plugins》**"
                     ),
                     url="https://github.com/AftahBagas/AlphaZ-Plugins",
                     description="AlphaZ Plugins Main Menu",
