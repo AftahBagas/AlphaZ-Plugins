@@ -60,6 +60,8 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 ╭━─━─━─━─≪✠≫─━─━─━─━╮\n
 **❍ ⏱️ uptime** : `{userge.uptime}`
 **❍ 🧪 version** : `{get_version()}`
+**❍ 😈 Logo** : `DUAL`
+
 **❍ 👥 Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
 **❍ ⚙️ Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
 **❍ 🖐️ Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
@@ -67,6 +69,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
         output += f"\n❍ **🌐 Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
     output += f"""
 **❍ 🚀 Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
+
   🐍**__Python__**: `{versions.__python_version__}`
   💻**__Pyrogram__**: `{versions.__pyro_version__}`
 \n╰━─━─━─━─━─━─━─━─━─━╯"""
