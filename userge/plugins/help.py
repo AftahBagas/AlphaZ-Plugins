@@ -261,7 +261,7 @@ if userge.has_bot:
         else:
             cur_clnt = "👲 USER" if Config.USE_USER_FOR_CLIENT_CHECKS else "🤖 BOT"
             tmp_btns.append(InlineKeyboardButton(
-                f"🔩 Client for Checks and Sudos : {cur_clnt}", callback_data="chgclnt".encode()))
+                f"⚙️ Klien untuk Cek dan Sudos : {cur_clnt}", callback_data="chgclnt".encode()))
         return [tmp_btns]
 
     def category_data(cur_pos: str):
@@ -366,7 +366,7 @@ if userge.has_bot:
                             InlineKeyboardButton(
                                 "😈 Deploy",
                                 url=("https://heroku.com/deploy?template="
-                                     "https://github.com/AftahBagas/AlphaZ-Plugins/tree/alpha"))
+                                     "https://github.com/AftahBagas/Zpack/tree/deploy"))
                         ]
                     ]
                 )
