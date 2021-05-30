@@ -1,11 +1,3 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
-
 import re
 import os
 import asyncio
@@ -18,7 +10,7 @@ from pyrogram.errors import (
     FileIdInvalid, FileReferenceEmpty, BadRequest, ChannelInvalid, MediaEmpty
 )
 
-from userge.core.ext import pool
+from userge.core.ext import RawClient
 from userge.utils import get_file_id_of_media
 from userge import userge, Message, Config, versions, get_version, logging
 
@@ -55,7 +47,7 @@ async def alive(message: Message):
 
 
 def _get_mode() -> str:
-    if userge.dual_mode:
+    if RawClient.DUAL_MODE:
         return "Dual"
     if Config.BOT_TOKEN:
         return "Bot"
@@ -66,6 +58,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
     markup = None
     output = f"""**Alpha Z Plugins Is Running 🔥!..**\n
 ╭━─━─━─━─≪✠≫─━─━─━─━╮\n
+**❍ ⏱️ uptime** : `{userge.uptime}`
 **❍ 🧪 version** : `{get_version()}`
 **❍ 😈 Mode** : `{_get_mode().upper()}`
 **❍ 👥 Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
@@ -80,7 +73,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 \n╰━─━─━─━─━─━─━─━─━─━╯"""
     if not message.client.is_bot:
         output += f"""\n
-🎖 **{versions.__license__}** | 🤖 **{versions.__copyright__}** | 🔮 **[Repo]({Config.UPSTREAM_REPO})**
+🎖 **{versions.__license__}** | 😈 **{versions.__copyright__}** | 🔮 **[Repo]({Config.UPSTREAM_REPO})**
 """
     else:
         copy_ = "https://github.com/AftahBagas/AlphaZ-Plugins/blob/alpha/LICENSE"
@@ -95,7 +88,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 
 
 def _parse_arg(arg: bool) -> str:
-    return "enabled" if arg else "disabled"
+    return "ON✅" if arg else "OFF❌"
 
 
 async def _send_alive(message: Message,
@@ -178,7 +171,7 @@ def _set_data(errored: bool = False) -> None:
 async def _send_telegraph(msg: Message, text: str, reply_markup: Optional[InlineKeyboardMarkup]):
     path = os.path.join(Config.DOWN_PATH, os.path.split(Config.ALIVE_MEDIA)[1])
     if not os.path.exists(path):
-        await pool.run_in_thread(wget.download)(Config.ALIVE_MEDIA, path)
+        wget.download(Config.ALIVE_MEDIA, path)
     if path.lower().endswith((".jpg", ".jpeg", ".png", ".bmp")):
         await msg.client.send_photo(
             chat_id=msg.chat.id,
