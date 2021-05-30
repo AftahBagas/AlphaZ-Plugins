@@ -378,7 +378,7 @@ if userge.has_bot:
                     id=uuid4(),
                     title="Main Menu",
                     input_message_content=InputTextMessageContent(
-                        "**《MENU HELP》\n➥ AlphaZ Plugins》**"
+                        "**《MENU HELP》\n➥ AlphaZ Plugins**"
                     ),
                     url="https://github.com/AftahBagas/AlphaZ-Plugins",
                     description="AlphaZ Plugins Main Menu",
