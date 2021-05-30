@@ -158,4 +158,4 @@ async def test_filter(message: Message):
 * [Uniborg](https://github.com/SpEcHiDe/UniBorg)
 * [UsergeTeam](https://github.com/UsergeTeam/Userge)
 ### Copyright & License 
-[**GNU General Public License v3.0**](https://github.com/ManusiaRakitan/KampangUsergay/blob/alpha/LICENSE)
+[**GNU General Public License v3.0**](https://github.com/AftahBagas/AlphaZ-Plugins/blob/alpha/LICENSE)
