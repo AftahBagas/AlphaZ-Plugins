@@ -1,7 +1,7 @@
 <h2 align="center"><b>MENAGE: <a href="https://telegram.dog/kanjengingsun">Alfareza</a></b></h2>
 <br>
 <p align="center">
-   <a href="https://github.com/AftahBagas/AlphaZ-Plugins"><img src="https://t.me/AlphaZPlugins/2" alt="AlphaZ-Plugins" width=400px></a>
+   <a href="https://github.com/AftahBagas/AlphaZ-Plugins"><img src="https://telegra.ph/file/6c2f9da7d5329ab9395d3.jpg" alt="AlphaZ-Plugins" width=400px></a>
    <br>
    <br>
 </p>
