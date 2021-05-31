@@ -115,8 +115,8 @@ async def _push_to_heroku(msg: Message, repo: Repo, branch: str) -> None:
     sent = await msg.edit(
         f'`Sedang mengupdate sekarang [{branch}] ke heroku...\n'
         'tunggu 5 min dulu ya`\n\n'
-        f'* **Restart** sabar ya tolol 😈 `{Config.CMD_TRIGGER}restart -h`\n\n'
-        '* tunggu setelah AlphaZ Plugins Sukses ter update, lalu cek update kembali :)')
+        f'➥ **Restart** sabar ya tolol 😈 `{Config.CMD_TRIGGER}restart -h`\n\n'
+        '➥ tunggu setelah **AlphaZ Plugins** Sukses ter update, lalu cek update kembali **㋡**')
     try:
         await _heroku_helper(sent, repo, branch)
     except GitCommandError as g_e:
