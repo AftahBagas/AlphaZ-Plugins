@@ -49,8 +49,8 @@ async def active_afk(message: Message) -> None:
     TIME = time.time()
     REASON = message.input_str
     await asyncio.gather(
-        CHANNEL.log(f"Gua Lagi Sibuk! : `{REASON}`"),
-        message.edit("`Gua Lagi Sibuk!`", del_in=1),
+        CHANNEL.log(f"AFK, Gua Lagi Sibuk! : `{REASON}`"),
+        message.edit("`AFK, Gua Lagi Sibuk!`"),
         AFK_COLLECTION.drop(),
         SAVED_SETTINGS.update_one(
             {'_id': 'AFK'}, {"$set": {'on': True, 'data': REASON, 'time': TIME}}, upsert=True))
