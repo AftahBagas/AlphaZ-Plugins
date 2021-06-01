@@ -1,20 +1,14 @@
 """ setup filters """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import asyncio
 from typing import Dict
 
-from userge import userge, Message, filters, get_collection
+from alphaz import alphaz, Message, filters, get_collection
 
 FILTERS_COLLECTION = get_collection("filters")
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 FILTERS_DATA: Dict[int, Dict[str, int]] = {}
 FILTERS_CHATS = filters.create(lambda _, __, query: query.chat and query.chat.id in FILTERS_DATA)
@@ -59,7 +53,7 @@ async def _init() -> None:
         _filter_updater(flt['chat_id'], flt['name'], flt['mid'])
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "filters", about={
         'header': "List all saved filters in current chat",
         'flags': {'-all': "List all saved filters in every chats"}},
@@ -85,7 +79,7 @@ async def filters_active(message: Message) -> None:
         await message.err("There are no saved filters in this chat")
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "delfilter", about={
         'header': "Deletes a filter by name",
         'flags': {
@@ -122,7 +116,7 @@ async def delete_filters(message: Message) -> None:
     await message.edit(text=out, del_in=3)
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     r"addfilter ([^\s\|][^\|]*)(?:\s?\|\s?([\s\S]+))?", about={
         'header': "Adds a filter by name",
         'options': {
@@ -167,7 +161,7 @@ async def add_filter(message: Message) -> None:
     await message.edit(text=out, del_in=3, log=__name__)
 
 
-@userge.on_filters(~filters.me & ~filters.edited & FILTERS_CHATS, group=1)
+@alphaz.on_filters(~filters.me & ~filters.edited & FILTERS_CHATS, group=1)
 async def chat_filter(message: Message) -> None:
     """ filter handler """
     if not message.from_user:
