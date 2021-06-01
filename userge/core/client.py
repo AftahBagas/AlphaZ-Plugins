@@ -196,7 +196,7 @@ class Alphaz(_AbstractUserge):
                 _LOG.info(_LOG_STR, f"Running Coroutine - {mode}")
                 self.loop.run_until_complete(coro)
             else:
-                _LOG.info(_LOG_STR, f"Idling Userge - {mode}")
+                _LOG.info(_LOG_STR, f"Idling Alphaz - {mode}")
                 idle()
             self.loop.run_until_complete(_finalize())
         except (asyncio.exceptions.CancelledError, RuntimeError):
