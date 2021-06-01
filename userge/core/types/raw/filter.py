@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['Filter', 'clear_db']
 
@@ -18,7 +10,7 @@ from pyrogram.filters import Filter as RawFilter
 from pyrogram.handlers import MessageHandler
 from pyrogram.handlers.handler import Handler
 
-from userge import logging, Config
+from alphaz import logging, Config
 from ... import client as _client, get_collection  # pylint: disable=unused-import
 
 _DISABLED_FILTERS = get_collection("DISABLED_FILTERS")
@@ -133,7 +125,7 @@ class Filter:
         self._handler: Handler
 
     @classmethod
-    def parse(cls, **kwargs: Union[RawFilter, '_client.Userge', int, bool]) -> 'Filter':
+    def parse(cls, **kwargs: Union[RawFilter, '_client.Alphaz', int, bool]) -> 'Filter':
         """ parse filter """
         return cls(**Filter._parse(**kwargs))  # pylint: disable=protected-access
 
@@ -142,8 +134,8 @@ class Filter:
                allow_bots: bool,
                allow_groups: bool,
                allow_channels: bool,
-               **kwargs: Union[RawFilter, '_client.Userge', int, bool]
-               ) -> Dict[str, Union[RawFilter, '_client.Userge', int, bool]]:
+               **kwargs: Union[RawFilter, '_client.Alphaz', int, bool]
+               ) -> Dict[str, Union[RawFilter, '_client.Alphaz', int, bool]]:
         kwargs['check_client'] = kwargs['allow_via_bot'] and kwargs['check_client']
         kwargs['scope']: List[str] = []
         if allow_bots:
