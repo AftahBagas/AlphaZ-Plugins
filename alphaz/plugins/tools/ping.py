@@ -4,7 +4,7 @@
 import asyncio
 from datetime import datetime
 
-from alphaz import userge, Message
+from alphaz import alphaz, Message
 
 
 @alphaz.on_cmd("ping", about={
