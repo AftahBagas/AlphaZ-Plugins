@@ -1,18 +1,10 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['OnCmd']
 
 from typing import Dict, List, Union
 
-from userge import Config
+from alphaz import Config
 from ... import types
 from . import RawDecorator
 
@@ -46,7 +38,7 @@ class OnCmd(RawDecorator):  # pylint: disable=missing-class-docstring
         """\nDecorator for handling messages.
 
         Example:
-                @userge.on_cmd('test', about='for testing')
+                @alphaz.on_cmd('test', about='for testing')
 
         Parameters:
             command (``str``):
