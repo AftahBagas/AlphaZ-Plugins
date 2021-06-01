@@ -1,10 +1,4 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import random
@@ -15,12 +9,12 @@ import aiofiles
 from selenium import webdriver
 from pyrogram.errors.exceptions.bad_request_400 import YouBlockedUser
 
-from userge import userge, Message, Config
+from alphaz import alphaz, Message, Config
 
 CARBON = 'https://carbon.now.sh/?t={theme}&l={lang}&code={code}&bg={bg}'
 
 
-@userge.on_cmd("carbon", about={
+@alphaz.on_cmd("carbon", about={
     'header': "create a carbon",
     'flags': {
         '-r': "red -> 0-255",
@@ -66,7 +60,7 @@ async def carbon_(message: Message):
             file_id = response.document.file_id
             await asyncio.gather(
                 message.delete(),
-                userge.send_document(chat_id=message.chat.id,
+                alphaz.send_document(chat_id=message.chat.id,
                                      document=file_id,
                                      caption='`' + caption + '`',
                                      reply_to_message_id=replied.message_id if replied else None)
