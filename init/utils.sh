@@ -1,12 +1,4 @@
-#!/bin/bash
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 declare -r minPVer=8
 declare -r maxPVer=9
@@ -104,11 +96,16 @@ printLine() {
 printLogo() {
     printLine
     echo '
-     ________            __  __               ______   
-    /_  __/ /_  ___     / / / /_______  _____/ ____/__ 
-     / / / __ \/ _ \   / / / / ___/ _ \/ ___/ / __/ _ \
-    / / / / / /  __/  / /_/ (__  )  __/ /  / /_/ /  __/
-   /_/ /_/ /_/\___/   \____/____/\___/_/   \____/\___/ 
+            (_________________)
+           (___________________)
+          (________)(𝗔)(________)
+         (________) (𝗟) (________) 
+         (_______)  (𝗣)  (_______)
+         (______)   (𝗛)   (______)
+         (_____)    (𝗔)    (_____)
+         (_______________________)
+         (_______________________)
+          
                                                      
 '
     printLine
