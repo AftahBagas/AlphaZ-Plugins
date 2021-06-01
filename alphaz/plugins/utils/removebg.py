@@ -1,19 +1,17 @@
-# Userge Plugin for removing background from Images
-# Author: Sumanjay (https://github.com/cyberboysumanjay) (@cyberboysumanjay)
-# All rights reserved.
+# alfareza
 
 import os
 from datetime import datetime
 
 from removebg import RemoveBg
 
-from userge import userge, Config, Message
-from userge.utils import progress
+from alphaz import alphaz, Config, Message
+from alphaz.utils import progress
 
 IMG_PATH = Config.DOWN_PATH + "dl_image.jpg"
 
 
-@userge.on_cmd('removebg', about={
+@alphaz.on_cmd('removebg', about={
     'header': "Removes Background from Image (50 Calls per Month in the free API)",
     'usage': "{tr}removebg [reply to any photo | direct link of photo]"})
 async def remove_background(message: Message):
