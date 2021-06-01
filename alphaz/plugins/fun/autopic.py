@@ -1,10 +1,4 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import base64
@@ -16,7 +10,7 @@ from shutil import copyfile
 import aiofiles
 from PIL import Image, ImageFont, ImageDraw
 
-from userge import userge, Message, Config, get_collection
+from alphaz import alphaz, Message, Config, get_collection
 
 SAVED_SETTINGS = get_collection("CONFIGS")
 UPDATE_PIC = False
@@ -35,7 +29,7 @@ async def _init() -> None:
                 media_file_.write(base64.b64decode(data['media']))
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "autopic", about={
         'header': "set profile picture",
         'usage': "{tr}autopic\n{tr}autopic [image path]\nset timeout using {tr}sapicto"},
@@ -51,7 +45,7 @@ async def autopic(message: Message):
                                         {"$set": {'on': False}}, upsert=True)
         await asyncio.sleep(1)
         await message.edit('`setting old photo...`')
-        await userge.set_profile_photo(photo=BASE_PIC)
+        await alphaz.set_profile_photo(photo=BASE_PIC)
         await message.edit('auto profile picture updation has been **stopped**',
                            del_in=5, log=__name__)
         return
@@ -60,11 +54,11 @@ async def autopic(message: Message):
     if os.path.exists(BASE_PIC) and not image_path:
         pass
     elif not image_path:
-        profile_photo = await userge.get_profile_photos("me", limit=1)
+        profile_photo = await alphaz.get_profile_photos("me", limit=1)
         if not profile_photo:
             await message.err("sorry, couldn't find any picture!")
             return
-        await userge.download_media(profile_photo[0], file_name=BASE_PIC)
+        await alphaz.download_media(profile_photo[0], file_name=BASE_PIC)
         store = True
     else:
         if not os.path.exists(image_path):
@@ -86,9 +80,9 @@ async def autopic(message: Message):
     UPDATE_PIC = asyncio.get_event_loop().create_task(apic_worker())
 
 
-@userge.add_task
+@alphaz.add_task
 async def apic_worker():
-    user_dict = await userge.get_user_dict('me')
+    user_dict = await alphaz.get_user_dict('me')
     user = '@' + user_dict['uname'] if user_dict['uname'] else user_dict['flname']
     count = 0
     while UPDATE_PIC:
