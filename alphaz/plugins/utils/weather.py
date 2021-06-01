@@ -1,10 +1,4 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import json
 from datetime import datetime
@@ -12,9 +6,9 @@ from datetime import datetime
 import aiohttp
 from pytz import country_timezones as c_tz, timezone as tz, country_names as c_n
 
-from userge import userge, Message, Config
+from alphaz import alphaz, Message, Config
 
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 
 async def get_tz(con):
@@ -31,7 +25,7 @@ async def get_tz(con):
         return
 
 
-@userge.on_cmd("weather", about={
+@alphaz.on_cmd("weather", about={
     'header': "use this to get weather details",
     'description': "get weather info for any city",
     'examples': [
