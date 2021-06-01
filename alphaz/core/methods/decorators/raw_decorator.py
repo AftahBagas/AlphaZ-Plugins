@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['RawDecorator']
 
@@ -22,7 +14,7 @@ from pyrogram.filters import Filter as RawFilter
 from pyrogram.types import Message as RawMessage, ChatMember
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired, PeerIdInvalid
 
-from userge import logging, Config
+from alphaz import logging, Config
 from ...ext import RawClient
 from ... import types, client as _client  # pylint: disable=unused-import
 
@@ -87,7 +79,7 @@ def _clear_cht() -> None:
     _TASK_1_START_TO = time.time()
 
 
-async def _init(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _init(r_c: Union['_client.Userge', '_client.AlphazBot'],
                 r_m: RawMessage) -> None:
     global _U_ID, _B_ID  # pylint: disable=global-statement
     if r_m.from_user and (
@@ -110,7 +102,7 @@ async def _init(r_c: Union['_client.Userge', '_client.UsergeBot'],
                 _U_ID = (await r_c.ubot.get_me()).id
 
 
-async def _raise_func(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _raise_func(r_c: Union['_client.Userge', '_client.AlphazBot'],
                       chat_id: int, message_id: int, text: str) -> None:
     try:
         _sent = await r_c.send_message(
@@ -123,7 +115,7 @@ async def _raise_func(r_c: Union['_client.Userge', '_client.UsergeBot'],
         pass
 
 
-async def _is_admin(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _is_admin(r_c: Union['_client.Userge', '_client.AlphazBot'],
                     r_m: RawMessage) -> bool:
     if r_m.chat.type in ("private", "bot"):
         return False
@@ -136,11 +128,11 @@ async def _is_admin(r_c: Union['_client.Userge', '_client.UsergeBot'],
     return r_m.chat.id in _B_AD_CHT
 
 
-def _get_chat_member(r_c: Union['_client.Userge', '_client.UsergeBot'],
+def _get_chat_member(r_c: Union['_client.Alphaz', '_client.AlphazBot'],
                      r_m: RawMessage) -> Optional[ChatMember]:
     if r_m.chat.type in ("private", "bot"):
         return None
-    if isinstance(r_c, _client.Userge):
+    if isinstance(r_c, _client.Alphaz):
         if r_m.chat.id in _U_AD_CHT:
             return _U_AD_CHT[r_m.chat.id]
         return _U_NM_CHT[r_m.chat.id]
@@ -156,7 +148,7 @@ async def _get_lock(key: str) -> asyncio.Lock:
     return _CH_LKS[key]
 
 
-async def _bot_is_present(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _bot_is_present(r_c: Union['_client.Alphaz', '_client.AlphazBot'],
                           r_m: RawMessage) -> bool:
     global _TASK_2_START_TO  # pylint: disable=global-statement
     if isinstance(r_c, _client.Userge):
@@ -175,7 +167,7 @@ async def _bot_is_present(r_c: Union['_client.Userge', '_client.UsergeBot'],
     return r_m.chat.id in _B_CMN_CHT
 
 
-async def _both_are_admins(r_c: Union['_client.Userge', '_client.UsergeBot'],
+async def _both_are_admins(r_c: Union['_client.Alphaz', '_client.AlphazBot'],
                            r_m: RawMessage) -> bool:
     if not await _bot_is_present(r_c, r_m):
         return False
@@ -183,7 +175,7 @@ async def _both_are_admins(r_c: Union['_client.Userge', '_client.UsergeBot'],
 
 
 async def _both_have_perm(flt: Union['types.raw.Command', 'types.raw.Filter'],
-                          r_c: Union['_client.Userge', '_client.UsergeBot'],
+                          r_c: Union['_client.Alphaz', '_client.AlphazBot'],
                           r_m: RawMessage) -> bool:
     if not await _bot_is_present(r_c, r_m):
         return False
@@ -217,7 +209,7 @@ async def _both_have_perm(flt: Union['types.raw.Command', 'types.raw.Filter'],
 
 
 class RawDecorator(RawClient):
-    """ userge raw decoretor """
+    """ alphaz raw decoretor """
     _PYRORETTYPE = Callable[[_PYROFUNC], _PYROFUNC]
 
     def __init__(self, **kwargs) -> None:
@@ -233,7 +225,7 @@ class RawDecorator(RawClient):
                          flt: Union['types.raw.Command', 'types.raw.Filter'],
                          **kwargs: Union[str, bool]) -> 'RawDecorator._PYRORETTYPE':
         def decorator(func: _PYROFUNC) -> _PYROFUNC:
-            async def template(r_c: Union['_client.Userge', '_client.UsergeBot'],
+            async def template(r_c: Union['_client.Alphaz', '_client.AlphazBot'],
                                r_m: RawMessage) -> None:
                 if Config.DISABLED_ALL and r_m.chat.id != Config.LOG_CHANNEL_ID:
                     return
