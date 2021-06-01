@@ -1,12 +1,6 @@
 """ kang stickers """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import io
 import os
@@ -18,10 +12,10 @@ from pyrogram.raw.functions.messages import GetStickerSet
 from pyrogram.raw.types import InputStickerSetShortName
 from pyrogram.errors import YouBlockedUser, StickersetInvalid
 
-from userge import userge, Message, Config
+from alphaz import alphaz, Message, Config
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "kang", about={
         'header': "kangs stickers or creates new ones",
         'flags': {
@@ -198,7 +192,7 @@ async def kang_(message: Message):
             os.remove(photo)
 
 
-@userge.on_cmd("stkrinfo", about={
+@alphaz.on_cmd("stkrinfo", about={
     'header': "get sticker pack info",
     'usage': "reply {tr}stkrinfo to any sticker"})
 async def sticker_pack_info_(message: Message):
