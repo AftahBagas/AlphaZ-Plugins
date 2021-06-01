@@ -1,12 +1,6 @@
 """ work with youtube """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import glob
@@ -17,14 +11,14 @@ from math import floor
 import wget
 import youtube_dl as ytdl
 
-from userge import userge, Message, Config, pool
-from userge.utils import time_formatter, humanbytes
+from alphaz import alphaz, Message, Config, pool
+from alphaz.utils import time_formatter, humanbytes
 from .upload import upload
 
-LOGGER = userge.getLogger(__name__)
+LOGGER = alphaz.getLogger(__name__)
 
 
-@userge.on_cmd("ytinfo", about={'header': "Get info from ytdl",
+@alphaz.on_cmd("ytinfo", about={'header': "Get info from ytdl",
                                 'description': 'Get information of the link without downloading',
                                 'examples': '{tr}ytinfo link',
                                 'others': 'To get info about direct links, use `{tr}head link`'})
@@ -53,7 +47,7 @@ __{uploader}__
         await message.edit(out)
 
 
-@userge.on_cmd("ytdl", about={'header': "Download from youtube",
+@alphaz.on_cmd("ytdl", about={'header': "Download from youtube",
                               'options': {'-a': 'select the audio u-id',
                                           '-v': 'select the video u-id',
                                           '-m': 'extract the mp3 in 320kbps',
@@ -133,7 +127,7 @@ async def ytDown(message: Message):
         await message.edit(str(retcode))
 
 
-@userge.on_cmd("ytdes", about={'header': "Get the video description",
+@alphaz.on_cmd("ytdes", about={'header': "Get the video description",
                                'description': 'Get information of the link without downloading',
                                'examples': '{tr}ytdes link'})
 async def ytdes(message: Message):
