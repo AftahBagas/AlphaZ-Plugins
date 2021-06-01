@@ -9,5 +9,5 @@ class ProcessCanceled(Exception):
     """ raise if thread has terminated """
 
 
-class UsergeBotNotFound(Exception):
+class alphazBotNotFound(Exception):
     """ raise if alphaz plugins bot not found """
