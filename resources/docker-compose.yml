@@ -1,9 +1,9 @@
 version: "3.7"
 
 services:
-  userge:
+  alphaz:
       build:
-        context: https://github.com/UsergeTeam/Userge.git#master
+        context: https://github.com/AftahBagas/AlphaZ-Plugins.git#alpha
       depends_on:
         - mongo
       restart: on-failure
@@ -15,10 +15,10 @@ services:
   mongo:
       image: mongo
       volumes:
-        - mongo_userge:/data/db
+        - mongo_alphaz:/data/db
       environment:
         MONGO_INITDB_ROOT_USERNAME: root
         MONGO_INITDB_ROOT_PASSWORD: example
 
 volumes:
-  mongo_userge:
+  mongo_alphaz:
