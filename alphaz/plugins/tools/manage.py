@@ -1,21 +1,15 @@
-""" manage your userge :) """
+""" manage your AlphaZ Plugins :) """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 
-from userge import userge, Message, Config
-from userge.utils import get_import_path
-from userge.plugins import ROOT
+from alphaz import userge, Message, Config
+from alphaz.utils import get_import_path
+from alphaz.plugins import ROOT
 
 
-@userge.on_cmd("status", about={
+@alphaz.on_cmd("status", about={
     'header': "list plugins, commands, filters status",
     'flags': {
         '-p': "plugin",
@@ -30,30 +24,30 @@ async def status(message: Message) -> None:
     name_ = message.filtered_input_str
     type_ = list(message.flags)
     if not type_:
-        out_str = f"""📊 **--Userge Status--** 📊
+        out_str = f"""📊 **--AlphaZ Plugins Status--** 📊
 
 🗃 **Plugins** : `{len(userge.manager.plugins)}`
-        ✅ **Loaded** : `{len(userge.manager.loaded_plugins)}`
-        ➕ **Enabled** : `{len(userge.manager.enabled_plugins)}`
-        ➖ **Disabled** : `{len(userge.manager.disabled_plugins)}`
-        ❎ **Unloaded** : `{len(userge.manager.unloaded_plugins)}`
+        ✅ **Loaded** : `{len(alphaz.manager.loaded_plugins)}`
+        ➕ **Enabled** : `{len(alphaz.manager.enabled_plugins)}`
+        ➖ **Disabled** : `{len(alphaz.manager.disabled_plugins)}`
+        ❎ **Unloaded** : `{len(alphaz.manager.unloaded_plugins)}`
 
 ⚔ **Commands** : `{len(userge.manager.commands)}`
-        ✅ **Loaded** : `{len(userge.manager.loaded_commands)}`
-        ➕ **Enabled** : `{len(userge.manager.enabled_commands)}`
-        ➖ **Disabled** : `{len(userge.manager.disabled_commands)}`
-        ❎ **Unloaded** : `{len(userge.manager.unloaded_commands)}`
+        ✅ **Loaded** : `{len(alphaz.manager.loaded_commands)}`
+        ➕ **Enabled** : `{len(alphaz.manager.enabled_commands)}`
+        ➖ **Disabled** : `{len(alphaz.manager.disabled_commands)}`
+        ❎ **Unloaded** : `{len(alphaz.manager.unloaded_commands)}`
 
 ⚖ **Filters** : `{len(userge.manager.filters)}`
-        ✅ **Loaded** : `{len(userge.manager.loaded_filters)}`
-        ➕ **Enabled** : `{len(userge.manager.enabled_filters)}`
-        ➖ **Disabled** : `{len(userge.manager.disabled_filters)}`
-        ❎ **Unloaded** : `{len(userge.manager.unloaded_filters)}`
+        ✅ **Loaded** : `{len(alphaz.manager.loaded_filters)}`
+        ➕ **Enabled** : `{len(alphaz.manager.enabled_filters)}`
+        ➖ **Disabled** : `{len(alphaz.manager.disabled_filters)}`
+        ❎ **Unloaded** : `{len(alphaz.manager.unloaded_filters)}`
 """
     elif 'p' in type_:
         if name_:
-            if name_ in userge.manager.plugins:
-                plg = userge.manager.plugins[name_]
+            if name_ in alphaz.manager.plugins:
+                plg = alphaz.manager.plugins[name_]
                 out_str = f"""🗃 **--Plugin Status--** 🗃
 
 🔖 **Name** : `{plg.name}`
@@ -85,22 +79,22 @@ async def status(message: Message) -> None:
         else:
             out_str = f"""🗃 **--Plugins Status--** 🗃
 
-🗂 **Total** : `{len(userge.manager.plugins)}`
-✅ **Loaded** : `{len(userge.manager.loaded_plugins)}`
-➕ **Enabled** : `{len(userge.manager.enabled_plugins)}`
-➖ **Disabled** : `{len(userge.manager.disabled_plugins)}`
-        `{'`,    `'.join((cmd.name for cmd in userge.manager.disabled_plugins))}`
-❎ **Unloaded** : `{len(userge.manager.unloaded_plugins)}`
-        `{'`,    `'.join((cmd.name for cmd in userge.manager.unloaded_plugins))}`
+🗂 **Total** : `{len(alphaz.manager.plugins)}`
+✅ **Loaded** : `{len(alphaz.manager.loaded_plugins)}`
+➕ **Enabled** : `{len(alphaz.manager.enabled_plugins)}`
+➖ **Disabled** : `{len(alphaz.manager.disabled_plugins)}`
+        `{'`,    `'.join((cmd.name for cmd in alphaz.manager.disabled_plugins))}`
+❎ **Unloaded** : `{len(alphaz.manager.unloaded_plugins)}`
+        `{'`,    `'.join((cmd.name for cmd in alphaz.manager.unloaded_plugins))}`
 """
     elif 'c' in type_:
         if name_:
             if not name_.startswith(Config.CMD_TRIGGER):
                 n_name_ = Config.CMD_TRIGGER + name_
-            if name_ in userge.manager.commands:
-                cmd = userge.manager.commands[name_]
-            elif n_name_ in userge.manager.commands:
-                cmd = userge.manager.commands[n_name_]
+            if name_ in alphaz.manager.commands:
+                cmd = alphaz.manager.commands[name_]
+            elif n_name_ in alphaz.manager.commands:
+                cmd = alphaz.manager.commands[n_name_]
             else:
                 await message.err(f"command : {name_} not found!")
                 return
@@ -115,18 +109,18 @@ async def status(message: Message) -> None:
         else:
             out_str = f"""⚔ **--Commands Status--** ⚔
 
-🗂 **Total** : `{len(userge.manager.commands)}`
-✅ **Loaded** : `{len(userge.manager.loaded_commands)}`
-➕ **Enabled** : `{len(userge.manager.enabled_commands)}`
-➖ **Disabled** : `{len(userge.manager.disabled_commands)}`
-        `{'`,    `'.join((cmd.name for cmd in userge.manager.disabled_commands))}`
-❎ **Unloaded** : `{len(userge.manager.unloaded_commands)}`
-        `{'`,    `'.join((cmd.name for cmd in userge.manager.unloaded_commands))}`
+🗂 **Total** : `{len(alphaz.manager.commands)}`
+✅ **Loaded** : `{len(alphaz.manager.loaded_commands)}`
+➕ **Enabled** : `{len(alphaz.manager.enabled_commands)}`
+➖ **Disabled** : `{len(alphaz.manager.disabled_commands)}`
+        `{'`,    `'.join((cmd.name for cmd in alphaz.manager.disabled_commands))}`
+❎ **Unloaded** : `{len(alphaz.manager.unloaded_commands)}`
+        `{'`,    `'.join((cmd.name for cmd in alphaz.manager.unloaded_commands))}`
 """
     elif 'f' in type_:
         if name_:
-            if name_ in userge.manager.filters:
-                flt = userge.manager.filters[name_]
+            if name_ in alphaz.manager.filters:
+                flt = alphaz.manager.filters[name_]
                 out_str = f"""⚖ **--Filter Status--** ⚖
 
 🔖 **Name** : `{flt.name}`
@@ -141,14 +135,14 @@ async def status(message: Message) -> None:
         else:
             out_str = f"""⚖ **--Filters Status--** ⚖
 
-🗂 **Total** : `{len(userge.manager.filters)}`
-✅ **Loaded** : `{len(userge.manager.loaded_filters)}`
-➕ **Enabled** : `{len(userge.manager.enabled_filters)}`
-        `{'`,    `'.join((flt.name for flt in userge.manager.enabled_filters))}`
-➖ **Disabled** : `{len(userge.manager.disabled_filters)}`
-        `{'`,    `'.join((flt.name for flt in userge.manager.disabled_filters))}`
-❎ **Unloaded** : `{len(userge.manager.unloaded_filters)}`
-        `{'`,    `'.join((flt.name for flt in userge.manager.unloaded_filters))}`
+🗂 **Total** : `{len(alphaz.manager.filters)}`
+✅ **Loaded** : `{len(alphaz.manager.loaded_filters)}`
+➕ **Enabled** : `{len(alphaz.manager.enabled_filters)}`
+        `{'`,    `'.join((flt.name for flt in alphaz.manager.enabled_filters))}`
+➖ **Disabled** : `{len(alphaz.manager.disabled_filters)}`
+        `{'`,    `'.join((flt.name for flt in alphaz.manager.disabled_filters))}`
+❎ **Unloaded** : `{len(alphaz.manager.unloaded_filters)}`
+        `{'`,    `'.join((flt.name for flt in alphaz.manager.unloaded_filters))}`
 """
     else:
         await message.err("invalid input flag!")
@@ -156,7 +150,7 @@ async def status(message: Message) -> None:
     await message.edit(out_str.replace("        ``\n", ''), del_in=0)
 
 
-@userge.on_cmd("enable", about={
+@alphaz.on_cmd("enable", about={
     'header': "enable plugins, commands, filters",
     'flags': {
         '-p': "plugin",
@@ -177,9 +171,9 @@ async def enable(message: Message) -> None:
     names_ = message.filtered_input_str.split(' ')
     type_ = list(message.flags)
     if 'p' in type_:
-        found = set(names_).intersection(set(userge.manager.plugins))
+        found = set(names_).intersection(set(alphaz.manager.plugins))
         if found:
-            out = await userge.manager.enable_plugins(list(found))
+            out = await alphaz.manager.enable_plugins(list(found))
             if out:
                 out_str = "**--Enabled Plugin(s)--**\n\n"
                 for plg_name, cmds in out.items():
@@ -195,7 +189,7 @@ async def enable(message: Message) -> None:
                 names_.append(Config.CMD_TRIGGER + t_name)
         found = set(names_).intersection(set(userge.manager.commands))
         if found:
-            out = await userge.manager.enable_commands(list(found))
+            out = await alphaz.manager.enable_commands(list(found))
             if out:
                 out_str = "**--Enabled Command(s)--**\n\n"
                 out_str += f"`{'`,    `'.join(out)}`"
@@ -205,7 +199,7 @@ async def enable(message: Message) -> None:
             await message.err(f"commands : {', '.join(names_)} not found!")
             return
     elif 'f' in type_:
-        found = set(names_).intersection(set(userge.manager.filters))
+        found = set(names_).intersection(set(alphaz.manager.filters))
         if found:
             out = await userge.manager.enable_filters(list(found))
             if out:
@@ -222,7 +216,7 @@ async def enable(message: Message) -> None:
     await message.edit(out_str, del_in=0, log=__name__)
 
 
-@userge.on_cmd("disable", about={
+@alphaz.on_cmd("disable", about={
     'header': "disable plugins, commands, filters",
     'flags': {
         '-p': "plugin",
@@ -245,7 +239,7 @@ async def disable(message: Message) -> None:
     if 'p' in type_ and names_:
         found = set(names_).intersection(set(userge.manager.plugins))
         if found:
-            out = await userge.manager.disable_plugins(list(found))
+            out = await alphaz.manager.disable_plugins(list(found))
             if out:
                 out_str = "**--Disabled Plugin(s)--**\n\n"
                 for plg_name, cmds in out.items():
@@ -261,7 +255,7 @@ async def disable(message: Message) -> None:
                 names_.append(Config.CMD_TRIGGER + t_name)
         found = set(names_).intersection(set(userge.manager.commands))
         if found:
-            out = await userge.manager.disable_commands(list(found))
+            out = await alphaz.manager.disable_commands(list(found))
             if out:
                 out_str = "**--Disabled Command(s)--**\n\n"
                 out_str += f"`{'`,    `'.join(out)}`"
@@ -271,9 +265,9 @@ async def disable(message: Message) -> None:
             await message.err(f"commands : {', '.join(names_)} not found!")
             return
     elif 'f' in type_ and names_:
-        found = set(names_).intersection(set(userge.manager.filters))
+        found = set(names_).intersection(set(alphaz.manager.filters))
         if found:
-            out = await userge.manager.disable_filters(list(found))
+            out = await alphaz.manager.disable_filters(list(found))
             if out:
                 out_str = "**--Disabled Filter(s)--**\n\n"
                 out_str += f"`{'`,    `'.join(out)}`"
@@ -288,7 +282,7 @@ async def disable(message: Message) -> None:
     await message.edit(out_str, del_in=0, log=__name__)
 
 
-@userge.on_cmd('load', about={
+@alphaz.on_cmd('load', about={
     'header': "load plugins, commands, filters",
     'flags': {
         '-p': "plugin",
@@ -308,9 +302,9 @@ async def load(message: Message) -> None:
         names_ = message.filtered_input_str.split(' ')
         type_ = list(message.flags)
         if 'p' in type_:
-            found = set(names_).intersection(set(userge.manager.plugins))
+            found = set(names_).intersection(set(alphaz.manager.plugins))
             if found:
-                out = await userge.manager.load_plugins(list(found))
+                out = await alphaz.manager.load_plugins(list(found))
                 if out:
                     out_str = "**--Loaded Plugin(s)--**\n\n"
                     for plg_name, cmds in out.items():
@@ -326,7 +320,7 @@ async def load(message: Message) -> None:
                     names_.append(Config.CMD_TRIGGER + t_name)
             found = set(names_).intersection(set(userge.manager.commands))
             if found:
-                out = await userge.manager.load_commands(list(found))
+                out = await alphaz.manager.load_commands(list(found))
                 if out:
                     out_str = "**--Loaded Command(s)--**\n\n"
                     out_str += f"`{'`,    `'.join(out)}`"
@@ -336,9 +330,9 @@ async def load(message: Message) -> None:
                 await message.err(f"commands : {', '.join(names_)} not found!")
                 return
         elif 'f' in type_:
-            found = set(names_).intersection(set(userge.manager.filters))
+            found = set(names_).intersection(set(alphaz.manager.filters))
             if found:
-                out = await userge.manager.load_filters(list(found))
+                out = await alphaz.manager.load_filters(list(found))
                 if out:
                     out_str = "**--Loaded Filter(s)--**\n\n"
                     out_str += f"`{'`,    `'.join(out)}`"
@@ -365,8 +359,8 @@ async def load(message: Message) -> None:
                 await replied.download(file_name=t_path)
                 plugin = get_import_path(ROOT, t_path)
                 try:
-                    await userge.load_plugin(plugin, reload_plugin=True)
-                    await userge.finalize_load()
+                    await alphaz.load_plugin(plugin, reload_plugin=True)
+                    await alphaz.finalize_load()
                 except (ImportError, SyntaxError, NameError) as i_e:
                     os.remove(t_path)
                     await message.err(i_e)
@@ -378,7 +372,7 @@ async def load(message: Message) -> None:
             await message.edit(f"pls check `{Config.CMD_TRIGGER}help load` !")
 
 
-@userge.on_cmd('unload', about={
+@alphaz.on_cmd('unload', about={
     'header': "unload plugins, commands, filters",
     'flags': {
         '-p': "plugin",
@@ -399,9 +393,9 @@ async def unload(message: Message) -> None:
     names_ = message.filtered_input_str.split(' ')
     type_ = list(message.flags)
     if 'p' in type_ and names_:
-        found = set(names_).intersection(set(userge.manager.plugins))
+        found = set(names_).intersection(set(alphaz.manager.plugins))
         if found:
-            out = await userge.manager.unload_plugins(list(found))
+            out = await alphaz.manager.unload_plugins(list(found))
             if out:
                 out_str = "**--Unloaded Plugin(s)--**\n\n"
                 for plg_name, cmds in out.items():
@@ -415,9 +409,9 @@ async def unload(message: Message) -> None:
         for t_name in names_:
             if not t_name.startswith(Config.CMD_TRIGGER):
                 names_.append(Config.CMD_TRIGGER + t_name)
-        found = set(names_).intersection(set(userge.manager.commands))
+        found = set(names_).intersection(set(alphaz.manager.commands))
         if found:
-            out = await userge.manager.unload_commands(list(found))
+            out = await alphaz.manager.unload_commands(list(found))
             if out:
                 out_str = "**--Unloaded Command(s)--**\n\n"
                 out_str += f"`{'`,    `'.join(out)}`"
@@ -427,9 +421,9 @@ async def unload(message: Message) -> None:
             await message.err(f"commands : {', '.join(names_)} not found!")
             return
     elif 'f' in type_ and names_:
-        found = set(names_).intersection(set(userge.manager.filters))
+        found = set(names_).intersection(set(alphaz.manager.filters))
         if found:
-            out = await userge.manager.unload_filters(list(found))
+            out = await alphaz.manager.unload_filters(list(found))
             if out:
                 out_str = "**--Unloaded Filter(s)--**\n\n"
                 out_str += f"`{'`,    `'.join(out)}`"
@@ -444,17 +438,17 @@ async def unload(message: Message) -> None:
     await message.edit(out_str, del_in=0, log=__name__)
 
 
-@userge.on_cmd('reload', about={'header': "Reload all plugins"}, allow_channels=False)
+@alphaz.on_cmd('reload', about={'header': "Reload all plugins"}, allow_channels=False)
 async def reload_(message: Message) -> None:
     """ Reload all plugins """
     await message.edit("`Reloading All Plugins`")
     await message.edit(
-        f"`Reloaded {await userge.reload_plugins()} Plugins`", del_in=3, log=__name__)
+        f"`Reloaded {await alphaz.reload_plugins()} Plugins`", del_in=3, log=__name__)
 
 
-@userge.on_cmd('clear', about={'header': "clear all save filters in DB"}, allow_channels=False)
+@alphaz.on_cmd('clear', about={'header': "clear all save filters in DB"}, allow_channels=False)
 async def clear_(message: Message) -> None:
     """ clear all save filters in DB """
     await message.edit("`Clearing DB...`")
     await message.edit(
-        f"**Cleared Filters** : `{await userge.manager.clear()}`", del_in=3, log=__name__)
+        f"**Cleared Filters** : `{await alphaz.manager.clear()}`", del_in=3, log=__name__)
