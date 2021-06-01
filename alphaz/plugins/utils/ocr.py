@@ -1,18 +1,12 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 
 import requests
 
-from userge import userge, Message, Config, pool
+from alphaz import alphaz, Message, Config, pool
 
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 
 @pool.run_in_thread
@@ -47,7 +41,7 @@ def ocr_space_file(filename,
     return r.json()
 
 
-@userge.on_cmd("ocr", about={
+@alphaz.on_cmd("ocr", about={
     'header': "use this to run ocr reader",
     'description': "get ocr result for images (file size limit = 1MB)",
     'examples': [
