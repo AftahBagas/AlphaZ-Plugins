@@ -1,18 +1,13 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
+# yang copas jomblo 3 tahun
 
 import asyncio
 from datetime import datetime
 
-from userge import userge, Message
+from alphaz import userge, Message
 
 
-@userge.on_cmd("ping", about={
+@alphaz.on_cmd("ping", about={
     'header': "check how long it takes to ping your userbot",
     'flags': {'-a': "average ping"}}, group=-1)
 async def pingme(message: Message):
