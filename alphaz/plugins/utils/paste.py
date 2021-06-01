@@ -1,25 +1,19 @@
 """ paste text to bin """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 
 import aiohttp
 from aiohttp import ClientResponseError, ServerTimeoutError, TooManyRedirects
 
-from userge import userge, Message, Config
+from alphaz import alphaz, Message, Config
 
 DOGBIN_URL = "https://del.dog/"
 NEKOBIN_URL = "https://nekobin.com/"
 
 
-@userge.on_cmd("paste", about={
+@alphaz.on_cmd("paste", about={
     'header': "Menempelkan teks atau file teks ke dogbin",
     'flags': {'-n': "gunakan nekobin"},
     'usage': "{tr}paste [flags] [file_type] [text | reply to msg]",
@@ -76,7 +70,7 @@ async def paste_(message: Message) -> None:
                     await message.err("Failed to reach Dogbin")
 
 
-@userge.on_cmd("getpaste", about={
+@alphaz.on_cmd("getpaste", about={
     'header': "Mendapat konten pasta del.dog",
     'usage': "{tr}getpaste [del.dog or nekobin link]"})
 async def get_paste_(message: Message):
