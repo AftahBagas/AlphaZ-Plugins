@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['ROOT', 'get_all_plugins']
 
@@ -14,8 +6,8 @@ import sys
 from os.path import dirname
 from typing import List
 
-from userge import logging
-from userge.utils import get_import_path
+from alphaz import logging
+from alphaz.utils import get_import_path
 
 _LOG = logging.getLogger(__name__)
 ROOT = dirname(__file__)
