@@ -13,7 +13,7 @@ from pyrogram import idle
 
 from alphaz import logging, Config, logbot
 from alphaz.utils import time_formatter
-from alphaz.utils.exceptions import AlphazBotNotFound
+from alphaz.utils.exceptions import alphazBotNotFound
 from alphaz.plugins import get_all_plugins
 from .methods import Methods
 from .ext import RawClient, pool
