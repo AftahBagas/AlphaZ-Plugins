@@ -1,10 +1,4 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import re
 import json
@@ -15,11 +9,11 @@ from random import choice
 import requests
 from bs4 import BeautifulSoup
 
-from userge import userge, Message
-from userge.utils import humanbytes
+from alphaz import alphaz, Message
+from alphaz.utils import humanbytes
 
 
-@userge.on_cmd("direct", about={
+@alphaz.on_cmd("direct", about={
     'header': "Generate a direct download link",
     'supported links': [
         'Google Drive', 'Cloud Mail', 'Yandex.Disk', 'AFH',
