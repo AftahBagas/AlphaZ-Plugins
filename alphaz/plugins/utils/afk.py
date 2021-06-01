@@ -1,21 +1,15 @@
 """ setup AFK mode """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import time
 import asyncio
 from random import choice, randint
 
-from userge import userge, Message, filters, Config, get_collection
-from userge.utils import time_formatter
+from alphaz import alphaz, Message, filters, Config, get_collection
+from alphaz.utils import time_formatter
 
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 SAVED_SETTINGS = get_collection("CONFIGS")
 AFK_COLLECTION = get_collection("AFK")
 
@@ -37,7 +31,7 @@ async def _init() -> None:
         USERS.update({_user['_id']:  [_user['pcount'], _user['gcount'], _user['men']]})
 
 
-@userge.on_cmd("afk", about={
+@alphaz.on_cmd("afk", about={
     'header': "Setel ke mode AFK",
     'description': "Menyetel status Anda sebagai AFK. Merespon siapa saja yang menandai /PM.\n"
                    "Anda mengatakan bahwa Anda AFK. Mematikan AFK saat Anda mengetik kembali apa pun.",
@@ -56,7 +50,7 @@ async def active_afk(message: Message) -> None:
             {'_id': 'AFK'}, {"$set": {'on': True, 'data': REASON, 'time': TIME}}, upsert=True))
 
 
-@userge.on_filters(IS_AFK_FILTER & ~filters.me & ~filters.bot & ~filters.edited & (
+@alphaz.on_filters(IS_AFK_FILTER & ~filters.me & ~filters.bot & ~filters.edited & (
     filters.mentioned | (filters.private & ~filters.service & (
         filters.create(lambda _, __, ___: Config.ALLOW_ALL_PMS) | Config.ALLOWED_CHATS))),
     allow_via_bot=False)
@@ -109,7 +103,7 @@ async def handle_afk_incomming(message: Message) -> None:
     await asyncio.gather(*coro_list)
 
 
-@userge.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
+@alphaz.on_filters(IS_AFK_FILTER & filters.outgoing, group=-1, allow_via_bot=False)
 async def handle_afk_outgoing(message: Message) -> None:
     """ handle outgoing messages when you afk """
     global IS_AFK  # pylint: disable=global-statement
