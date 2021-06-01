@@ -10,9 +10,9 @@ from pyrogram.errors import (
     FileIdInvalid, FileReferenceEmpty, BadRequest, ChannelInvalid, MediaEmpty
 )
 
-from userge.core.ext import pool
-from userge.utils import get_file_id_of_media
-from userge import userge, Message, Config, versions, get_version, logging
+from alphaz.core.ext import pool
+from alphaz.utils import get_file_id_of_media
+from alphaz import alphaz, Message, Config, versions, get_version, logging
 
 _LOG = logging.getLogger(__name__)
 
@@ -24,7 +24,7 @@ _CHAT, _MSG_ID = None, None
 _LOGO_ID = None
 
 
-@userge.on_cmd("logo", about={
+@alphaz.on_cmd("logo", about={
     'header': "This command is just for fun"}, allow_channels=False)
 async def alive(message: Message):
     if not (_CHAT and _MSG_ID):
@@ -47,7 +47,7 @@ async def alive(message: Message):
 
 
 def _get_mode() -> str:
-    if userge.dual_mode:
+    if alphaz.dual_mode:
         return "Dual"
     if Config.BOT_TOKEN:
         return "Bot"
