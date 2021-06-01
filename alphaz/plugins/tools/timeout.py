@@ -1,14 +1,8 @@
 """ set or view your timeouts """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
-from userge import userge, Message, Config, get_collection
+from alphaz import alphaz, Message, Config, get_collection
 
 SAVED_SETTINGS = get_collection("CONFIGS")
 
@@ -28,7 +22,7 @@ async def _init() -> None:
         Config.EDIT_SLEEP_TIMEOUT = es_t['data']
 
 
-@userge.on_cmd("sdelto (\\d+)", about={
+@alphaz.on_cmd("sdelto (\\d+)", about={
     'header': "Set auto message delete timeout",
     'usage': "{tr}sdelto [timeout in seconds]",
     'examples': "{tr}sdelto 15\n{tr}sdelto 0 : for disable deletion"})
@@ -46,7 +40,7 @@ async def set_delete_timeout(message: Message):
         await message.edit("`Auto message deletion disabled!`", del_in=3)
 
 
-@userge.on_cmd("vdelto", about={'header': "View auto message delete timeout"})
+@alphaz.on_cmd("vdelto", about={'header': "View auto message delete timeout"})
 async def view_delete_timeout(message: Message):
     """ view delete timeout """
     if Config.MSG_DELETE_TIMEOUT:
@@ -57,7 +51,7 @@ async def view_delete_timeout(message: Message):
         await message.edit("`Auto message deletion disabled!`", del_in=3)
 
 
-@userge.on_cmd("swelto (\\d+)", about={
+@alphaz.on_cmd("swelto (\\d+)", about={
     'header': "Set auto welcome/left message delete timeout",
     'usage': "{tr}swelto [timeout in seconds]",
     'examples': "{tr}swelto 15\n{tr}swelto 0 : for disable deletion"})
@@ -75,7 +69,7 @@ async def set_welcome_timeout(message: Message):
         await message.edit("`Auto welcome/left message deletion disabled!`", del_in=3)
 
 
-@userge.on_cmd("vwelto", about={'header': "View auto welcome/left message delete timeout"})
+@alphaz.on_cmd("vwelto", about={'header': "View auto welcome/left message delete timeout"})
 async def view_welcome_timeout(message: Message):
     """ view welcome/left timeout """
     if Config.WELCOME_DELETE_TIMEOUT:
@@ -87,7 +81,7 @@ async def view_welcome_timeout(message: Message):
         await message.edit("`Auto welcome/left message deletion disabled!`", del_in=3)
 
 
-@userge.on_cmd("sapicto (\\d+)", about={
+@alphaz.on_cmd("sapicto (\\d+)", about={
     'header': "Set auto profile picture timeout",
     'usage': "{tr}sapicto [timeout in seconds]",
     'examples': "{tr}sapicto 60"})
@@ -105,7 +99,7 @@ async def set_app_timeout(message: Message):
         f"`Set auto profile picture timeout as {t_o} seconds!`", del_in=3)
 
 
-@userge.on_cmd("vapicto", about={'header': "View auto profile picture timeout"})
+@alphaz.on_cmd("vapicto", about={'header': "View auto profile picture timeout"})
 async def view_app_timeout(message: Message):
     """ view profile picture timeout """
     await message.edit(
@@ -113,7 +107,7 @@ async def view_app_timeout(message: Message):
         del_in=5)
 
 
-@userge.on_cmd("sesto (\\d+)", about={
+@alphaz.on_cmd("sesto (\\d+)", about={
     'header': "Set edit sleep timeout",
     'usage': "{tr}sesto [timeout in seconds]",
     'examples': "{tr}sesto 10"})
@@ -131,7 +125,7 @@ async def set_es_timeout(message: Message):
         f"`Set edit sleep timeout as {t_o} seconds!`", del_in=3)
 
 
-@userge.on_cmd("vesto", about={'header': "View edit sleep timeout"})
+@alphaz.on_cmd("vesto", about={'header': "View edit sleep timeout"})
 async def view_es_timeout(message: Message):
     """ view edit sleep timeout """
     await message.edit(
