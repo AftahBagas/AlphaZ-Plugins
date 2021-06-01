@@ -13,7 +13,7 @@ from pyrogram import idle
 
 from alphaz import logging, Config, logbot
 from alphaz.utils import time_formatter
-from alphaz.utils.exceptions import alphazBotNotFound
+from alphaz.utils.exceptions import AlphazBotNotFound
 from alphaz.plugins import get_all_plugins
 from .methods import Methods
 from .ext import RawClient, pool
@@ -34,7 +34,7 @@ async def _complete_init_tasks() -> None:
     _INIT_TASKS.clear()
 
 
-class _AbstractUserge(Methods, RawClient):
+class _AbstractAlphaz(Methods, RawClient):
     @property
     def is_bot(self) -> bool:
         """ returns client is bot or not """
@@ -103,7 +103,7 @@ class AlphazBot(_AbstractUserge):
         super().__init__(session_name=":memory:", **kwargs)
 
     @property
-    def ubot(self) -> 'Userge':
+    def ubot(self) -> 'Alphaz':
         """ returns userbot """
         return self._bot
 
@@ -136,7 +136,7 @@ class Alphaz(_AbstractUserge):
         if self._bot is None:
             if Config.BOT_TOKEN:
                 return self
-            raise UsergeBotNotFound("Need BOT_TOKEN ENV!")
+            raise AlphazBotNotFound("Need BOT_TOKEN ENV!")
         return self._bot
 
     async def start(self) -> None:
