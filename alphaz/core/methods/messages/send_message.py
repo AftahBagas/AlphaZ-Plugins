@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['SendMessage']
 
@@ -18,8 +10,8 @@ from pyrogram.types import (
     InlineKeyboardMarkup, ReplyKeyboardMarkup,
     ReplyKeyboardRemove, ForceReply, MessageEntity)
 
-from userge import Config
-from userge.utils import secure_text
+from alphaz import Config
+from alphaz.utils import secure_text
 from ...ext import RawClient
 from ... import types
 
@@ -44,7 +36,7 @@ class SendMessage(RawClient):  # pylint: disable=missing-class-docstring
         """\nSend text messages.
 
         Example:
-                @userge.send_message(chat_id=12345, text='test')
+                @alphaz.send_message(chat_id=12345, text='test')
 
         Parameters:
             chat_id (``int`` | ``str``):
