@@ -58,17 +58,17 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
     markup = None
     output = f"""**Alpha Z Plugins Is Running 🔥!..**\n
 ╭━─━─━─━─≪✠≫─━─━─━─━╮\n
-**❍ ⏱️ uptime** : `{alphaz.uptime}`
-**❍ 🧪 version** : `{get_version()}`
-**❍ 😈 mode** : `{_get_mode()}`
+**❍ ⏱️ • uptime** : `{alphaz.uptime}`
+**❍ 🧪 • version** : `{get_version()}`
+**❍ 😈 • mode** : `{_get_mode()}`
 
-**❍ 👥 Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
-**❍ ⚙️ Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
-**❍ 🖐️ Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
+**❍ 👥 • Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
+**❍ ⚙️ • Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
+**❍ 🖐️ • Anti-Spam**: `{_parse_arg(Config.ANTISPAM_SENTRY)}`"""
     if Config.HEROKU_APP:
-        output += f"\n❍ **🌐 Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
+        output += f"\n❍ **🌐 • Dyno-saver**: `{_parse_arg(Config.RUN_DYNO_SAVER)}`"
     output += f"""
-**❍ 🚀 Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
+**❍ 🚀 • Unofficial**: `{_parse_arg(Config.LOAD_UNOFFICIAL_PLUGINS)}`
 
   🐍**__Python__**: `{versions.__python_version__}`
   💻**__Pyrogram__**: `{versions.__pyro_version__}`
@@ -81,7 +81,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
         copy_ = "https://github.com/AftahBagas/AlphaZ-Plugins/blob/alpha/LICENSE"
         markup = InlineKeyboardMarkup([
             [
-                InlineKeyboardButton(text="😈 AlphaZ Plugins", url="https://github.com/AftahBagas"),
+                InlineKeyboardButton(text="😈 Github", url="https://github.com/AftahBagas"),
                 InlineKeyboardButton(text="🧪 Repo", url=Config.UPSTREAM_REPO)
             ],
             [InlineKeyboardButton(text="🎖 GNU GPL v3.0", url=copy_)]
