@@ -1,12 +1,4 @@
-#!/bin/bash
-#
-# Copyright (C) 2020-2021 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/UsergeTeam/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 _checkBashReq() {
     log "Checking Bash Commands ..."
@@ -137,8 +129,8 @@ _setupPlugins() {
         upgradePip
         installReq $tmp
         path=$(tr "[:upper:]" "[:lower:]" <<< $1)
-        rm -rf userge/plugins/$path/
-        mv $tmp/plugins/ userge/plugins/$path/
+        rm -rf alphaz/plugins/$path/
+        mv $tmp/plugins/ alphaz/plugins/$path/
         cp -r $tmp/resources/. resources/
         rm -rf $tmp/
         deleteLastMessage
