@@ -1,23 +1,17 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import json
 from emoji import get_emoji_regexp
 
 import aiohttp
 
-from userge import userge, Message, Config
+from alphaz import alphaz, Message, Config
 
-CHANNEL = userge.getCLogger(__name__)
-LOG = userge.getLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
+LOG = alphaz.getLogger(__name__)
 
 
-@userge.on_cmd("cr", about={
+@alphaz.on_cmd("cr", about={
     'header': "gunakan ini untuk mengonversi mata uang & mendapatkan nilai tukar",
     'description': "Ubah mata uang & dapatkan nilai tukar.",
     'examples': "{tr}cr 1 BTC USD"})
