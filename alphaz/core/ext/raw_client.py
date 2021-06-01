@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['RawClient']
 
@@ -20,14 +12,14 @@ from pyrogram import Client
 from pyrogram.session import Session
 from pyrogram.raw.core import TLObject
 
-import userge  # pylint: disable=unused-import
+import alphaz  # pylint: disable=unused-import
 
-_LOG = userge.logging.getLogger(__name__)
+_LOG = alphaz.logging.getLogger(__name__)
 _LOG_STR = "<<<!  {  (FLOOD CONTROL) sleeping %.2fs in %d  }  !>>>"
 
 
 class RawClient(Client):
-    """ userge raw client """
+    """ alphaz raw client """
     DUAL_MODE = False
     LAST_OUTGOING_TIME = time.time()
 
@@ -36,10 +28,10 @@ class RawClient(Client):
     MSG_REQ_PER_MIN = 20
     REQ_LOCK = asyncio.Lock()
 
-    def __init__(self, bot: Optional['userge.core.client.UsergeBot'] = None, **kwargs) -> None:
+    def __init__(self, bot: Optional['alphaz.core.client.AlphazBot'] = None, **kwargs) -> None:
         self._bot = bot
         super().__init__(**kwargs)
-        self._channel = userge.core.types.new.ChannelLogger(self, "CORE")
+        self._channel = alphaz.core.types.new.ChannelLogger(self, "CORE")
         userge.core.types.new.Conversation.init(self)
 
     async def send(self, data: TLObject, retries: int = Session.MAX_RETRIES,
