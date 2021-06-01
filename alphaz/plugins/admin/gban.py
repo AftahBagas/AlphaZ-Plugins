@@ -17,8 +17,8 @@ from alphaz import alphaz, Message, Config, get_collection, filters, pool
 SAVED_SETTINGS = get_collection("CONFIGS")
 GBAN_USER_BASE = get_collection("GBAN_USER")
 WHITELIST = get_collection("WHITELIST_USER")
-CHANNEL = userge.getCLogger(__name__)
-LOG = userge.getLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
+LOG = alphaz.getLogger(__name__)
 
 
 async def _init() -> None:
