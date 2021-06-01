@@ -1,19 +1,13 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import asyncio
 
 from pyrogram.errors.exceptions.bad_request_400 import YouBlockedUser
 
-from userge import userge, Message
+from alphaz import alphaz, Message
 
 
-@userge.on_cmd("quote", about={
+@alphaz.on_cmd("quote", about={
     'header': "Quote a message",
     'usage': "{tr}quote [text or reply to msg]"}, allow_via_bot=False)
 async def quotecmd(message: Message):
@@ -21,7 +15,7 @@ async def quotecmd(message: Message):
     asyncio.get_event_loop().create_task(message.delete())
     args = message.input_str
     replied = message.reply_to_message
-    async with userge.conversation('QuotLyBot') as conv:
+    async with alphaz.conversation('QuotLyBot') as conv:
         try:
             if replied and not args:
                 await conv.forward_message(replied)
@@ -38,6 +32,6 @@ async def quotecmd(message: Message):
             await message.err('something went wrong!')
         else:
             message_id = replied.message_id if replied else None
-            await userge.send_sticker(chat_id=message.chat.id,
+            await alphaz.send_sticker(chat_id=message.chat.id,
                                       sticker=quote.sticker.file_id,
                                       reply_to_message_id=message_id)
