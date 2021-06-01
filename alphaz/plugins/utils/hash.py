@@ -1,20 +1,14 @@
 """ hash , encode and decode """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import pybase64
 
-from userge import userge, Message
-from userge.utils import runcmd
+from alphaz import alphaz, Message
+from alphaz.utils import runcmd
 
 
-@userge.on_cmd("hash", about={
+@alphaz.on_cmd("hash", about={
     'header': "find hash of text",
     'description': "Find the md5, sha1, sha256, sha512 of the string when written into a txt file",
     'usage': "{tr}hash [text or reply to msg]"})
@@ -36,7 +30,7 @@ async def gethash(message: Message):
     await message.edit_or_send_as_file(ans, filename="hash.txt", caption="hash.txt")
 
 
-@userge.on_cmd("base64", about={
+@alphaz.on_cmd("base64", about={
     'header': "Find the base64 encoding of the given string",
     'usage': "{tr}base64 [text or reply to msg] : encode\n"
              "{tr}base64 -d [text or reply to msg] : decode"}, del_pre=True)
