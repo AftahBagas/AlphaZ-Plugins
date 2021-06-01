@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['Conversation']
 
@@ -20,8 +12,8 @@ from pyrogram.filters import Filter
 from pyrogram.types import Message as RawMessage
 from pyrogram.handlers import MessageHandler
 
-from userge import logging
-from userge.utils.exceptions import StopConversation
+from alphaz import logging
+from alphaz.utils.exceptions import StopConversation
 from ... import client as _client  # pylint: disable=unused-import
 
 _LOG = logging.getLogger(__name__)
@@ -36,7 +28,7 @@ class _MsgLimitReached(Exception):
 
 
 class Conversation:
-    """ Conversation class for userge """
+    """ Conversation class for alphaz """
     def __init__(self,
                  client: _CL_TYPE,
                  chat: Union[str, int],
