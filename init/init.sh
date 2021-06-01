@@ -29,13 +29,13 @@ stopAlphaz() {
 
 handleSigTerm() {
     log "Exiting With SIGTERM (143) ..."
-    stopUserge
+    stopAlphaz
     exit 143
 }
 
 handleSigInt() {
     log "Exiting With SIGINT (130) ..."
-    stopUserge
+    stopAlphaz
     exit 130
 }
 
