@@ -1,17 +1,11 @@
 """ convert text """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
-from userge import userge, Message
+from alphaz import alphaz, Message
 
 
-@userge.on_cmd("small", about={
+@alphaz.on_cmd("small", about={
     'header': "Make caps smaller",
     'usage': "{tr}small [text | reply to msg]"})
 async def small_(message: Message):
@@ -26,7 +20,7 @@ async def small_(message: Message):
                                                     "ᴀʙᴄᴅᴇꜰɢʜɪᴊᴋʟᴍɴᴏᴘqʀꜱᴛᴜᴠᴡxʏᴢ")))
 
 
-@userge.on_cmd("lower", about={
+@alphaz.on_cmd("lower", about={
     'header': "Convert text to lowwer",
     'usage': "{tr}lower [text | reply to msg]"})
 async def lower_(message: Message):
@@ -40,7 +34,7 @@ async def lower_(message: Message):
     await message.edit(text.lower())
 
 
-@userge.on_cmd("upper", about={
+@alphaz.on_cmd("upper", about={
     'header': "Convert text to upper",
     'usage': "{tr}upper [text | reply to msg]"})
 async def upper_(message: Message):
