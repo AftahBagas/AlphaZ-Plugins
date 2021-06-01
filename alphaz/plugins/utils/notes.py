@@ -1,20 +1,14 @@
 """ setup notes """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import asyncio
 from typing import Dict, Tuple
 
-from userge import userge, Message, get_collection, Config
+from alphaz import alphaz, Message, get_collection, Config
 
 NOTES_COLLECTION = get_collection("notes")
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 NOTES_DATA: Dict[int, Dict[str, Tuple[int, bool]]] = {}
 
@@ -50,7 +44,7 @@ async def _init() -> None:
         _note_updater(nt['chat_id'], nt['name'], nt['mid'], nt['global'])
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "notes", about={
         'header': "List all saved notes in current chat",
         'flags': {'-all': "List all saved notes in every chats"}},
@@ -76,7 +70,7 @@ async def view_notes(message: Message) -> None:
         await message.err("There are no saved notes in this chat")
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "delnote", about={
         'header': "Deletes a note by name",
         'flags': {
@@ -113,7 +107,7 @@ async def remove_note(message: Message) -> None:
     await message.edit(text=out, del_in=3)
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "gtlnote", about={
         'header': "global note to local note",
         'description': "only sudos and owner can access local notes",
@@ -134,7 +128,7 @@ async def mv_to_local_note(message: Message) -> None:
     await message.edit(text=out, del_in=3)
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "ltgnote", about={
         'header': "local note to global note",
         'description': "anyone can access global notes",
@@ -155,7 +149,7 @@ async def mv_to_global_note(message: Message) -> None:
     await message.edit(text=out, del_in=3)
 
 
-@userge.on_cmd(r"(?:#|get\s)(\S+)",
+@alphaz.on_cmd(r"(?:#|get\s)(\S+)",
                about={'header': "Gets a note by name",
                       'usage': "#[notename]\nget notename"},
                group=-1,
@@ -196,7 +190,7 @@ async def get_note(message: Message) -> None:
                                      reply_to_message_id=reply_to_message_id)
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     r"addnote (\S+)(?:\s([\s\S]+))?", about={
         'header': "Adds a note by name",
         'options': {
