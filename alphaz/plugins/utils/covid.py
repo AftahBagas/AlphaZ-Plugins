@@ -1,18 +1,11 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-
-# Userge Plugin for getting detailed stats of Covid Patients
-# Author: Sumanjay (https://github.com/cyberboysumanjay) (@cyberboysumanjay)
-# All rights reserved.
+# alfareza
 
 from covid import Covid
 
-from userge import userge, Message, pool
+from alphaz import alphaz, Message, pool
 
 
-@userge.on_cmd("covid", about={
+@alphaz.on_cmd("covid", about={
     'header': "lihat detail yang jelas",
     'description': "Situasi real time pasien COVID-19 saat ini dilaporkan di seluruh dunia",
     'flags': {'-l': "daftar negara"},
