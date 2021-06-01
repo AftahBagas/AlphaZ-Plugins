@@ -58,9 +58,9 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
     markup = None
     output = f"""**Alpha Z Plugins Is Running 🔥!..**\n
 ╭━─━─━─━─≪✠≫─━─━─━─━╮\n
-**❍ ⏱️ uptime** : `{userge.uptime}`
+**❍ ⏱️ uptime** : `{alphaz.uptime}`
 **❍ 🧪 version** : `{get_version()}`
-**❍ 😈 mode** : `{_logo._get_mode()}`
+**❍ 😈 mode** : `{_alive._get_mode()}`
 
 **❍ 👥 Sudo**: `{_parse_arg(Config.SUDO_ENABLED)}`
 **❍ ⚙️ Pm-Guard**: `{_parse_arg(not Config.ALLOW_ALL_PMS)}`
