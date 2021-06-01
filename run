@@ -10,4 +10,4 @@
 
 . init/init.sh
 
-runUserge "$@"
+runAlphaz "$@"
