@@ -1,12 +1,6 @@
 """ downloader """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import math
@@ -17,14 +11,14 @@ from urllib.parse import unquote_plus
 
 from pySmartDL import SmartDL
 
-from userge import userge, Message, Config
-from userge.utils import progress, humanbytes
-from userge.utils.exceptions import ProcessCanceled
+from alphaz import alphaz, Message, Config
+from alphaz.utils import progress, humanbytes
+from alphaz.utils.exceptions import ProcessCanceled
 
-LOGGER = userge.getLogger(__name__)
+LOGGER = alphaz.getLogger(__name__)
 
 
-@userge.on_cmd("download", about={
+@alphaz.on_cmd("download", about={
     'header': "Download files to server",
     'usage': "{tr}download [url | reply to telegram media]",
     'examples': "{tr}download https://speed.hetzner.de/100MB.bin | testing upload.bin"},
