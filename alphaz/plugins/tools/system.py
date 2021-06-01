@@ -1,11 +1,5 @@
 """ system commands """
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import time
 import asyncio
@@ -13,16 +7,16 @@ import shutil
 
 from pyrogram.types import User
 
-from userge.core.ext import RawClient
-from userge import userge, Message, Config, get_collection
-from userge.utils import terminate
+from alphaz.core.ext import RawClient
+from alphaz import alphaz, Message, Config, get_collection
+from alphaz.utils import terminate
 
 SAVED_SETTINGS = get_collection("CONFIGS")
 DISABLED_CHATS = get_collection("DISABLED_CHATS")
 
 MAX_IDLE_TIME = 300
-LOG = userge.getLogger(__name__)
-CHANNEL = userge.getCLogger(__name__)
+LOG = alphaz.getLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 
 async def _init() -> None:
@@ -41,7 +35,7 @@ async def _init() -> None:
             Config.DISABLED_CHATS.add(i['_id'])
 
 
-@userge.on_cmd('restart', about={
+@alphaz.on_cmd('restart', about={
     'header': "Restarts the bot and reload all plugins",
     'flags': {
         '-h': "restart heroku dyno",
@@ -50,7 +44,7 @@ async def _init() -> None:
     'usage': "{tr}restart [flag | flags]",
     'examples': "{tr}restart -t -d"}, del_pre=True, allow_channels=False)
 async def restart_(message: Message):
-    """ restart userge """
+    """ restart alphaz """
     await message.edit("Restarting Userge Services", log=__name__)
     LOG.info("USERGE Services - Restart initiated")
     if 't' in message.flags:
@@ -67,7 +61,7 @@ async def restart_(message: Message):
         asyncio.get_event_loop().create_task(userge.restart())
 
 
-@userge.on_cmd("shutdown", about={'header': "shutdown userge :)"}, allow_channels=False)
+@alphaz.on_cmd("shutdown", about={'header': "shutdown userge :)"}, allow_channels=False)
 async def shutdown_(message: Message) -> None:
     """ shutdown userge """
     await message.edit("`shutting down ...`")
@@ -83,7 +77,7 @@ async def shutdown_(message: Message) -> None:
     terminate()
 
 
-@userge.on_cmd("die", about={
+@alphaz.on_cmd("die", about={
     'header': "set auto heroku dyno off timeout",
     'flags': {'-t': "input offline timeout in min : default to 5min"},
     'usage': "{tr}die [flags]",
@@ -116,7 +110,7 @@ async def die_(message: Message) -> None:
     Config.RUN_DYNO_SAVER = asyncio.get_event_loop().create_task(_dyno_saver_worker())
 
 
-@userge.on_cmd("setvar", about={
+@alphaz.on_cmd("setvar", about={
     'header': "set var in heroku",
     'usage': "{tr}setvar [var_name] [var_data]",
     'examples': "{tr}setvar WORKERS 4"})
@@ -146,7 +140,7 @@ async def setvar_(message: Message) -> None:
     heroku_vars[var_name] = var_data
 
 
-@userge.on_cmd("delvar", about={
+@alphaz.on_cmd("delvar", about={
     'header': "del var in heroku",
     'usage': "{tr}delvar [var_name]",
     'examples': "{tr}delvar WORKERS"})
@@ -168,7 +162,7 @@ async def delvar_(message: Message) -> None:
     del heroku_vars[var_name]
 
 
-@userge.on_cmd("getvar", about={
+@alphaz.on_cmd("getvar", about={
     'header': "get var in heroku",
     'usage': "{tr}getvar [var_name]",
     'examples': "{tr}getvar WORKERS"})
@@ -189,7 +183,7 @@ async def getvar_(message: Message) -> None:
     await message.edit(f"`var {var_name} forwarded to log channel !`", del_in=3)
 
 
-@userge.on_cmd("enhere", about={
+@alphaz.on_cmd("enhere", about={
     'header': "enable userbot in disabled chat.",
     'flags': {'-all': "Enable Userbot in all chats."},
     'usage': "{tr}enhere [chat_id | username]\n{tr}enhere -all"})
@@ -230,7 +224,7 @@ async def enable_userbot(message: Message):
         await message.err("chat_id not found!")
 
 
-@userge.on_cmd("dishere", about={
+@alphaz.on_cmd("dishere", about={
     'header': "disable userbot in current chat.",
     'flags': {'-all': "disable Userbot in all chats."},
     'usage': "{tr}dishere\n{tr}dishere [chat_id | username]\n{tr}dishere -all"})
@@ -267,7 +261,7 @@ async def disable_userbot(message: Message):
             )
 
 
-@userge.on_cmd("listdisabled", about={'header': "List all disabled chats."})
+@alphaz.on_cmd("listdisabled", about={'header': "List all disabled chats."})
 async def view_disabled_chats_(message: Message):
     if Config.DISABLED_ALL:
         # bot will not print this, but dont worry except log channel
@@ -281,29 +275,29 @@ async def view_disabled_chats_(message: Message):
         await message.edit(out_str, del_in=0)
 
 
-@userge.on_cmd("sleep (\\d+)", about={
+@alphaz.on_cmd("sleep (\\d+)", about={
     'header': "sleep userge :P",
     'usage': "{tr}sleep [timeout in seconds]"}, allow_channels=False)
 async def sleep_(message: Message) -> None:
-    """ sleep userge """
+    """ sleep alphaz """
     seconds = int(message.matches[0].group(1))
     await message.edit(f"`sleeping {seconds} seconds...`")
     asyncio.get_event_loop().create_task(_slp_wrkr(seconds))
 
 
 async def _slp_wrkr(seconds: int) -> None:
-    await userge.stop()
+    await alphaz.stop()
     await asyncio.sleep(seconds)
-    await userge.reload_plugins()
-    await userge.start()
+    await alphaz.reload_plugins()
+    await alphaz.start()
 
 
-@userge.on_user_status()
+@alphaz.on_user_status()
 async def _user_status(_, user: User) -> None:
     Config.STATUS = user.status
 
 
-@userge.add_task
+@alphaz.add_task
 async def _dyno_saver_worker() -> None:
     count = 0
     check_delay = 5
