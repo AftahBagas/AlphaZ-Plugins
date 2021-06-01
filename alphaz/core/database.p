@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['get_collection']
 
@@ -16,7 +8,7 @@ from typing import List
 from motor.motor_asyncio import AsyncIOMotorClient
 from motor.core import AgnosticClient, AgnosticDatabase, AgnosticCollection
 
-from userge import logging, Config, logbot
+from alphaz import logging, Config, logbot
 
 _LOG = logging.getLogger(__name__)
 _LOG_STR = "$$$>>> %s <<<$$$"
@@ -26,7 +18,7 @@ logbot.edit_last_msg("Connecting to Database ...", _LOG.info, _LOG_STR)
 _MGCLIENT: AgnosticClient = AsyncIOMotorClient(Config.DB_URI)
 _RUN = asyncio.get_event_loop().run_until_complete
 
-if "Userge" in _RUN(_MGCLIENT.list_database_names()):
+if "Alphaz" in _RUN(_MGCLIENT.list_database_names()):
     _LOG.info(_LOG_STR, "AlphaZ Plugins Database Found :) => Now Logging to it...")
 else:
     _LOG.info(_LOG_STR, "AlphaZ Plugins Database Not Found :( => Creating New Database...")
