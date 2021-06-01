@@ -1,22 +1,16 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 
 from telegraph import upload_file
 
-from userge import userge, Message, Config
-from userge.utils import progress
+from alphaz import alphaz, Message, Config
+from alphaz.utils import progress
 
 _T_LIMIT = 5242880
 
 
-@userge.on_cmd("telegraph", about={
+@alphaz.on_cmd("telegraph", about={
     'header': "Unggah file ke server Telegraph",
     'types': ['.jpg', '.jpeg', '.png', '.gif', '.mp4'],
     'usage': "reply {tr}telegraph to supported media : limit 5MB"})
