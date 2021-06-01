@@ -1,12 +1,6 @@
 """ upload , rename and convert telegram files """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import io
@@ -21,18 +15,18 @@ from hachoir.metadata import extractMetadata
 from hachoir.parser import createParser
 from pyrogram.errors.exceptions import FloodWait
 
-from userge import userge, Config, Message
-from userge.utils import progress, take_screen_shot, humanbytes
-from userge.utils.exceptions import ProcessCanceled
-from userge.plugins.misc.download import tg_download, url_download
+from alphaz import userge, Config, Message
+from alphaz.utils import progress, take_screen_shot, humanbytes
+from alphaz.utils.exceptions import ProcessCanceled
+from alphaz.plugins.misc.download import tg_download, url_download
 
 LOGGER = userge.getLogger(__name__)
 CHANNEL = userge.getCLogger(__name__)
 
-LOGO_PATH = 'resources/userge.png'
+LOGO_PATH = 'resources/alphaz.png'
 
 
-@userge.on_cmd("rename", about={
+@alphaz.on_cmd("rename", about={
     'header': "Rename telegram files",
     'flags': {
         '-d': "upload as document",
@@ -51,7 +45,7 @@ async def rename_(message: Message):
         await message.edit("Please read `.help rename`", del_in=5)
 
 
-@userge.on_cmd("convert", about={
+@alphaz.on_cmd("convert", about={
     'header': "Convert telegram files",
     'usage': "reply {tr}convert to any media"}, del_pre=True, check_downpath=True)
 async def convert_(message: Message):
@@ -64,7 +58,7 @@ async def convert_(message: Message):
         await message.edit("Please read `.help convert`", del_in=5)
 
 
-@userge.on_cmd("upload", about={
+@alphaz.on_cmd("upload", about={
     'header': "Upload files to telegram",
     'flags': {
         '-d': "upload as document",
