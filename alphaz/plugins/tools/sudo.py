@@ -1,18 +1,12 @@
 """ setup sudos """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import asyncio
 
 from pyrogram.errors.exceptions.bad_request_400 import PeerIdInvalid
 
-from userge import userge, Message, Config, get_collection
+from userge import alphaz, Message, Config, get_collection
 
 SAVED_SETTINGS = get_collection("CONFIGS")
 SUDO_USERS_COLLECTION = get_collection("sudo_users")
@@ -29,7 +23,7 @@ async def _init() -> None:
         Config.ALLOWED_COMMANDS.add(i['_id'])
 
 
-@userge.on_cmd("sudo", about={'header': "enable / disable sudo access"}, allow_channels=False)
+@alphaz.on_cmd("sudo", about={'header': "enable / disable sudo access"}, allow_channels=False)
 async def sudo_(message: Message):
     """ enable / disable sudo access """
     if Config.SUDO_ENABLED:
@@ -42,7 +36,7 @@ async def sudo_(message: Message):
         {'_id': 'SUDO_ENABLED'}, {"$set": {'data': Config.SUDO_ENABLED}}, upsert=True)
 
 
-@userge.on_cmd("addsudo", about={
+@alphaz.on_cmd("addsudo", about={
     'header': "tambahkan pengguna sudo",
     'usage': "{tr}addsudo [username | reply to msg]"}, allow_channels=False)
 async def add_sudo(message: Message):
@@ -69,7 +63,7 @@ async def add_sudo(message: Message):
             message.edit(f"user : `{user['id']}` added to **SUDO**!", del_in=5, log=__name__))
 
 
-@userge.on_cmd("delsudo", about={
+@alphaz.on_cmd("delsudo", about={
     'header': "hapus pengguna sudo",
     'flags': {'-all': "remove all sudo users"},
     'usage': "{tr}delsudo [user_id | reply to msg]\n{tr}delsudo -all"}, allow_channels=False)
@@ -101,7 +95,7 @@ async def del_sudo(message: Message):
             message.edit(f"user : `{user_id}` removed from **SUDO**!", del_in=5, log=__name__))
 
 
-@userge.on_cmd("vsudo", about={'header': "lihat pengguna sudo"}, allow_channels=False)
+@alphaz.on_cmd("vsudo", about={'header': "lihat pengguna sudo"}, allow_channels=False)
 async def view_sudo(message: Message):
     """ lihat pengguna sudo """
     if not Config.SUDO_USERS:
@@ -113,7 +107,7 @@ async def view_sudo(message: Message):
     await message.edit(out_str, del_in=0)
 
 
-@userge.on_cmd("addscmd", about={
+@alphaz.on_cmd("addscmd", about={
     'header': "tambahkan perintah sudo",
     'flags': {'-all': "tambahkan semua perintah ke sudo"},
     'usage': "{tr}addscmd [command name]\n{tr}addscmd -all"}, allow_channels=False)
@@ -149,7 +143,7 @@ async def add_sudo_cmd(message: Message):
             message.edit(f"cmd : `{cmd}` added to **SUDO**!", del_in=5, log=__name__))
 
 
-@userge.on_cmd("delscmd", about={
+@alphaz.on_cmd("delscmd", about={
     'header': "hapus perintah sudo",
     'flags': {'-all': "hapus semua perintah sudo"},
     'usage': "{tr}delscmd [command name]\n{tr}delscmd -all"}, allow_channels=False)
@@ -174,13 +168,13 @@ async def del_sudo_cmd(message: Message):
             message.edit(f"cmd : `{cmd}` removed from **SUDO**!", del_in=5, log=__name__))
 
 
-@userge.on_cmd("vscmd", about={'header': "lihat sudo cmds"}, allow_channels=False)
+@alphaz.on_cmd("vscmd", about={'header': "lihat sudo cmds"}, allow_channels=False)
 async def view_sudo_cmd(message: Message):
     """ lihat sudo cmds """
     if not Config.ALLOWED_COMMANDS:
         await message.edit("**SUDO** cmds tidak ditemukan!", del_in=5)
         return
-    out_str = f"⛔ **SUDO CMDS AlphaZ Plugins** ⛔\n\n**trigger** : `{Config.SUDO_TRIGGER}`\n\n"
+    out_str = f"🔐 **SUDO CMDS** 🔐\n⚡AlphaZ Plugins⚡\n\n**trigger** : `{Config.SUDO_TRIGGER}`\n\n"
     async for cmd in SUDO_CMDS_COLLECTION.find().sort('_id'):
         out_str += f"`{cmd['_id']}`  "
     await message.edit_or_send_as_file(out_str, del_in=0)
