@@ -1,12 +1,4 @@
-#!/bin/bash
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 . init/logbot/logbot.sh
 . init/utils.sh
@@ -15,7 +7,7 @@
 trap handleSigTerm TERM
 trap handleSigInt INT
 
-initUserge() {
+initAlphaz() {
     printLogo
     assertPrerequisites
     sendMessage "Initializing AlphaZ Plugins ..."
@@ -24,12 +16,12 @@ initUserge() {
     printLine
 }
 
-startUserge() {
+startAlphaz() {
     startLogBotPolling
-    runPythonModule userge "$@"
+    runPythonModule alphaz "$@"
 }
 
-stopUserge() {
+stopAlphaz() {
     sendMessage "Exiting AlphaZ Plugins ..."
     endLogBotPolling
     exit 0
@@ -47,8 +39,8 @@ handleSigInt() {
     exit 130
 }
 
-runUserge() {
-    initUserge
-    startUserge "$@"
-    stopUserge
+runAlphaz() {
+    initAlphaz
+    startAlphaz "$@"
+    stopAlphaz
 }
