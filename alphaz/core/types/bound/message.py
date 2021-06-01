@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['Message']
 
@@ -19,7 +11,7 @@ from pyrogram.errors.exceptions import MessageAuthorRequired, MessageTooLong
 from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified, MessageIdInvalid
 from pyrogram.errors.exceptions.forbidden_403 import MessageDeleteForbidden
 
-from userge import logging
+from alphaz import logging
 from ... import client as _client  # pylint: disable=unused-import
 
 _CANCEL_LIST: List[int] = []
@@ -31,7 +23,7 @@ _LOG_STR = "<<<!  :::::  %s  :::::  !>>>"
 
 
 class Message(RawMessage):
-    """ Modded Message Class For Userge """
+    """ Modded Message Class For Alphaz """
     def __init__(self,
                  client: Union['_client.Userge', '_client.UsergeBot'],
                  mvars: Dict[str, object], module: str, **kwargs: Union[str, bool]) -> None:
@@ -44,7 +36,7 @@ class Message(RawMessage):
         super().__init__(client=client, **mvars)
 
     @classmethod
-    def parse(cls, client: Union['_client.Userge', '_client.UsergeBot'],
+    def parse(cls, client: Union['_client.Alphaz', '_client.AlphazBot'],
               message: RawMessage, **kwargs: Union[str, bool]) -> 'Message':
         """ parse message """
         mvars = vars(message)
@@ -57,7 +49,7 @@ class Message(RawMessage):
         return cls(client, mvars, **kwargs)
 
     @property
-    def client(self) -> Union['_client.Userge', '_client.UsergeBot']:
+    def client(self) -> Union['_client.Alphaz', '_client.AlphazBot']:
         """ returns client """
         return self._client
 
