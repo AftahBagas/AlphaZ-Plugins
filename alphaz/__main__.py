@@ -1,6 +1,6 @@
 # alphaz
 
-from alphaz import alphaz
+from Alphaz import Alphaz
 
 if __name__ == "__main__":
-    alphaz.begin()
+    Alphaz.begin()
