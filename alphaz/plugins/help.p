@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 from math import ceil
 from uuid import uuid4
@@ -19,16 +11,16 @@ from pyrogram.types import (
     CallbackQuery, InlineQuery)
 from pyrogram.errors.exceptions.bad_request_400 import MessageNotModified, MessageIdInvalid
 
-from userge import userge, Message, Config, get_collection
+from alphaz import alphaz, Message, Config, get_collection
 
 _CATEGORY = {
     'admin': '👮',
-    'fun': '🎨',
+    'fun': '🥳',
     'misc': '⚙️',
     'tools': '🧰',
     'utils': '🗂',
     'unofficial': '😈',
-    'temp': '♻️',
+    'temp': '💼',
     'plugins': '📂'
 }
 SAVED_SETTINGS = get_collection("CONFIGS")
@@ -41,9 +33,9 @@ async def _init() -> None:
         Config.USE_USER_FOR_CLIENT_CHECKS = bool(data['is_user'])
 
 
-@userge.on_cmd("help", about={'header': "Guide to use USERGE commands"}, allow_channels=False)
+@alphaz.on_cmd("help", about={'header': "Guide to use AlphaZ Plugins commands"}, allow_channels=False)
 async def helpme(message: Message) -> None:  # pylint: disable=missing-function-docstring
-    plugins = userge.manager.enabled_plugins
+    plugins = alphaz.manager.enabled_plugins
     if not message.input_str:
         out_str = f"""⚒ <b><u>(<code>{len(plugins)}</code>) Plugin(s) Available</u></b>\n\n"""
         cat_plugins = userge.manager.get_plugins()
@@ -69,7 +61,7 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
                             f"    📚 <b>info:</b>  <i>{cmd.doc}</i>\n\n")
             out_str += f"""📕 <b>Usage:</b>  <code>{Config.CMD_TRIGGER}help [command_name]</code>"""
         else:
-            commands = userge.manager.enabled_commands
+            commands = alphaz.manager.enabled_commands
             key = key.lstrip(Config.CMD_TRIGGER)
             key_ = Config.CMD_TRIGGER + key
             if key in commands:
@@ -80,7 +72,7 @@ async def helpme(message: Message) -> None:  # pylint: disable=missing-function-
                 out_str = f"<i>No Module or Command Found for</i>: <code>{message.input_str}</code>"
     await message.edit(out_str, del_in=0, parse_mode='html', disable_web_page_preview=True)
 
-if userge.has_bot:
+if alphaz.has_bot:
     def check_owner(func):
         async def wrapper(_, c_q: CallbackQuery):
             if c_q.from_user and c_q.from_user.id in Config.OWNER_ID:
@@ -92,13 +84,13 @@ if userge.has_bot:
                     await c_q.answer("Sorry, I Don't Have Permissions to edit this 😔",
                                      show_alert=True)
             else:
-                user_dict = await userge.bot.get_user_dict(Config.OWNER_ID[0])
+                user_dict = await alphaz.bot.get_user_dict(Config.OWNER_ID[0])
                 await c_q.answer(
                     f"Hanya {user_dict['flname']} Dapat mengakses ini...! Buat Sendiri Di @TeamSquadUserbotSupport 🤘",
                     show_alert=True)
         return wrapper
 
-    @userge.bot.on_callback_query(filters=filters.regex(pattern=r"\((.+)\)(next|prev)\((\d+)\)"))
+    @alphaz.bot.on_callback_query(filters=filters.regex(pattern=r"\((.+)\)(next|prev)\((\d+)\)"))
     @check_owner
     async def callback_next_prev(callback_query: CallbackQuery):
         cur_pos = str(callback_query.matches[0].group(1))
@@ -119,7 +111,7 @@ if userge.has_bot:
         await callback_query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(buttons))
 
-    @userge.bot.on_callback_query(filters=filters.regex(pattern=r"back\((.+)\)"))
+    @alphaz.bot.on_callback_query(filters=filters.regex(pattern=r"back\((.+)\)"))
     @check_owner
     async def callback_back(callback_query: CallbackQuery):
         cur_pos = str(callback_query.matches[0].group(1))
@@ -137,7 +129,7 @@ if userge.has_bot:
         await callback_query.edit_message_text(
             text, reply_markup=InlineKeyboardMarkup(buttons))
 
-    @userge.bot.on_callback_query(filters=filters.regex(pattern=r"enter\((.+)\)"))
+    @alphaz.bot.on_callback_query(filters=filters.regex(pattern=r"enter\((.+)\)"))
     @check_owner
     async def callback_enter(callback_query: CallbackQuery):
         cur_pos = str(callback_query.matches[0].group(1))
@@ -151,7 +143,7 @@ if userge.has_bot:
         await callback_query.edit_message_text(
             text, reply_markup=InlineKeyboardMarkup(buttons))
 
-    @userge.bot.on_callback_query(
+    @alphaz.bot.on_callback_query(
         filters=filters.regex(pattern=r"((?:un)?load|(?:en|dis)able)\((.+)\)"))
     @check_owner
     async def callback_manage(callback_query: CallbackQuery):
@@ -160,9 +152,9 @@ if userge.has_bot:
         pos_list = cur_pos.split('|')
         if len(pos_list) == 4:
             if is_filter(pos_list[-1]):
-                flt = userge.manager.filters[pos_list[-1]]
+                flt = alphaz.manager.filters[pos_list[-1]]
             else:
-                flt = userge.manager.commands[pos_list[-1]]
+                flt = alphaz.manager.commands[pos_list[-1]]
             await getattr(flt, task)()
             text, buttons = filter_data(cur_pos)
         else:
@@ -178,7 +170,7 @@ if userge.has_bot:
         await callback_query.edit_message_text(
             "**⚙️ MENU HELP ⚙️\n\n⚡AlphaZ Plugins⚡**", reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
 
-    @userge.bot.on_callback_query(filters=filters.regex(pattern=r"^chgclnt$"))
+    @alphaz.bot.on_callback_query(filters=filters.regex(pattern=r"^chgclnt$"))
     @check_owner
     async def callback_chgclnt(callback_query: CallbackQuery):
         if Config.USE_USER_FOR_CLIENT_CHECKS:
@@ -191,7 +183,7 @@ if userge.has_bot:
         await callback_query.edit_message_reply_markup(
             reply_markup=InlineKeyboardMarkup(main_menu_buttons()))
 
-    @userge.bot.on_callback_query(filters=filters.regex(pattern=r"refresh\((.+)\)"))
+    @alphaz.bot.on_callback_query(filters=filters.regex(pattern=r"refresh\((.+)\)"))
     @check_owner
     async def callback_exit(callback_query: CallbackQuery):
         cur_pos = str(callback_query.matches[0].group(1))
@@ -203,7 +195,7 @@ if userge.has_bot:
         await callback_query.edit_message_text(
             text, reply_markup=InlineKeyboardMarkup(buttons))
 
-    @userge.bot.on_callback_query(filters=filters.regex(pattern=r"prvtmsg\((.+)\)"))
+    @alphaz.bot.on_callback_query(filters=filters.regex(pattern=r"prvtmsg\((.+)\)"))
     async def prvt_msg(_, c_q: CallbackQuery):
         msg_id = str(c_q.matches[0].group(1))
         if msg_id not in PRVT_MSGS:
@@ -246,29 +238,29 @@ if userge.has_bot:
     def main_menu_buttons():
         return parse_buttons(0, "mm",
                              lambda x: f"{_CATEGORY.get(x, '📁')} {x}",
-                             userge.manager.get_all_plugins())
+                             alphaz.manager.get_all_plugins())
 
     def default_buttons(cur_pos: str):
         tmp_btns = []
         if cur_pos != "mm":
             tmp_btns.append(InlineKeyboardButton(
-                "⬅ Back", callback_data=f"back({cur_pos})".encode()))
+                "< Back", callback_data=f"back({cur_pos})".encode()))
             if len(cur_pos.split('|')) > 2:
                 tmp_btns.append(InlineKeyboardButton(
                     "😈 Utama", callback_data="mm".encode()))
                 tmp_btns.append(InlineKeyboardButton(
                     "🔄 Refresh", callback_data=f"refresh({cur_pos})".encode()))
         else:
-            cur_clnt = "👲 USER" if Config.USE_USER_FOR_CLIENT_CHECKS else "🤖 BOT"
+            cur_clnt = "🤵 USER" if Config.USE_USER_FOR_CLIENT_CHECKS else "🤖 BOT"
             tmp_btns.append(InlineKeyboardButton(
                 f"⚙️ Klien untuk Cek dan Sudos : {cur_clnt}", callback_data="chgclnt".encode()))
         return [tmp_btns]
 
     def category_data(cur_pos: str):
         pos_list = cur_pos.split('|')
-        plugins = userge.manager.get_all_plugins()[pos_list[1]]
+        plugins = alphaz.manager.get_all_plugins()[pos_list[1]]
         text = (f"**(`{len(plugins)}`) Plugin(s) Under : "
-                f"`{_CATEGORY.get(pos_list[1], '📁')} {pos_list[1]}` 🎭 Category**")
+                f"`{_CATEGORY.get(pos_list[1], '📁')} {pos_list[1]}` 🎉 Category**")
         buttons = parse_buttons(0, '|'.join(pos_list[:2]),
                                 lambda x: f"🗃 {x}",
                                 plugins)
@@ -276,12 +268,12 @@ if userge.has_bot:
 
     def plugin_data(cur_pos: str, p_num: int = 0):
         pos_list = cur_pos.split('|')
-        plg = userge.manager.plugins[pos_list[2]]
+        plg = alphaz.manager.plugins[pos_list[2]]
         text = f"""🗃 **--Plugin Status--** 🗃
-🎭 **Category** : `{pos_list[1]}`
+🎉 **Category** : `{pos_list[1]}`
 🔖 **Name** : `{plg.name}`
 📝 **Doc** : `{plg.doc}`
-⚔ **Commands** : `{len(plg.commands)}`
+⚙️ **Commands** : `{len(plg.commands)}`
 ⚖ **Filters** : `{len(plg.filters)}`
 ✅ **Loaded** : `{plg.is_loaded}`
 ➕ **Enabled** : `{plg.is_enabled}`
@@ -307,7 +299,7 @@ if userge.has_bot:
 
     def filter_data(cur_pos: str):
         pos_list = cur_pos.split('|')
-        plg = userge.manager.plugins[pos_list[2]]
+        plg = alphaz.manager.plugins[pos_list[2]]
         flts = {flt.name: flt for flt in plg.commands + plg.filters}
         flt = flts[pos_list[-1]]
         flt_data = f"""
@@ -317,7 +309,7 @@ if userge.has_bot:
 ✅ **Loaded** : `{flt.is_loaded}`
 ➕ **Enabled** : `{flt.is_enabled}`"""
         if hasattr(flt, 'about'):
-            text = f"""⚔ **--Command Status--**
+            text = f"""⚙️ **--Command Status--**
 {flt_data}
 {flt.about}
 """
@@ -342,7 +334,7 @@ if userge.has_bot:
         buttons = [tmp_btns] + buttons
         return text, buttons
 
-    @userge.bot.on_inline_query()
+    @alphaz.bot.on_inline_query()
     async def inline_answer(_, inline_query: InlineQuery):
         results = [
             InlineQueryResultArticle(
@@ -393,7 +385,7 @@ if userge.has_bot:
                 if not msg.strip().endswith(':'):
                     return
                 try:
-                    user = await userge.get_users(_id.strip())
+                    user = await alphaz.get_users(_id.strip())
                 except Exception:  # pylint: disable=broad-except
                     return
                 PRVT_MSGS[inline_query.id] = (user.id, user.first_name, msg.strip(': '))
@@ -412,7 +404,7 @@ if userge.has_bot:
                     )
                 )
             elif "pmpermit" in inline_query.query:
-                owner = await userge.get_me()
+                owner = await alphaz.get_me()
                 pm_inline_msg = await SAVED_SETTINGS.find_one({'_id': 'CUSTOM_INLINE_PM_MESSAGE'})
                 if pm_inline_msg:
                     text = pm_inline_msg.get('data')
