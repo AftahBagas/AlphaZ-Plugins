@@ -1,19 +1,13 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 from urllib.error import HTTPError
 
 import urbandict
 
-from userge import userge, Message
+from alphaz import alphaz, Message
 
 
-@userge.on_cmd("ud", about={
+@alphaz.on_cmd("ud", about={
     'header': "Searches Urban Dictionary for the query",
     'flags': {'-l': "limit : defaults to 1"},
     'usage': "{tr}ud [flag] [query]",
