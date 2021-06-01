@@ -1,4 +1,4 @@
-# alfareza
+# alphaz
 
 from alphaz import alphaz
 
