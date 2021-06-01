@@ -96,7 +96,7 @@ class _AbstractAlphaz(Methods, RawClient):
         return len(reloaded)
 
 
-class AlphazBot(_AbstractUserge):
+class AlphazBot(_AbstractAlphaz):
     """ AlphazBot, the bot """
     def __init__(self, **kwargs) -> None:
         _LOG.info(_LOG_STR, "Setting AlphazBot Configs")
@@ -108,7 +108,7 @@ class AlphazBot(_AbstractUserge):
         return self._bot
 
 
-class Alphaz(_AbstractUserge):
+class Alphaz(_AbstractAlphaz):
     """ AlphaZ Plugins, the userbot """
 
     has_bot = bool(Config.BOT_TOKEN)
