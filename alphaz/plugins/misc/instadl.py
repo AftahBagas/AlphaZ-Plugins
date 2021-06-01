@@ -1,12 +1,6 @@
-""" a instagram post downloader plugin for @theUserge. """
+""" a instagram post downloader plugin for AlphaZ Plugins. """
 #
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import re
@@ -24,8 +18,8 @@ from instaloader import (
     ConnectionException, LoginRequiredException
 )
 
-from userge import userge, pool, Message, Config
-from userge.plugins.misc.upload import get_thumb, remove_thumb
+from alphaz import alphaz, pool, Message, Config
+from alphaz.plugins.misc.upload import get_thumb, remove_thumb
 
 
 # some helpers
@@ -144,7 +138,7 @@ def get_profile_posts(profile: Profile) -> NodeIterator[Post]:
 
 
 # pylint: disable=R0914, R0912, R0915, R0911
-@userge.on_cmd("postdl", about={
+@alphaz.on_cmd("postdl", about={
     'header': "Instagram Post Downloader",
     'description': "Download a post of a instagram user by passing post link or download all posts "
                    "by passing username of instagram user (<code>requires flag</code>)",
