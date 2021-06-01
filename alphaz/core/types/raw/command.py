@@ -26,7 +26,7 @@ class Command(Filter):
     def parse(cls, command: str,  # pylint: disable=arguments-differ
               about: Union[str, Dict[str, Union[str, List[str], Dict[str, str]]]],
               trigger: str, name: str, filter_me: bool,
-              **kwargs: Union['_client.Userge', int, bool]) -> 'Command':
+              **kwargs: Union['_client.Alphaz', int, bool]) -> 'Command':
         """ parse command """
         pattern = f"^(?:\\{trigger}|\\{Config.SUDO_TRIGGER}){command.lstrip('^')}" if trigger \
             else f"^{command.lstrip('^')}"
