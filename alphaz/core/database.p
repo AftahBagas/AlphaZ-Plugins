@@ -23,7 +23,7 @@ if "Alphaz" in _RUN(_MGCLIENT.list_database_names()):
 else:
     _LOG.info(_LOG_STR, "AlphaZ Plugins Database Not Found :( => Creating New Database...")
 
-_DATABASE: AgnosticDatabase = _MGCLIENT["Userge"]
+_DATABASE: AgnosticDatabase = _MGCLIENT["Alphaz"]
 _COL_LIST: List[str] = _RUN(_DATABASE.list_collection_names())
 
 
