@@ -1,20 +1,14 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import time
 import random
 
 from pyrogram.errors.exceptions import FloodWait
 
-from userge import userge, Message
+from alphaz import userge, Message
 
 
-@userge.on_cmd("type", about={
+@alphaz.on_cmd("type", about={
     'header': "Simulate a typewriter",
     'usage': "{tr}type [text]"})
 async def type_(message: Message):
