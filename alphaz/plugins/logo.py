@@ -57,7 +57,7 @@ def _get_mode() -> str:
 def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKeyboardMarkup]]:
     markup = None
     output = f"""**Alpha Z Plugins Is Running 🔥!..**\n
-╭━─━─━─━─≪✠≫─━─━─━─━╮\n
+**╭━─━─━─━─≪✠≫─━─━─━─━╮**\n
 **❍ ⏱️ • uptime** : `{alphaz.uptime}`
 **❍ 🧪 • version** : `{get_version()}`
 **❍ 😈 • mode** : `{_get_mode()}`
@@ -72,7 +72,7 @@ def _get_alive_text_and_markup(message: Message) -> Tuple[str, Optional[InlineKe
 
   🐍**__Python__**: `{versions.__python_version__}`
   💻**__Pyrogram__**: `{versions.__pyro_version__}`
-\n╰━─━─━─━─━─━─━─━─━─━╯"""
+\n**╰━─━─━─━─━─━─━─━─━─━╯**"""
     if not message.client.is_bot:
         output += f"""\n
 🎖 **{versions.__license__}** | 😈 **{versions.__copyright__}** | 🔮 **[Repo]({Config.UPSTREAM_REPO})**
