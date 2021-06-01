@@ -1,12 +1,6 @@
 """ manage your group """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import time
@@ -17,12 +11,12 @@ from pyrogram.types import ChatPermissions
 from pyrogram.errors import (
     FloodWait, UserAdminInvalid, UsernameInvalid, PeerIdInvalid, UserIdInvalid)
 
-from userge import userge, Message
+from userge import alphaz, Message
 
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 
-@userge.on_cmd("promote", about={
+@alphaz.on_cmd("promote", about={
     'header': "use this to promote group members",
     'description': "Provides admin rights to the person in the supergroup.\n"
                    "you can also add custom title while promoting new admin.\n"
@@ -74,7 +68,7 @@ async def promote_usr(message: Message):
         await message.edit(f"`something went wrong! 🤔`\n\n**ERROR:** `{e_f}`")
 
 
-@userge.on_cmd("demote", about={
+@alphaz.on_cmd("demote", about={
     'header': "use this to demote group members",
     'description': "Remove admin rights from admin in the supergroup.\n"
                    "[NOTE: Requires proper admin rights in the chat!!!]",
@@ -115,7 +109,7 @@ async def demote_usr(message: Message):
         await message.edit(f"`something went wrong! 🤔`\n\n**ERROR:** `{e_f}`", del_in=5)
 
 
-@userge.on_cmd("ban", about={
+@alphaz.on_cmd("ban", about={
     'header': "use this to ban group members",
     'description': "Ban member from supergroup.\n"
                    "[NOTE: Requires proper admin rights in the chat!!!]",
@@ -176,7 +170,7 @@ async def ban_user(message: Message):
             f"**ERROR**: `{e_f}`", del_in=5)
 
 
-@userge.on_cmd("unban", about={
+@alphaz.on_cmd("unban", about={
     'header': "use this to unban group members",
     'description': "Unban member from supergroup.\n"
                    "[NOTE: Requires proper admin rights in the chat!!!]",
@@ -195,7 +189,7 @@ async def unban_usr(message: Message):
     try:
         get_mem = await message.client.get_chat_member(chat_id, user_id)
         await message.client.unban_chat_member(chat_id, user_id)
-        await message.edit("`🛡 Successfully Unbanned..`", del_in=5)
+        await message.edit("`👊 Successfully Unbanned..`", del_in=5)
         await CHANNEL.log(
             "#UNBAN\n\n"
             f"USER: [{get_mem.user.first_name}](tg://user?id={get_mem.user.id}) "
@@ -211,7 +205,7 @@ async def unban_usr(message: Message):
         await message.edit(f"`something went wrong! 🤔`\n\n**ERROR:** `{e_f}`", del_in=5)
 
 
-@userge.on_cmd("kick", about={
+@alphaz.on_cmd("kick", about={
     'header': "use this to kick group members",
     'description': "Kick member from supergroup. member can rejoin the group again if they want.\n"
                    "[NOTE: Requires proper admin rights in the chat!!!]",
@@ -246,7 +240,7 @@ async def kick_usr(message: Message):
         await message.edit(f"`something went wrong! 🤔`\n\n**ERROR:** `{e_f}`", del_in=5)
 
 
-@userge.on_cmd("mute", about={
+@alphaz.on_cmd("mute", about={
     'header': "use this to mute group members",
     'description': "Mute member in the supergroup. you can only use one flag for command.\n"
                    "[NOTE: Requires proper admin rights in the chat!!!]",
@@ -265,7 +259,7 @@ async def mute_usr(message: Message):
     minutes = flags.get('-m', 0)
     hours = flags.get('-h', 0)
     days = flags.get('-d', 0)
-    await message.edit("`Trying to Mute User.. Hang on!! ⏳`")
+    await message.edit("`Trying to Mute User.. Hang on!! ⏱️`")
     user_id, reason = message.extract_user_and_text
     if not user_id:
         await message.edit(
@@ -330,7 +324,7 @@ async def mute_usr(message: Message):
                 f"**ERROR**: {e_f}", del_in=5)
 
 
-@userge.on_cmd("unmute", about={
+@alphaz.on_cmd("unmute", about={
     'header': "use this to unmute group members",
     'description': "Unmute member from supergroup.\n"
                    "[NOTE: Requires proper admin rights in the chat!!!]",
@@ -365,7 +359,7 @@ async def unmute_usr(message: Message):
         await message.edit(f"`something went wrong!` 🤔\n\n**ERROR:** `{e_f}`", del_in=5)
 
 
-@userge.on_cmd("zombies", about={
+@alphaz.on_cmd("zombies", about={
     'header': "use this to clean zombie accounts",
     'description': "check & remove zombie (deleted) accounts from supergroup.\n"
                    "[NOTE: Requires proper admin rights in the chat!!!]",
@@ -440,7 +434,7 @@ async def zombie_clean(message: Message):
                 r"ZOMBIE COUNT: `WOOHOO group is clean.. \^o^/`")
 
 
-@userge.on_cmd("pin", about={
+@alphaz.on_cmd("pin", about={
     'header': "use this to pin & unpin messages",
     'description': "pin & unpin messages in groups with or without notify to members.",
     'flags': {
@@ -489,7 +483,7 @@ async def pin_msgs(message: Message):
                 f"**ERROR:** `{e_f}`")
 
 
-@userge.on_cmd("gpic", about={
+@alphaz.on_cmd("gpic", about={
     'header': "use this to set or delete chat photo",
     'description': "set new chat photo or delete current chat photo",
     'flags': {
@@ -548,7 +542,7 @@ async def chatpic_func(message: Message):
         await message.edit("`invalid flag type, do .help gpic for more info` ⚠", del_in=5)
 
 
-@userge.on_cmd("smode", about={
+@alphaz.on_cmd("smode", about={
     'header': "turn on/off chat slow mode",
     'description': "use this to turn off or switch between chat slow mode \n"
                    "available 6 modes, s10/s30/m1/m5/m15/h1",
@@ -577,7 +571,7 @@ async def smode_switch(message: Message):
             seconds = int(seconds)
             await message.client.set_slow_mode(chat_id, seconds)
             await message.edit(
-                f"`⏳ turned on {seconds} seconds slow mode for chat!`", del_in=5)
+                f"`⏱️ turned on {seconds} seconds slow mode for chat!`", del_in=5)
             await CHANNEL.log(
                 f"#SLOW_MODE\n\n"
                 f"CHAT: `{message.chat.title}` (`{chat_id}`)\n"
@@ -590,7 +584,7 @@ async def smode_switch(message: Message):
         try:
             smode_time = int(minutes) * 60
             await message.client.set_slow_mode(chat_id, smode_time)
-            await message.edit(f"`⏳ turned on {minutes} minutes slow mode for chat!`", del_in=5)
+            await message.edit(f"`⏱️ turned on {minutes} minutes slow mode for chat!`", del_in=5)
             await CHANNEL.log(
                 f"#SLOW_MODE\n\n"
                 f"CHAT: `{message.chat.title}` (`{chat_id}`)\n"
@@ -603,7 +597,7 @@ async def smode_switch(message: Message):
         try:
             smode_time = int(hours) * 3600
             await message.client.set_slow_mode(chat_id, smode_time)
-            await message.edit("`⏳ turned on 1 hour slow mode for chat!`", del_in=5)
+            await message.edit("`⏱️ turned on 1 hour slow mode for chat!`", del_in=5)
             await CHANNEL.log(
                 f"#SLOW_MODE\n\n"
                 f"CHAT: `{message.chat.title}` (`{chat_id}`)\n"
@@ -615,7 +609,7 @@ async def smode_switch(message: Message):
     elif smode_off:
         try:
             await message.client.set_slow_mode(chat_id, 0)
-            await message.edit("`⏳ turned off slow mode for chat!`", del_in=5)
+            await message.edit("`⏱️ turned off slow mode for chat!`", del_in=5)
             await CHANNEL.log(
                 f"#SLOW_MODE\n\nCHAT: `{message.chat.title}` (`{chat_id}`)\nSLOW MODE: `Off`")
         except Exception as e_f:
