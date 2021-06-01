@@ -1,12 +1,6 @@
 """ custom thumbnail """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import base64
@@ -14,11 +8,11 @@ from datetime import datetime
 
 import aiofiles
 
-from userge import userge, Config, Message, get_collection
-from userge.utils import progress
+from alphaz import alphaz, Config, Message, get_collection
+from alphaz.utils import progress
 
 SAVED_SETTINGS = get_collection("CONFIGS")
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 
 async def _init() -> None:
@@ -28,7 +22,7 @@ async def _init() -> None:
             thumb_file.write(base64.b64decode(data['data']))
 
 
-@userge.on_cmd('sthumb', about={
+@alphaz.on_cmd('sthumb', about={
     'header': "Save thumbnail",
     'usage': "{tr}sthumb [reply to any photo]"})
 async def save_thumb_nail(message: Message):
@@ -56,7 +50,7 @@ async def save_thumb_nail(message: Message):
         await message.edit("Reply to a photo to save custom thumbnail", del_in=3)
 
 
-@userge.on_cmd('dthumb', about={'header': "Delete thumbnail"}, allow_channels=False)
+@alphaz.on_cmd('dthumb', about={'header': "Delete thumbnail"}, allow_channels=False)
 async def clear_thumb_nail(message: Message):
     """ delete thumbnail """
     await message.edit("`processing ...`")
@@ -71,7 +65,7 @@ async def clear_thumb_nail(message: Message):
         await message.delete()
 
 
-@userge.on_cmd('vthumb', about={'header': "View thumbnail"}, allow_channels=False)
+@alphaz.on_cmd('vthumb', about={'header': "View thumbnail"}, allow_channels=False)
 async def get_thumb_nail(message: Message):
     """ view current thumbnail """
     await message.edit("processing ...")
