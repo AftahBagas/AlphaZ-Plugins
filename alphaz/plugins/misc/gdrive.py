@@ -1,12 +1,6 @@
 """ manage your gdrive """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import io
@@ -28,10 +22,10 @@ from googleapiclient.http import MediaFileUpload, MediaIoBaseDownload
 from oauth2client.client import (
     OAuth2WebServerFlow, HttpAccessTokenRefreshError, FlowExchangeError)
 
-from userge import userge, Message, Config, get_collection, pool
-from userge.utils import humanbytes, time_formatter
-from userge.utils.exceptions import ProcessCanceled
-from userge.plugins.misc.download import url_download, tg_download
+from alphaz import alphaz, Message, Config, get_collection, pool
+from alphaz.utils import humanbytes, time_formatter
+from alphaz.utils.exceptions import ProcessCanceled
+from alphaz.plugins.misc.download import url_download, tg_download
 
 _CREDS: object = None
 _AUTH_FLOW: object = None
@@ -46,7 +40,7 @@ G_DRIVE_FOLDER_LINK = "📁 <a href='https://drive.google.com/drive/folders/{}'>
 _GDRIVE_ID = re.compile(
     r'https://drive.google.com/[\w?.&=/]+([-\w]{33}|(?<=[/=])0(?:A[-\w]{17}|B[-\w]{26}))')
 
-_LOG = userge.getLogger(__name__)
+_LOG = alphaz.getLogger(__name__)
 _SAVED_SETTINGS = get_collection("CONFIGS")
 
 
@@ -952,7 +946,7 @@ class Worker(_GDrive):
             caption=f"removed perm results for `{file_id}`")
 
 
-@userge.on_cmd("gsetup", about={
+@alphaz.on_cmd("gsetup", about={
     'header': "Setup GDrive Creds"})
 async def gsetup_(message: Message):
     """ setup creds """
@@ -968,7 +962,7 @@ async def gsetup_(message: Message):
             f"[Read this]({link}) to know more.", disable_web_page_preview=True)
 
 
-@userge.on_cmd("gconf", about={
+@alphaz.on_cmd("gconf", about={
     'header': "Confirm GDrive Setup",
     'usage': "{tr}gconf [auth token]"})
 async def gconf_(message: Message):
@@ -976,14 +970,14 @@ async def gconf_(message: Message):
     await Worker(message).confirm_setup()
 
 
-@userge.on_cmd("gclear", about={
+@alphaz.on_cmd("gclear", about={
     'header': "Clear GDrive Creds"})
 async def gclear_(message: Message):
     """ clear creds """
     await Worker(message).clear()
 
 
-@userge.on_cmd("gset", about={
+@alphaz.on_cmd("gset", about={
     'header': "Set parent id",
     'description': "set destination by setting parent_id (root path). "
                    "this path is like working directory :)",
@@ -993,14 +987,14 @@ async def gset_(message: Message):
     await Worker(message).set_parent()
 
 
-@userge.on_cmd("greset", about={
+@alphaz.on_cmd("greset", about={
     'header': "Reset parent id"})
 async def greset_(message: Message):
     """ clear path """
     await Worker(message).reset_parent()
 
 
-@userge.on_cmd("gfind", about={
+@alphaz.on_cmd("gfind", about={
     'header': "Search files in GDrive",
     'flags': {
         '-l': "add limit to search (default limit 20)",
@@ -1011,7 +1005,7 @@ async def gfind_(message: Message):
     await Worker(message).search()
 
 
-@userge.on_cmd("gls", about={
+@alphaz.on_cmd("gls", about={
     'header': "List files in GDrive Folder or Root",
     'flags': {'-l': "add limit to list (default limit 20)"},
     'usage': "{tr}gls for view content in root\n{tr}gls -l10 add limit to it\n"
@@ -1022,7 +1016,7 @@ async def gls_(message: Message):
     await Worker(message).list_folder()
 
 
-@userge.on_cmd("gmake", about={
+@alphaz.on_cmd("gmake", about={
     'header': "Make folders in GDrive parent",
     'usage': "{tr}gmake [folder name]"})
 async def gmake_(message: Message):
@@ -1030,7 +1024,7 @@ async def gmake_(message: Message):
     await Worker(message).make_folder()
 
 
-@userge.on_cmd("gshare", about={
+@alphaz.on_cmd("gshare", about={
     'header': "Get Shareable Links for GDrive files",
     'usage': "{tr}gshare [file_id | file/folder link]"})
 async def gshare_(message: Message):
@@ -1038,7 +1032,7 @@ async def gshare_(message: Message):
     await Worker(message).share()
 
 
-@userge.on_cmd("gup", about={
+@alphaz.on_cmd("gup", about={
     'header': "Upload files to GDrive",
     'description': "set destination by setting parent_id, "
                    "use `{tr}gset` to set parent_id (root path).",
@@ -1052,7 +1046,7 @@ async def gup_(message: Message):
     await Worker(message).upload()
 
 
-@userge.on_cmd("gdown", about={
+@alphaz.on_cmd("gdown", about={
     'header': "Download files from GDrive",
     'usage': "{tr}gdown [file_id | file/folder link]"}, check_downpath=True)
 async def gdown_(message: Message):
@@ -1060,7 +1054,7 @@ async def gdown_(message: Message):
     await Worker(message).download()
 
 
-@userge.on_cmd("gcopy", about={
+@alphaz.on_cmd("gcopy", about={
     'header': "Copy files in GDrive",
     'description': "set destination by setting parent_id, "
                    "use `{tr}gset` to set parent_id (root path).",
@@ -1070,7 +1064,7 @@ async def gcopy_(message: Message):
     await Worker(message).copy()
 
 
-@userge.on_cmd("gmove", about={
+@alphaz.on_cmd("gmove", about={
     'header': "Move files in GDrive",
     'description': "set destination by setting parent_id, "
                    "use `{tr}gset` to set parent_id (root path).",
@@ -1080,7 +1074,7 @@ async def gmove_(message: Message):
     await Worker(message).move()
 
 
-@userge.on_cmd("gdel", about={
+@alphaz.on_cmd("gdel", about={
     'header': "Delete files in GDrive",
     'usage': "{tr}gdel [file_id | file/folder link]"})
 async def gdel_(message: Message):
@@ -1088,14 +1082,14 @@ async def gdel_(message: Message):
     await Worker(message).delete()
 
 
-@userge.on_cmd("gempty", about={
+@alphaz.on_cmd("gempty", about={
     'header': "Empty the Trash"})
 async def gempty_(message: Message):
     """ empty trash """
     await Worker(message).empty()
 
 
-@userge.on_cmd("gget", about={
+@alphaz.on_cmd("gget", about={
     'header': "Get metadata from the given link in GDrive",
     'usage': "{tr}gget [file_id | file/folder link]"})
 async def gget_(message: Message):
@@ -1103,7 +1097,7 @@ async def gget_(message: Message):
     await Worker(message).get()
 
 
-@userge.on_cmd("ggetperm", about={
+@alphaz.on_cmd("ggetperm", about={
     'header': "Get permissions of file/folder in GDrive",
     'usage': "{tr}ggetperm [file_id | file/folder link]"})
 async def ggetperm_(message: Message):
@@ -1111,7 +1105,7 @@ async def ggetperm_(message: Message):
     await Worker(message).get_perms()
 
 
-@userge.on_cmd("gsetperm", about={
+@alphaz.on_cmd("gsetperm", about={
     'header': "Set permissions to file/folder in GDrive",
     'usage': "{tr}gsetperm [file_id | file/folder link]"})
 async def gsetperm_(message: Message):
@@ -1119,7 +1113,7 @@ async def gsetperm_(message: Message):
     await Worker(message).set_perms()
 
 
-@userge.on_cmd("gdelperm", about={
+@alphaz.on_cmd("gdelperm", about={
     'header': "Remove all permissions of file/folder in GDrive",
     'usage': "{tr}gdelperm [file_id | file/folder link]"})
 async def gdelperm_(message: Message):
