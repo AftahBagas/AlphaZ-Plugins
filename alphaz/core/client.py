@@ -1,6 +1,6 @@
 # alfareza
 
-__all__ = ['Alphaz']
+__all__ = ['alphaz']
 
 import time
 import signal
@@ -34,7 +34,7 @@ async def _complete_init_tasks() -> None:
     _INIT_TASKS.clear()
 
 
-class _AbstractAlphaz(Methods, RawClient):
+class _Abstractalphaz(Methods, RawClient):
     @property
     def is_bot(self) -> bool:
         """ returns client is bot or not """
@@ -96,19 +96,19 @@ class _AbstractAlphaz(Methods, RawClient):
         return len(reloaded)
 
 
-class AlphazBot(_AbstractAlphaz):
+class alphazBot(_Abstractalphaz):
     """ AlphazBot, the bot """
     def __init__(self, **kwargs) -> None:
-        _LOG.info(_LOG_STR, "Setting AlphazBot Configs")
+        _LOG.info(_LOG_STR, "Setting alphazBot Configs")
         super().__init__(session_name=":memory:", **kwargs)
 
     @property
-    def ubot(self) -> 'Alphaz':
+    def ubot(self) -> 'alphaz':
         """ returns userbot """
         return self._bot
 
 
-class Alphaz(_AbstractAlphaz):
+class alphaz(_Abstractalphaz):
     """ AlphaZ Plugins, the userbot """
 
     has_bot = bool(Config.BOT_TOKEN)
@@ -131,7 +131,7 @@ class Alphaz(_AbstractAlphaz):
         self.executor = pool._get()  # pylint: disable=protected-access
 
     @property
-    def bot(self) -> Union['AlphazBot', 'Alphaz']:
+    def bot(self) -> Union['alphazBot', 'alphaz']:
         """ returns alphazbot """
         if self._bot is None:
             if Config.BOT_TOKEN:
