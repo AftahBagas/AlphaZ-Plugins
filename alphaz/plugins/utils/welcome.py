@@ -1,20 +1,14 @@
 """ auto welcome and left messages """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
-from userge import userge, filters, Message, Config, get_collection
+from alphaz import alphaz, filters, Message, Config, get_collection
 
 WELCOME_COLLECTION = get_collection("welcome")
 LEFT_COLLECTION = get_collection("left")
 WELCOME_CHATS = filters.chat([])
 LEFT_CHATS = filters.chat([])
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 
 async def _init() -> None:
@@ -28,7 +22,7 @@ async def _init() -> None:
         LEFT_CHATS.add(i.get('_id'))
 
 
-@userge.on_cmd("setwelcome", about={
+@alphaz.on_cmd("setwelcome", about={
     'header': "Creates a welcome message in current chat",
     'options': {
         '{fname}': "add first name",
@@ -53,7 +47,7 @@ async def setwel(msg: Message):
     await raw_set(msg, 'Welcome', WELCOME_COLLECTION, WELCOME_CHATS)
 
 
-@userge.on_cmd("setleft", about={
+@alphaz.on_cmd("setleft", about={
     'header': "Creates a left message in current chat",
     'options': {
         '{fname}': "add first name",
@@ -78,7 +72,7 @@ async def setleft(msg: Message):
     await raw_set(msg, 'Left', LEFT_COLLECTION, LEFT_CHATS)
 
 
-@userge.on_cmd("nowelcome", about={
+@alphaz.on_cmd("nowelcome", about={
     'header': "Disables welcome message in the current chat",
     'flags': {'-all': "disable all welcome messages"}},
     allow_channels=False, allow_bots=False, allow_private=False)
@@ -87,7 +81,7 @@ async def nowel(msg: Message):
     await raw_no(msg, 'Welcome', WELCOME_COLLECTION, WELCOME_CHATS)
 
 
-@userge.on_cmd("noleft", about={
+@alphaz.on_cmd("noleft", about={
     'header': "Disables left message in the current chat",
     'flags': {'-all': "disable all left messages"}},
     allow_channels=False, allow_bots=False, allow_private=False)
@@ -96,7 +90,7 @@ async def noleft(msg: Message):
     await raw_no(msg, 'Left', LEFT_COLLECTION, LEFT_CHATS)
 
 
-@userge.on_cmd("dowelcome", about={
+@alphaz.on_cmd("dowelcome", about={
     'header': "Turns on welcome message in the current chat",
     'flags': {'-all': "enable all welcome messages"}},
     allow_channels=False, allow_bots=False, allow_private=False)
@@ -105,7 +99,7 @@ async def dowel(msg: Message):
     await raw_do(msg, 'Welcome', WELCOME_COLLECTION, WELCOME_CHATS)
 
 
-@userge.on_cmd("doleft", about={
+@alphaz.on_cmd("doleft", about={
     'header': "Turns on left message in the current chat :)",
     'flags': {'-all': "enable all left messages"}},
     allow_channels=False, allow_bots=False, allow_private=False)
@@ -114,7 +108,7 @@ async def doleft(msg: Message):
     await raw_do(msg, 'Left', LEFT_COLLECTION, LEFT_CHATS)
 
 
-@userge.on_cmd("delwelcome", about={
+@alphaz.on_cmd("delwelcome", about={
     'header': "Delete welcome message in the current chat :)",
     'flags': {'-all': "delete all welcome messages"}},
     allow_channels=False, allow_bots=False, allow_private=False)
@@ -123,7 +117,7 @@ async def delwel(msg: Message):
     await raw_del(msg, 'Welcome', WELCOME_COLLECTION, WELCOME_CHATS)
 
 
-@userge.on_cmd("delleft", about={
+@alphaz.on_cmd("delleft", about={
     'header': "Delete left message in the current chat :)",
     'flags': {'-all': "delete all left messages"}},
     allow_channels=False, allow_bots=False, allow_private=False)
@@ -132,7 +126,7 @@ async def delleft(msg: Message):
     await raw_del(msg, 'Left', LEFT_COLLECTION, LEFT_CHATS)
 
 
-@userge.on_cmd("vwelcome", about={
+@alphaz.on_cmd("vwelcome", about={
     'header': "Shows welcome message in current chat",
     'flags': {'-all': "view all welcome messages"}},
     allow_channels=False, allow_bots=False, allow_private=False)
@@ -141,7 +135,7 @@ async def viewwel(msg: Message):
     await raw_view(msg, 'Welcome', WELCOME_COLLECTION)
 
 
-@userge.on_cmd("vleft", about={
+@alphaz.on_cmd("vleft", about={
     'header': "Shows left message in current chat",
     'flags': {'-all': "view all left messages"}},
     allow_channels=False, allow_bots=False, allow_private=False)
@@ -150,13 +144,13 @@ async def viewleft(msg: Message):
     await raw_view(msg, 'Left', LEFT_COLLECTION)
 
 
-@userge.on_new_member(WELCOME_CHATS)
+@alphaz.on_new_member(WELCOME_CHATS)
 async def saywel(msg: Message):
     """ welcome message handler """
     await raw_say(msg, 'Welcome', WELCOME_COLLECTION)
 
 
-@userge.on_left_member(LEFT_CHATS)
+@alphaz.on_left_member(LEFT_CHATS)
 async def sayleft(msg: Message):
     """ left message handler """
     await raw_say(msg, 'Left', LEFT_COLLECTION)
