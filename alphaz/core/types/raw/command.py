@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['Command']
 
@@ -16,7 +8,7 @@ from typing import Union, Dict, List
 
 from pyrogram import filters
 
-from userge import Config
+from alphaz import Config
 from .filter import Filter
 from ... import client as _client  # pylint: disable=unused-import
 
@@ -24,7 +16,7 @@ from ... import client as _client  # pylint: disable=unused-import
 class Command(Filter):
     """ command class """
     def __init__(self, about: str, trigger: str, pattern: str,
-                 **kwargs: Union['_client.Userge', int, str, bool]) -> None:
+                 **kwargs: Union['_client.Alphaz', int, str, bool]) -> None:
         self.about = about
         self.trigger = trigger
         self.pattern = pattern
