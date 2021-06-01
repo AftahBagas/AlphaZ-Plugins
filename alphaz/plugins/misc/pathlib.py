@@ -1,12 +1,6 @@
 """ work with paths or files """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 from time import time
@@ -24,11 +18,11 @@ from typing import Union, List, Tuple, Sequence
 
 from rarfile import RarFile, is_rarfile
 
-from userge import userge, Message, Config, pool
-from userge.utils import humanbytes, time_formatter
-from userge.utils.exceptions import ProcessCanceled
+from alphaz import userge, Message, Config, pool
+from alphaz.utils import humanbytes, time_formatter
+from alphaz.utils.exceptions import ProcessCanceled
 
-_LOG = userge.getLogger(__name__)
+_LOG = alphaz.getLogger(__name__)
 
 
 class _BaseLib:
@@ -370,7 +364,7 @@ async def ls_dir(message: Message) -> None:
     await message.edit_or_send_as_file(out, parse_mode='html')
 
 
-@userge.on_cmd('dset', about={
+@alphaz.on_cmd('dset', about={
     'header': "set temporary working directory",
     'usage': "{tr}dset [path / name]"}, allow_channels=False)
 async def dset_(message: Message) -> None:
@@ -388,7 +382,7 @@ async def dset_(message: Message) -> None:
         await message.err(p_e)
 
 
-@userge.on_cmd('dreset', about={
+@alphaz.on_cmd('dreset', about={
     'header': "reset to default working directory",
     'usage': "{tr}dreset"}, allow_channels=False)
 async def dreset_(message: Message) -> None:
@@ -398,7 +392,7 @@ async def dreset_(message: Message) -> None:
     await message.edit(f"reset **working directory** to `{path}` successfully!", del_in=5)
 
 
-@userge.on_cmd("dclear", about={
+@alphaz.on_cmd("dclear", about={
     'header': "Clear the current working directory"}, allow_channels=False)
 async def dclear_(message: Message):
     """ clear dir """
@@ -412,7 +406,7 @@ async def dclear_(message: Message):
     os.makedirs(Config.DOWN_PATH)
 
 
-@userge.on_cmd('dremove', about={
+@alphaz.on_cmd('dremove', about={
     'header': "remove a directory or file",
     'usage': "{tr}dremove [path / name]"}, allow_channels=False)
 async def dremove_(message: Message) -> None:
@@ -431,7 +425,7 @@ async def dremove_(message: Message) -> None:
     await message.edit(f"path : `{path}` **removed** successfully!", del_in=5)
 
 
-@userge.on_cmd('drename ([^|]+)\|([^|]+)', about={  # noqa
+@alphaz.on_cmd('drename ([^|]+)\|([^|]+)', about={  # noqa
     'header': "rename a directory or file",
     'usage': "{tr}drename [path / name] | [new name]"}, allow_channels=False)
 async def drename_(message: Message) -> None:
@@ -446,7 +440,7 @@ async def drename_(message: Message) -> None:
     await message.edit(f"path : `{path}` **renamed** to `{new_path}` successfully!", del_in=5)
 
 
-@userge.on_cmd(r'split (\d+) ([\s\S]+)', about={
+@alphaz.on_cmd(r'split (\d+) ([\s\S]+)', about={
     'header': "Split files",
     'usage': "{tr}split [split size (MB)] [file path]",
     'examples': "{tr}split 5 downloads/test.zip"})
@@ -502,7 +496,7 @@ async def split_(message: Message) -> None:
             f"in `{m_s}` seconds.", log=__name__)
 
 
-@userge.on_cmd('combine', about={
+@alphaz.on_cmd('combine', about={
     'header': "Combine split files",
     'usage': "{tr}combine [file path]",
     'examples': "{tr}combine downloads/test.tar.00000"})
@@ -561,7 +555,7 @@ async def combine_(message: Message) -> None:
             f"in `{m_s}` seconds.", log=__name__)
 
 
-@userge.on_cmd('zip', about={
+@alphaz.on_cmd('zip', about={
     'header': "Zip file / folder",
     'usage': "{tr}zip [file path | folder path]"})
 async def zip_(message: Message) -> None:
@@ -569,7 +563,7 @@ async def zip_(message: Message) -> None:
     await _pack_helper(message)
 
 
-@userge.on_cmd('tar', about={
+@alphaz.on_cmd('tar', about={
     'header': "Tar file / folder",
     'usage': "{tr}tar [file path | folder path]"})
 async def tar_(message: Message) -> None:
@@ -619,7 +613,7 @@ async def _pack_helper(message: Message, tar: bool = False) -> None:
             f"in `{m_s}` seconds.", log=__name__)
 
 
-@userge.on_cmd('unpack', about={
+@alphaz.on_cmd('unpack', about={
     'header': "unpack packed file",
     'usage': "{tr}unpack [file path]",
     'types': ['zip', 'tar', 'rar']})
@@ -669,7 +663,7 @@ async def unpack_(message: Message) -> None:
             f"in `{m_s}` seconds.", log=__name__)
 
 
-@userge.on_cmd('packinfo', about={
+@alphaz.on_cmd('packinfo', about={
     'header': "File content of the pack",
     'usage': "{tr}packinfo [file path]",
     'types': ['zip', 'tar', 'rar']})
