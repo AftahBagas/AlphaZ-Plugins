@@ -1,12 +1,6 @@
 """ setup gban """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved
+# alfareza
 
 import json
 import asyncio
@@ -33,7 +27,7 @@ async def _init() -> None:
         Config.ANTISPAM_SENTRY = s_o['data']
 
 
-@userge.on_cmd("antispam", about={
+@alphaz.on_cmd("antispam", about={
     'header': "enable / disable antispam",
     'description': "Toggle API Auto Bans"}, allow_channels=False)
 async def antispam_(message: Message):
@@ -48,7 +42,7 @@ async def antispam_(message: Message):
         {'_id': 'ANTISPAM_ENABLED'}, {"$set": {'data': Config.ANTISPAM_SENTRY}}, upsert=True)
 
 
-@userge.on_cmd("gban", about={
+@alphaz.on_cmd("gban", about={
     'header': "Globally Ban A User",
     'description': "Adds User to your GBan List. "
                    "Bans a Globally Banned user if they join or message. "
@@ -79,7 +73,7 @@ async def gban_user(message: Message):
     if user_id in Config.SUDO_USERS:
         await message.edit(
             "Dia adalah sudo users AlphaZ Plugins, Tidak bisa banned dia.\n\n"
-            "**Tip:** Kutuk dia jadi jamet dulu baru gban ulang. (¬_¬)", del_in=5)
+            "**Tip:** hapus dari sudo dulu baru gban ulang. (¬_¬)", del_in=5)
         return
     found = await GBAN_USER_BASE.find_one({'user_id': user_id})
     if found:
@@ -119,7 +113,7 @@ async def gban_user(message: Message):
     LOG.info("G-Banned %s", str(user_id))
 
 
-@userge.on_cmd("ungban", about={
+@alphaz.on_cmd("ungban", about={
     'header': "Globally Unban an User",
     'description': "Removes an user from your Gban List",
     'examples': "{tr}ungban [userid | reply]"},
@@ -156,7 +150,7 @@ async def ungban_user(message: Message):
     LOG.info("UnGbanned %s", str(user_id))
 
 
-@userge.on_cmd("glist", about={
+@alphaz.on_cmd("glist", about={
     'header': "Get a List of Gbanned Users",
     'description': "Get Up-to-date list of users Gbanned by you.",
     'examples': "Lol. Just type {tr}glist"},
@@ -171,7 +165,7 @@ async def list_gbanned(message: Message):
         f"**--Globally Banned Users List--**\n\n{msg}" if msg else "`glist empty!`")
 
 
-@userge.on_cmd("whitelist", about={
+@alphaz.on_cmd("whitelist", about={
     'header': "Whitelist a User",
     'description': "Use whitelist to add users to bypass API Bans",
     'useage': "{tr}whitelist [userid | reply to user]",
@@ -206,7 +200,7 @@ async def whitelist(message: Message):
     LOG.info("WhiteListed %s", str(user_id))
 
 
-@userge.on_cmd("rmwhite", about={
+@alphaz.on_cmd("rmwhite", about={
     'header': "Removes a User from Whitelist",
     'description': "Use it to remove users from WhiteList",
     'useage': "{tr}rmwhite [userid | reply to user]",
@@ -241,7 +235,7 @@ async def rmwhitelist(message: Message):
     LOG.info("WhiteListed %s", str(user_id))
 
 
-@userge.on_cmd("listwhite", about={
+@alphaz.on_cmd("listwhite", about={
     'header': "Get a List of Whitelisted Users",
     'description': "Get Up-to-date list of users WhiteListed by you.",
     'examples': "Lol. Just type {tr}listwhite"},
@@ -256,7 +250,7 @@ async def list_white(message: Message):
         f"**--Whitelisted Users List--**\n\n{msg}" if msg else "`whitelist empty!`")
 
 
-@userge.on_filters(filters.group & filters.new_chat_members, group=1, check_restrict_perm=True)
+@alphaz.on_filters(filters.group & filters.new_chat_members, group=1, check_restrict_perm=True)
 async def gban_at_entry(message: Message):
     """ handle gbans """
     chat_id = message.chat.id
