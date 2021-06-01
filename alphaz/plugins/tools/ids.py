@@ -1,23 +1,17 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
-from userge import userge, Message
+from alphaz import alphaz, Message
 
 
-@userge.on_cmd("ids", about={
+@alphaz.on_cmd("ids", about={
     'header': "display ids",
     'usage': "reply {tr}ids any message, file or just send this command"})
 async def getids(message: Message):
     msg = message.reply_to_message or message
-    out_str = f"👥 **Chat ID** : `{(msg.forward_from_chat or msg.chat).id}`\n"
-    out_str += f"💬 **Message ID** : `{msg.forward_from_message_id or msg.message_id}`\n"
+    out_str = f"📡 **Chat ID** ➥ `{(msg.forward_from_chat or msg.chat).id}`\n"
+    out_str += f"💻 **Message ID** ➥ `{msg.forward_from_message_id or msg.message_id}`\n"
     if msg.from_user:
-        out_str += f"🙋‍♂️ **From User ID** : `{msg.from_user.id}`\n"
+        out_str += f"🤵 **From User ID** ➥ `{msg.from_user.id}`\n"
     file_id = None
     if msg.audio:
         type_ = "audio"
