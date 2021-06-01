@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import re
@@ -18,9 +10,9 @@ from typing import Tuple, List, Optional
 from html_telegraph_poster import TelegraphPoster
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 
-import userge
+import alphaz
 
-_LOG = userge.logging.getLogger(__name__)
+_LOG = alphaz.logging.getLogger(__name__)
 _EMOJI_PATTERN = re.compile(
     "["
     "\U0001F1E0-\U0001F1FF"  # flags (iOS)
@@ -38,13 +30,13 @@ _EMOJI_PATTERN = re.compile(
 _BTN_URL_REGEX = re.compile(r"(\[([^\[]+?)]\[buttonurl:(?:/{0,2})(.+?)(:same)?])")
 
 
-# https://github.com/UsergeTeam/Userge-Plugins/blob/master/plugins/tweet.py
+# https://github.com/AftahBagas/Alpha-Plugins/blob/master/plugins/tweet.py
 def demojify(string: str) -> str:
     """ Remove emojis and other non-safe characters from string """
     return re.sub(_EMOJI_PATTERN, '', string)
 
 
-def get_file_id_of_media(message: 'userge.Message') -> Optional[str]:
+def get_file_id_of_media(message: 'alphaz.Message') -> Optional[str]:
     """ get file_id """
     file_ = message.audio or message.animation or message.photo \
         or message.sticker or message.voice or message.video_note \
@@ -79,16 +71,16 @@ def time_formatter(seconds: float) -> str:
     return tmp[:-2]
 
 
-# https://github.com/UsergeTeam/Userge-Plugins/blob/master/plugins/anilist.py
+# https://github.com/AftahBagas/Alpha-Plugins/blob/master/plugins/anilist.py
 def post_to_telegraph(a_title: str, content: str) -> str:
     """ Create a Telegram Post using HTML Content """
     post_client = TelegraphPoster(use_api=True)
-    auth_name = "@theUserge"
+    auth_name = "@Kanjengingsun"
     post_client.create_api_token(auth_name)
     post_page = post_client.post(
         title=a_title,
         author=auth_name,
-        author_url="https://t.me/theUserge",
+        author_url="https://t.me/Kanjengingsun",
         text=content
     )
     return post_page['url']
