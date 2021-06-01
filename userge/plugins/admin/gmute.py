@@ -1,26 +1,20 @@
 """ setup gmute """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved
+# alfareza
 
 import asyncio
 
 from pyrogram.types import ChatPermissions
 from pyrogram.errors.exceptions.bad_request_400 import ChatAdminRequired, UserAdminInvalid
 
-from userge import userge, Config, Message, get_collection, filters
+from alphaz import alphaz, Config, Message, get_collection, filters
 
 GMUTE_USER_BASE = get_collection("GMUTE_USER")
-CHANNEL = userge.getCLogger(__name__)
-LOG = userge.getLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
+LOG = alphaz.getLogger(__name__)
 
 
-@userge.on_cmd("gmute", about={
+@alphaz.on_cmd("gmute", about={
     'header': "Mute Pengguna Secara Global",
     'description': "Menambahkan Pengguna ke Daftar GMute Anda",
     'examples': "{tr}gmute [userid | reply] [reason for gmute] (mandatory)"},
@@ -83,7 +77,7 @@ async def gmute_user(msg: Message):
     LOG.info("G-Muted %s", str(user_id))
 
 
-@userge.on_cmd("ungmute", about={
+@alphaz.on_cmd("ungmute", about={
     'header': "Ungmute Pengguna Secara Global",
     'description': "Hapus pengguna dari Daftar Gmute",
     'examples': "{tr}ungmute [userid | reply]"},
@@ -123,7 +117,7 @@ async def ungmute_user(msg: Message):
     LOG.info("UnGMuted %s", str(user_id))
 
 
-@userge.on_cmd("gmlist", about={
+@alphaz.on_cmd("gmlist", about={
     'header': "Dapatkan Daftar Pengguna GMuted",
     'description': "Dapatkan daftar pengguna terbaru yang Anda Gmute.",
     'examples': "{tr}gmlist"},
@@ -139,7 +133,7 @@ async def list_gmuted(msg: Message):
         f"**--Globally Muted Users List--**\n\n{users}" if users else "`Gmute List is Empty`")
 
 
-@userge.on_filters(filters.group & filters.new_chat_members, group=1, check_restrict_perm=True)
+@alphaz.on_filters(filters.group & filters.new_chat_members, group=1, check_restrict_perm=True)
 async def gmute_at_entry(msg: Message):
     """ handle gmute """
     chat_id = msg.chat.id
