@@ -1,20 +1,14 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import aiohttp
 
-from userge import userge, Message
+from alphaz import alphaz, Message
 
-LOG = userge.getLogger(__name__)  # logger object
-CHANNEL = userge.getCLogger(__name__)  # channel logger object
+LOG = alphaz.getLogger(__name__)  # logger object
+CHANNEL = alphaz.getCLogger(__name__)  # channel logger object
 
 
-@userge.on_cmd("dic", about={
+@alphaz.on_cmd("dic", about={
     'header': "English Dictionary-telegram",
     'usage': "{tr}dic [word]",
     'examples': 'word : Search for any word'})
