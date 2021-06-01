@@ -1,10 +1,4 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 import asyncio
@@ -13,10 +7,10 @@ from re import match
 import aiofiles
 from selenium import webdriver
 
-from userge import userge, Message, Config
+from alphaz import alphaz, Message, Config
 
 
-@userge.on_cmd("webss", about={'header': "Get snapshot of a website"})
+@alphaz.on_cmd("webss", about={'header': "Get snapshot of a website"})
 async def webss(message: Message):
     if Config.GOOGLE_CHROME_BIN is None:
         await message.err("need to install Google Chrome. Module Stopping")
