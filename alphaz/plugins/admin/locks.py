@@ -1,21 +1,15 @@
 """ set permissions to users """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import os
 from typing import Sequence
 
 from pyrogram.types import ChatPermissions
 
-from userge import userge, Message
+from alphaz import alphaz, Message
 
-CHANNEL = userge.getCLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 _types = [
     'msg', 'media', 'polls', 'invite', 'pin', 'info',
@@ -81,7 +75,7 @@ def _get_chat_lock(message: Message, lock_type: str, should_lock: bool) -> Seque
         invite, pin, perm)
 
 
-@userge.on_cmd(
+@alphaz.on_cmd(
     "lock", about={
         'header': "use this to lock group permissions",
         'description': "Allows you to lock some common permission types in the chat.\n"
@@ -142,7 +136,7 @@ async def lock_perm(message: Message):
             f"**ERROR:** `{e_f}`", del_in=5)
 
 
-@userge.on_cmd("unlock", about={
+@alphaz.on_cmd("unlock", about={
     'header': "use this to unlock group permissions",
     'description': "Allows you to unlock some common permission types in the chat.\n"
                    "[NOTE: Requires proper admin rights in the chat!!!]",
@@ -215,7 +209,7 @@ async def unlock_perm(message: Message):
             f"**ERROR:** `{e_f}`", del_in=5)
 
 
-@userge.on_cmd("vperm", about={
+@alphaz.on_cmd("vperm", about={
     'header': "use this to view group permissions",
     'description': "Allows you to view permission types on/off status in the chat."},
     allow_channels=False, allow_bots=False, allow_private=False)
