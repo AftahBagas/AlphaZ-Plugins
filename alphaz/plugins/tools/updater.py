@@ -1,10 +1,4 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import asyncio
 from time import time
@@ -12,13 +6,13 @@ from time import time
 from git import Repo
 from git.exc import GitCommandError
 
-from userge import userge, Message, Config, pool
+from alphaz import alphaz, Message, Config, pool
 
-LOG = userge.getLogger(__name__)
-CHANNEL = userge.getCLogger(__name__)
+LOG = alphaz.getLogger(__name__)
+CHANNEL = alphaz.getCLogger(__name__)
 
 
-@userge.on_cmd("update", about={
+@alphaz.on_cmd("update", about={
     'header': "Check Updates or Update AlphaZ Plugins",
     'flags': {
         '-pull': "pull updates",
@@ -64,7 +58,7 @@ async def check_update(message: Message):
         return
     if not (pull_from_repo or push_to_heroku):
         if out:
-            change_log = f'**UPDATE BARU Ni YA TOLOL for [{branch}]:\n\n📄 CHANGELOG 📄**\n\n'
+            change_log = f'**Update Terbaru Dari AlphaZ Plugins for [{branch}]:\n\n📄 CHANGELOG 📄**\n\n'
             await message.edit_or_send_as_file(change_log + out, disable_web_page_preview=True)
         else:
             await message.edit(f'__AlphaZ-Plugins is up-to-date with [{branch}]__', del_in=5)
