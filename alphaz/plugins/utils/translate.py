@@ -1,10 +1,4 @@
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import time
 from json import dumps
@@ -12,10 +6,10 @@ from emoji import get_emoji_regexp
 
 from googletrans import Translator, LANGUAGES
 
-from userge import userge, Message, Config, pool
+from alphaz import alphaz, Message, Config, pool
 
 
-@userge.on_cmd("tr", about={
+@alphaz.on_cmd("tr", about={
     'header': "Translate the given text using Google Translate",
     'supported languages': dumps(LANGUAGES, indent=4, sort_keys=True),
     'usage': "from english to sinhala\n"
