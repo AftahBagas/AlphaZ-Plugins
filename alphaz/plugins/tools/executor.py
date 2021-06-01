@@ -1,12 +1,6 @@
 """ run shell or python command(s) """
 
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 import io
 import sys
@@ -16,16 +10,16 @@ import traceback
 from getpass import getuser
 from os import geteuid
 
-from userge import userge, Message, Config
-from userge.utils import runcmd
+from alphaz import userge, Message, Config
+from alphaz.utils import runcmd
 
 
-@userge.on_cmd("eval", about={
+@alphaz.on_cmd("eval", about={
     'header': "run python code line | lines",
     'flags': {'-s': "silent mode (hide STDIN)"},
     'usage': "{tr}eval [flag] [code lines]",
     'examples': [
-        "{tr}eval print('Userge')", "{tr}eval -s print('Userge')",
+        "{tr}eval print('Alphaz')", "{tr}eval -s print('Alphaz')",
         "{tr}eval 5 + 6", "{tr}eval -s 5 + 6"]}, allow_channels=False)
 async def eval_(message: Message):
     """ run python code """
@@ -47,7 +41,7 @@ async def eval_(message: Message):
     ret_val, stdout, stderr, exc = None, None, None, None
 
     async def aexec(code):
-        head = "async def __aexec(userge, message):\n "
+        head = "async def __aexec(alphaz, message):\n "
         if '\n' in code:
             rest_code = '\n '.join(iter(code.split('\n')))
         elif (any(True for k_ in keyword.kwlist
@@ -57,7 +51,7 @@ async def eval_(message: Message):
         else:
             rest_code = f"\n return {code}"
         exec(head + rest_code)  # nosec pylint: disable=W0122
-        return await locals()['__aexec'](userge, message)
+        return await locals()['__aexec'](alphaz, message)
     try:
         ret_val = await aexec(cmd)
     except Exception:  # pylint: disable=broad-except
@@ -81,10 +75,10 @@ async def eval_(message: Message):
         await message.delete()
 
 
-@userge.on_cmd("exec", about={
+@alphaz.on_cmd("exec", about={
     'header': "run commands in exec",
     'usage': "{tr}exec [commands]",
-    'examples': "{tr}exec echo \"Userge\""}, allow_channels=False)
+    'examples': "{tr}exec echo \"Alphaz\""}, allow_channels=False)
 async def exec_(message: Message):
     """ run commands in exec """
     cmd = await init_func(message)
@@ -108,10 +102,10 @@ __Command:__\n`{cmd}`\n__PID:__\n`{pid}`\n__RETURN:__\n`{ret}`\n\n\
                                        caption=cmd)
 
 
-@userge.on_cmd("term", about={
+@alphaz.on_cmd("term", about={
     'header': "run commands in shell (terminal)",
     'usage': "{tr}term [commands]",
-    'examples': "{tr}term echo \"Userge\""}, allow_channels=False)
+    'examples': "{tr}term echo \"Alphaz\""}, allow_channels=False)
 async def term_(message: Message):
     """ run commands in shell (terminal with live update) """
     cmd = await init_func(message)
