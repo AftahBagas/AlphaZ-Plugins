@@ -1,12 +1,4 @@
-# pylint: disable=missing-module-docstring
-#
-# Copyright (C) 2020 by UsergeTeam@Github, < https://github.com/UsergeTeam >.
-#
-# This file is part of < https://github.com/UsergeTeam/Userge > project,
-# and is released under the "GNU v3.0 License Agreement".
-# Please see < https://github.com/uaudith/Userge/blob/master/LICENSE >
-#
-# All rights reserved.
+# alfareza
 
 __all__ = ['EditMessageText']
 
@@ -16,8 +8,8 @@ from typing import Optional, Union, List
 
 from pyrogram.types import InlineKeyboardMarkup, MessageEntity
 
-from userge import Config
-from userge.utils import secure_text
+from alphaz import Config
+from alphaz.utils import secure_text
 from ...ext import RawClient
 from ... import types
 
