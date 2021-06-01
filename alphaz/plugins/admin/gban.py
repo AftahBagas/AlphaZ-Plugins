@@ -12,7 +12,7 @@ from spamwatch.types import Ban
 from pyrogram.errors.exceptions.bad_request_400 import (
     ChatAdminRequired, UserAdminInvalid, ChannelInvalid)
 
-from userge import userge, Message, Config, get_collection, filters, pool
+from alphaz import alphaz, Message, Config, get_collection, filters, pool
 
 SAVED_SETTINGS = get_collection("CONFIGS")
 GBAN_USER_BASE = get_collection("GBAN_USER")
